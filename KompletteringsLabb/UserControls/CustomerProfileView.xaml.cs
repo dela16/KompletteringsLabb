@@ -24,5 +24,7 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
         }
+
+        //UserName.Text=User.user;
     }
 }
