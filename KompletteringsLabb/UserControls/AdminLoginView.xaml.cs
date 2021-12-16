@@ -32,12 +32,8 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Om UserName eller Password = false then 
-            //Kolla med listorna över sparade användare.
-            MessageBox.Show("Incorrect UserName or Password, Please try again.");
-            //else 
-            Visibility = Visibility.Collapsed;
-
+            Store.LogInAdmin();
+            
         }
     }
 }
