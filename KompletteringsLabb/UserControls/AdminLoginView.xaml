@@ -82,5 +82,9 @@
                 Background="White"
                 Content="Back" Click="Backbtn_Click" />
         </Grid>
+        <views:StoreBackOffice
+            x:Name="StoreBackOffice"
+            Grid.Row="1"
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

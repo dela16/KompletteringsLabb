@@ -24,5 +24,10 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
+        }
     }
 }

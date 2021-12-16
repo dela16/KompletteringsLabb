@@ -32,7 +32,7 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            Store.LogInAdmin();
+            //Store.LogInAdmin();
             
         }
     }

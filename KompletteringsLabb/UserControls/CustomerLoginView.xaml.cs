@@ -33,14 +33,14 @@ namespace KompletteringsLabb.UserControls
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
             //Om UserName eller Password = false then Next view
-            if (CustomerName.Text == Name)//Detta ska ju vara en existerande kund från en lista i user(?) så koden är inte helt rätt än
-            {
-                if (CustomerPassword.Text == User.Password)//Också fel likt ovan but you get the point
-                {
-                    Visibility = Visibility.Collapsed;
+            //if (CustomerName.Text == Name)//Detta ska ju vara en existerande kund från en lista i user(?) så koden är inte helt rätt än
+            //{
+            //    if (CustomerPassword.Text == User.Password)//Också fel likt ovan but you get the point
+            //    {
+            //        Visibility = Visibility.Collapsed;
 
-                }
-            }
+            //    }
+            //}
             //Kolla med listorna över sparade användare. 
             MessageBox.Show("Incorrect UserName or Password, Please try again."); 
         }
