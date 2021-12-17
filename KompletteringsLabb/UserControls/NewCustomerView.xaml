@@ -70,12 +70,11 @@
                 Grid.ColumnSpan="4"
                 Background="White" />
             <Button
-                x:Name="Loginbtn"
+                x:Name="CreateCustomer_btn"
                 Grid.Row="8"
                 Grid.Column="6"
                 Background="White"
-                Click="Loginbtn_Click"
-                Content="Create and Login" />
+                Content="Create and Login" Click="CreateCustomer_btn_Click" />
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"

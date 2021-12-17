@@ -100,5 +100,9 @@
             x:Name="CustomerProfile"
             Grid.Row="1"
             Visibility="collapsed" />
+        <views:NewCustomerView
+            x:Name="NewCustomerView"
+            Grid.Row="1"
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

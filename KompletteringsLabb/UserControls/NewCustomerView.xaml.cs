@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +16,31 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class NewCustomerView : UserControl
     {
+       
+
         public NewCustomerView()
         {
             InitializeComponent();
         }
 
-        private void Loginbtn_Click(object sender, RoutedEventArgs e)
-        {
-            //CustomerProfileView.Visibility = Visibility.Visible; 
-        }
-
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
+        }
+
+        private void CreateCustomer_btn_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+
+            user.Name = CustomerName.Text;
+            user.Password = CustomerPassword.Text; 
+
+
+            CustomerManager.Customers.Add(user);
+            //Sparas till fil
+            
+            CustomerProfileView.Visibility = Visibility.Visible; 
+
         }
     }
 }

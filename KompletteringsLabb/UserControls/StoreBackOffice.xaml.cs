@@ -22,7 +22,7 @@ namespace KompletteringsLabb.UserControls
     {
         public StoreBackOffice()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)

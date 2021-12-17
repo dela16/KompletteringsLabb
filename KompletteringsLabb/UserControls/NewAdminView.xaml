@@ -51,7 +51,7 @@
                 Text="UserName"
                 TextAlignment="Center" />
             <TextBox
-                x:Name="CustomerName"
+                x:Name="AdminName"
                 Grid.Row="3"
                 Grid.Column="3"
                 Grid.ColumnSpan="4"
@@ -64,7 +64,7 @@
                 Text="Password"
                 TextAlignment="Center" />
             <TextBox
-                x:Name="CustomerPassword"
+                x:Name="AdminPassword"
                 Grid.Row="5"
                 Grid.Column="3"
                 Grid.ColumnSpan="4"

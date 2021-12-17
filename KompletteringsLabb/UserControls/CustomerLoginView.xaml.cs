@@ -50,7 +50,8 @@ namespace KompletteringsLabb.UserControls
 
         private void CreateNewCustomer_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            NewCustomerView.Visibility = Visibility.Visible;
+            //MessageBox.Show("Incorrect UserName or Password, Please try again.");
         }
     }
 }

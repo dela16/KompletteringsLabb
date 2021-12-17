@@ -9,7 +9,7 @@ namespace KompletteringsLabb.Models
     public static class CustomerManager
     {
 
-        public static List<User> Customers { get; set; }
+        public static List<User> Customers { get; set; } = new(); 
 
     }
 }

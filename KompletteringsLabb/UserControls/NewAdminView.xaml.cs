@@ -22,6 +22,7 @@ namespace KompletteringsLabb.UserControls
     {
         public NewAdminView()
         {
+            //AdminName.Text = 
             InitializeComponent();
         }
 
