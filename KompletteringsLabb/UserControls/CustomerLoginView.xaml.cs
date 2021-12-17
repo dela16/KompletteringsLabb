@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerLoginView()
         {
+            List<User> CustomerList = CustomerManager.Customers; 
+            
             InitializeComponent();
         }
 
@@ -43,6 +46,11 @@ namespace KompletteringsLabb.UserControls
             //}
             //Kolla med listorna över sparade användare. 
             MessageBox.Show("Incorrect UserName or Password, Please try again."); 
+        }
+
+        private void CreateNewCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

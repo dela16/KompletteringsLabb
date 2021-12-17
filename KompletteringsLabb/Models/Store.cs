@@ -12,7 +12,7 @@ namespace KompletteringsLabb
         private User admin = new();
 
         public Dictionary<Product, int> Storage { get; set; } = new();
-        public User Admin { get => admin; set => admin = value; }         // public bool LogInAdmin(User user) { }
+        //public bool LogInAdmin(User user) { }
         //{
         //    //Då detta är en bool så måste svaret blir true eller false. Betyder det att det finns olika admins för olika butiker? 
         //    //Det är något jag tänker fel, kanske kopplingen mellan classer och UC

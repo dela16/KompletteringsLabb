@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:KompletteringsLabb.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:KompletteringsLabb.UserControls"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -104,5 +105,9 @@
                 Grid.Column="0"
                 Content="Back" Click="backbtn_Click" />
         </Grid>
+        <views:AdminLoginView 
+                x:Name="AdminLoginView"
+                Grid.Row="1"
+                Visibility ="Collapsed"/>
     </Grid>
 </UserControl>
