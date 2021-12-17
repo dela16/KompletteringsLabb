@@ -103,11 +103,12 @@
                 x:Name="backbtn"
                 Grid.Row="0"
                 Grid.Column="0"
-                Content="Back" Click="backbtn_Click" />
+                Click="backbtn_Click"
+                Content="Back" />
         </Grid>
-        <views:AdminLoginView 
-                x:Name="AdminLoginView"
-                Grid.Row="1"
-                Visibility ="Collapsed"/>
+        <views:AdminLoginView
+            x:Name="AdminLoginView"
+            Grid.Row="1"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

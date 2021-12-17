@@ -41,7 +41,7 @@
                 Grid.ColumnSpan="4"
                 Background="White"
                 FontSize="25"
-                Text="Welcome back Customer"
+                Text="Create New Customer"
                 TextAlignment="Center" />
             <TextBlock
                 Grid.Row="3"
@@ -75,17 +75,18 @@
                 Grid.Column="6"
                 Background="White"
                 Click="Loginbtn_Click"
-                Content="Create and Login" Height="38" Grid.RowSpan="2" VerticalAlignment="Top" />
+                Content="Create and Login" />
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"
                 Grid.Column="0"
                 Background="White"
-                Content="Back" Click="Backbtn_Click" />
+                Click="Backbtn_Click"
+                Content="Back" />
         </Grid>
-        <views:AdminLoginView
-            x:Name="AdminLoginView"
+        <views:CustomerProfileView
+            x:Name="CustomerProfileView"
             Grid.Row="1"
-            Visibility="Collapsed"/>
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

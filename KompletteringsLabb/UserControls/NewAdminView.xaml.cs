@@ -16,24 +16,18 @@ using System.Windows.Shapes;
 namespace KompletteringsLabb.UserControls
 {
     /// <summary>
-    /// Interaction logic for AdminLoginView.xaml
+    /// Interaction logic for NewAdminView.xaml
     /// </summary>
-    public partial class AdminLoginView : UserControl
+    public partial class NewAdminView : UserControl
     {
-        public AdminLoginView()
+        public NewAdminView()
         {
             InitializeComponent();
         }
 
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
-            Visibility = Visibility.Collapsed; 
-        }
-
-        private void Loginbtn_Click(object sender, RoutedEventArgs e)
-        {
-            //Store.LogInAdmin();
-            MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            Visibility = Visibility.Collapsed;
         }
     }
 }

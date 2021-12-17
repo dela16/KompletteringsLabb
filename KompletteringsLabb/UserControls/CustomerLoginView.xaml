@@ -99,6 +99,6 @@
         <views:CustomerProfileView
             x:Name="CustomerProfile"
             Grid.Row="1"
-            Visibility="collapsed"/>
+            Visibility="collapsed" />
     </Grid>
 </UserControl>
