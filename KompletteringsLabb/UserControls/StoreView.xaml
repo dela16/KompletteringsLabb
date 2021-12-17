@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:KompletteringsLabb.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:KompletteringsLabb.UserControls"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -37,7 +38,15 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button x:Name="BackBtn" Content="Back" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,0,0,37" Grid.RowSpan="2" Width="73" Click="BackBtn_Click" />
+            <Button
+                x:Name="BackBtn"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Width="73"
+                Margin="0,0,0,37"
+                HorizontalAlignment="Left"
+                Click="BackBtn_Click"
+                Content="Back" />
             <DataGrid
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -63,8 +72,11 @@
                 x:Name="GoToCart"
                 Grid.Row="1"
                 Grid.Column="9"
-                Content="Go To Cart" />
+                Content="Go To Cart" Height="36" VerticalAlignment="Top" />
+            <views:CustomerProfileView
+                x:Name="CustomerProfileView"
+                Grid.Row="1"
+                Visibility ="Collapsed"/>
         </Grid>
-
     </Grid>
 </UserControl>

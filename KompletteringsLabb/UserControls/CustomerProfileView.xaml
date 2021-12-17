@@ -38,18 +38,23 @@
             <Button x:Name="Back" Content="Back" />
             <Button
                 x:Name="Store"
+                Grid.RowSpan="2"
                 Grid.Column="7"
-                Content="Store" HorizontalAlignment="Left" Margin="0,0,0,37" Grid.RowSpan="2" Width="100" Click="Store_Click" />
+                Width="100"
+                Margin="0,0,0,37"
+                HorizontalAlignment="Left"
+                Click="Store_Click"
+                Content="Store" />
             <TextBlock
                 x:Name="UserName"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="2"
                 Grid.ColumnSpan="4" />
             <ListView
                 x:Name="ShoppingCart"
                 Grid.Row="3"
                 Grid.RowSpan="6"
-                Grid.Column="3"
+                Grid.Column="2"
                 Grid.ColumnSpan="4" />
             <Button
                 x:Name="LogOutbtn"
@@ -58,12 +63,28 @@
                 Content="Log Out" />
             <Button
                 x:Name="Removebtn"
-                Grid.Row="9"
+                Grid.Row="10"
                 Grid.Column="6"
                 Content="Remove" />
+            <TextBlock
+                x:Name="Sum"
+                Grid.Row="9"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
+                Background="White" />
+            <TextBlock
+                x:Name="TotalSum"
+                Grid.Row="9"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Background="White"
+                FontSize="20"
+                Text="Total sum in cart:"
+                TextAlignment="Center" />
         </Grid>
         <views:StoreView
-            x:Name="CustomerProfileView"
-            Visibility="Collapsed"/>
+            x:Name="StoreView"
+            Grid.Row="1"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

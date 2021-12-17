@@ -27,7 +27,7 @@ namespace KompletteringsLabb.UserControls
 
         private void Store_Click(object sender, RoutedEventArgs e)
         {
-          //  StoreView = Visibility.Visible; 
+            StoreView.Visibility = Visibility.Visible; 
         }
 
         //UserName.Text=User.user;

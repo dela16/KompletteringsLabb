@@ -20,10 +20,10 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class StoreView : UserControl
     {
-        public StoreView()
-        {
-            InitializeComponent();
-        }
+        //public StoreView()
+        //{
+        //    InitializeComponent();
+        //}
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {

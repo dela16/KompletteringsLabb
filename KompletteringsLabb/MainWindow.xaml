@@ -58,7 +58,7 @@
                 Grid.Row="7"
                 Grid.Column="5"
                 Background="White"
-                Click="User_Click"
+                Click="Customer_Click"
                 Content="Customer" />
         </Grid>
         <views:AdminLoginView
