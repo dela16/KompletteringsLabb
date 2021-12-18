@@ -35,5 +35,10 @@ namespace KompletteringsLabb.UserControls
             //Store.LogInAdmin();
             MessageBox.Show("Incorrect UserName or Password, Please try again.");
         }
+
+        private void CreateAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            NewAdminView.Visibility = Visibility.Visible; 
+        }
     }
 }

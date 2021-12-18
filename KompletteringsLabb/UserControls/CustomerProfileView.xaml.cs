@@ -25,10 +25,13 @@ namespace KompletteringsLabb.UserControls
             InitializeComponent();
         }
 
-        private void Store_Click(object sender, RoutedEventArgs e)
+        private void StoreView_btn_Click(object sender, RoutedEventArgs e)
         {
             StoreView.Visibility = Visibility.Visible; 
         }
+
+
+
 
         //UserName.Text=User.user;
     }

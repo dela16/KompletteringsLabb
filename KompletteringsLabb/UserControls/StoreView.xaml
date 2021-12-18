@@ -72,11 +72,13 @@
                 x:Name="GoToCart"
                 Grid.Row="1"
                 Grid.Column="9"
-                Content="Go To Cart" Height="36" VerticalAlignment="Top" />
+                Height="36"
+                VerticalAlignment="Top"
+                Content="Go To Cart" />
             <views:CustomerProfileView
                 x:Name="CustomerProfileView"
                 Grid.Row="1"
-                Visibility ="Collapsed"/>
+                Visibility="Collapsed" />
         </Grid>
     </Grid>
 </UserControl>

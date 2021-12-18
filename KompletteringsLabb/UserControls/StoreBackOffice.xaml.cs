@@ -30,6 +30,15 @@ namespace KompletteringsLabb.UserControls
             Visibility = Visibility.Collapsed;
         }
 
+        private void Addbtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Lägg till nya produkten i ProductsInStore. 
+            //Behöver vi en lista där vi som användare kan lägga till saker även i ProductsToAdd?
+            //Kolla Store klassen och hur allt ska kopplas. 
+            //Lägger du till produkter i Store klassen eller via din productManager? 
+            //Eller är productmanager bara listan över produkter och när du lägger till i affären så anvädner du din Store? 
+        }
+
         //Här bör det finnas en metod som är kopplad till produkt klassen och en lista över olika produkter. 
         //En add metod som tar produkt från ena stället till det andra. 
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här gridviewn?

@@ -70,21 +70,21 @@
                 Grid.ColumnSpan="4"
                 Background="White" />
             <Button
-                x:Name="Loginbtn"
+                x:Name="CreateNewAdminbtn"
                 Grid.Row="8"
                 Grid.RowSpan="2"
                 Grid.Column="6"
                 Height="38"
                 VerticalAlignment="Top"
                 Background="White"
-                Content="Create and Login" />
+                Content="Create and Login" Click="CreateNewAdminbtn_Click" />
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"
                 Grid.Column="0"
                 Background="White"
                 Click="Backbtn_Click"
-                Content="Back" />
+                Content="Back" HorizontalAlignment="Left" Margin="0,0,0,37" Grid.RowSpan="2" Width="100" />
         </Grid>
         <views:StoreBackOffice
             x:Name="StoreBackOffice"

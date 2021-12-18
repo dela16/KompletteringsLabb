@@ -85,7 +85,7 @@
                 Margin="0,0,0,37"
                 HorizontalAlignment="Left"
                 Background="White"
-                Content="Create New Admin" />
+                Content="Create New Admin" Click="CreateAdmin_Click" />
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"
@@ -95,6 +95,10 @@
         </Grid>
         <views:StoreBackOffice
             x:Name="StoreBackOffice"
+            Grid.Row="1"
+            Visibility="Collapsed"/>
+        <views:NewAdminView
+            x:Name="NewAdminView"
             Grid.Row="1"
             Visibility="Collapsed"/>
     </Grid>

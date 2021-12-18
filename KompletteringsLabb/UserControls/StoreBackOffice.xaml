@@ -75,7 +75,7 @@
                 x:Name="Addbtn"
                 Grid.Row="10"
                 Grid.Column="3"
-                Content="Add Product" />
+                Content="Add Product" Click="Addbtn_Click" />
             <DataGrid
                 x:Name="ProductsInStore"
                 Grid.Row="2"

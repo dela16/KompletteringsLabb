@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,18 @@ namespace KompletteringsLabb.UserControls
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
+        }
+
+        private void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+
+            user.Name = AdminName.Text;
+            user.Password = AdminPassword.Text;
+
+            AdminManager.Admins.Add(user);
+
+            StoreBackOffice.Visibility = Visibility.Visible; 
         }
     }
 }
