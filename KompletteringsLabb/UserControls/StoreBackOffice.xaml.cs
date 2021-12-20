@@ -1,8 +1,10 @@
 ﻿using KompletteringsLabb.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -58,6 +60,17 @@ namespace KompletteringsLabb.UserControls
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här gridviewn?
         //Räkna ut antalet för varje kolumn samt kostnaden. Automatisk ändring. 
 
-        
+        internal async Task saveStoreToFile()
+        {
+            Store store = new Store(); 
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string fileNameStore = "Store.json";
+
+            using FileStream createStream = File.Create(path + fileNameStore); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
+            await JsonSerializer.SerializeAsync(createStream, store);
+            await createStream.DisposeAsync();
+        }
+
+
     }
 }

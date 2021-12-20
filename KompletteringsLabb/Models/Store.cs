@@ -31,7 +31,7 @@ namespace KompletteringsLabb
             }
             return false;
 
-        } 
+        }
 
         //public async Task CheckOut(User kund)
         //{

@@ -18,10 +18,7 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class NewCustomerView : UserControl
     {
-        string storePath = "Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)";
-        string userPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); //men vi ska spara dom till två olika mappar. Hur? 
-        string fileNameCustomers = "Customers.json";
-        string fileNameStore = "Store.json"; 
+        
         
 
         public NewCustomerView()
@@ -48,18 +45,21 @@ namespace KompletteringsLabb.UserControls
 
             CustomerManager.Customers.Add(user);
             //Sparas till fil, nu asynkromt
-            SaveToFile();
+            SaveCustomersToFile();
             
 
             CustomerProfileView.Visibility = Visibility.Visible; 
 
         }
 
-        internal static async Task SaveToFile()
+        internal static async Task SaveCustomersToFile()
         {
             User user = new User();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); //men vi ska spara dom till två olika mappar. Hur? 
+            string fileNameCustomers = "Customers.json";
 
-            using FileStream createStream = Path.Combine(userPath, fileNameUsers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
+
+            using FileStream createStream = File.Create(path + fileNameCustomers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
             await JsonSerializer.SerializeAsync(createStream, user);
             await createStream.DisposeAsync();
             
