@@ -23,8 +23,10 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerLoginView()
         {
-            List<User> CustomerList = CustomerManager.Customers; 
-            
+            List<User> CustomerList = CustomerManager.Customers; //Vad tänkte jag när jag skrev detta? Gjorde jag denna med Martin kanske? 
+
+            //User user = new User(); Är det här en object reference? Bara att den inte funkar än? 
+
             InitializeComponent();
         }
 
@@ -36,12 +38,11 @@ namespace KompletteringsLabb.UserControls
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
             //Om UserName eller Password = false then Next view
-            //if (CustomerName.Text == Name)//Detta ska ju vara en existerande kund från en lista i user(?) så koden är inte helt rätt än
+            //if (CustomerName.Text == User.Name)
             //{
-            //    if (CustomerPassword.Text == User.Password)//Också fel likt ovan but you get the point
+            //    if (CustomerPassword.Text == User.Password)
             //    {
-            //        Visibility = Visibility.Collapsed;
-
+            //        StoreView.Visibillity = visibility.visible; 
             //    }
             //}
             //Kolla med listorna över sparade användare. 
@@ -51,7 +52,6 @@ namespace KompletteringsLabb.UserControls
         private void CreateNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             NewCustomerView.Visibility = Visibility.Visible;
-            //MessageBox.Show("Incorrect UserName or Password, Please try again.");
         }
     }
 }

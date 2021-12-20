@@ -37,13 +37,13 @@
             </Grid.RowDefinitions>
             <!--  <Button x:Name="Back" Content="Back" /  -->
             <Button
-                x:Name="StoreView_btn"
+                x:Name="StoreView"
                 Grid.RowSpan="2"
                 Grid.Column="7"
                 Width="100"
                 Margin="0,0,0,37"
                 HorizontalAlignment="Left"
-                Click="StoreView_btn_Click"
+                Click="StoreView_Click"
                 Content="Store" />
             <TextBlock
                 x:Name="UserName"
@@ -83,8 +83,8 @@
                 TextAlignment="Center" />
         </Grid>
         <views:StoreView
-            x:Name="StoreView"
+            x:Name="Store_View"
             Grid.Row="1"
-            Visibility="Collapsed" />
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

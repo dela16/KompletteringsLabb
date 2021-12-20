@@ -68,6 +68,6 @@
         <views:CustomerLoginView
             x:Name="CustomerLoginView"
             Grid.Row="1"
-            Visibility="Collapsed" />
+            Visibility="Collapsed"/>
     </Grid>
 </Window>

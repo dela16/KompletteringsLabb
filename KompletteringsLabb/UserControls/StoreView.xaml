@@ -42,11 +42,11 @@
                 x:Name="BackBtn"
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="2"
-                Width="73"
+                Width="100"
                 Margin="0,0,0,37"
                 HorizontalAlignment="Left"
                 Click="BackBtn_Click"
-                Content="Back" />
+                Content="Back/Go To Cart" />
             <DataGrid
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -67,18 +67,7 @@
                 x:Name="addToCart"
                 Grid.Row="10"
                 Grid.Column="7"
-                Content="Add To Cart" />
-            <Button
-                x:Name="GoToCart"
-                Grid.Row="1"
-                Grid.Column="9"
-                Height="36"
-                VerticalAlignment="Top"
-                Content="Go To Cart" />
-            <views:CustomerProfileView
-                x:Name="CustomerProfileView"
-                Grid.Row="1"
-                Visibility="Collapsed" />
+                Content="Add To Cart" Click="addToCart_Click" />
         </Grid>
     </Grid>
 </UserControl>

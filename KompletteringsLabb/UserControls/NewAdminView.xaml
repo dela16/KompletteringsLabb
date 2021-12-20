@@ -69,22 +69,40 @@
                 Grid.Column="3"
                 Grid.ColumnSpan="4"
                 Background="White" />
+            <TextBlock
+                Grid.Row="7"
+                Grid.Column="1"
+                Background="White"
+                FontSize="15"
+                Text="Store Name"
+                TextAlignment="Center" />
+            <TextBox
+                x:Name="StoreName"
+                Grid.Row="7"
+                Grid.Column="3"
+                Grid.ColumnSpan="4"
+                Background="White" />
             <Button
                 x:Name="CreateNewAdminbtn"
-                Grid.Row="8"
+                Grid.Row="9"
                 Grid.RowSpan="2"
                 Grid.Column="6"
                 Height="38"
                 VerticalAlignment="Top"
                 Background="White"
-                Content="Create and Login" Click="CreateNewAdminbtn_Click" />
+                Click="CreateNewAdminbtn_Click"
+                Content="Create and Login" />
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"
+                Grid.RowSpan="2"
                 Grid.Column="0"
+                Width="100"
+                Margin="0,0,0,37"
+                HorizontalAlignment="Left"
                 Background="White"
                 Click="Backbtn_Click"
-                Content="Back" HorizontalAlignment="Left" Margin="0,0,0,37" Grid.RowSpan="2" Width="100" />
+                Content="Back" />
         </Grid>
         <views:StoreBackOffice
             x:Name="StoreBackOffice"

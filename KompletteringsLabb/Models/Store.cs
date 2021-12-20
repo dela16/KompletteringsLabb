@@ -1,33 +1,47 @@
 ﻿using KompletteringsLabb.Models;
+using KompletteringsLabb.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KompletteringsLabb
 {
     internal class Store
     {
-        private User admin = new(); //Har jag gort fel nu pga denna? Jag vill ju ha en databas över mina admins också
+        public User admin { get; set; } = new();
+
+        public string Name { get; set; } //Butikens namn. Matcha den med admin. 
 
         public Dictionary<Product, int> Storage { get; set; } = new();
-        //public bool LogInAdmin(User user) { }
-        //{
-        //DEnna metoden kan ju anorpas från en annan metod. Niklas tror att det kan vara enklare att ha flera butiker. 
 
-        //    //Om Login för admin är successfull then
-        //StoreBackOffice.Visibility = Visibility.visible;
+        public bool LogInAdmin(User user) 
+        {
+            if (admin.Name = AdminLoginView.AdminName.Text)
+            {
+                if (admin.Password = AdminLoginView.AdminPassword.Text)
+                {
+                    //Om Login för admin är successfull then
+                    StoreBackOffice.Visibility = Visibility.visible;
+                    //Hur ta mig till rätt butik? 
+                }
+                MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            }
 
-        //Om UserName eller Password = false then 
-        //Kolla med listorna över sparade användare.
-        //MessageBox.Show("Incorrect UserName or Password, Please try again.");
-        ////else 
-        //AdminLoginView.Visibility = Visibility.Collapsed;
+        } //Vi ska jämföra användarnamn med rätt butik. 
 
-        //public async Task CheckOut(User kund)
-        //{
 
-        //}
-    }
+    //Om UserName eller Password = false then 
+    //Kolla med listorna över sparade användare.
+    //MessageBox.Show("Incorrect UserName or Password, Please try again.");
+    ////else 
+    //AdminLoginView.Visibility = Visibility.Collapsed;
+
+    //public async Task CheckOut(User kund)
+    //{
+
+    //}
+}
 }

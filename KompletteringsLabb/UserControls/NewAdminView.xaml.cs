@@ -35,13 +35,19 @@ namespace KompletteringsLabb.UserControls
         private void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
         {
             User user = new User();
+            Store store = new Store(); 
 
             user.Name = AdminName.Text;
             user.Password = AdminPassword.Text;
 
-            AdminManager.Admins.Add(user);
+            store.Name = StoreName.Text; 
+
+            AdminManager.admins.Add(user);
+            StoreManager.stores.Add(store);
+
 
             StoreBackOffice.Visibility = Visibility.Visible; 
+            //Här vill vi spara till fil.
         }
     }
 }

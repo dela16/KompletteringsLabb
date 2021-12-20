@@ -8,6 +8,12 @@ namespace KompletteringsLabb.Models
 {
     class AdminManager
     {
-        public static List<User> Admins { get; set; } = new();
+        public static List<User> admins { get; set; } = new();
+
+        public AdminManager()
+        {
+            admins.Add(new User() {Name = "Denice", Password="denice"});
+
+        }
     }
 }

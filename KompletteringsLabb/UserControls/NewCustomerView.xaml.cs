@@ -35,6 +35,10 @@ namespace KompletteringsLabb.UserControls
             user.Name = CustomerName.Text;
             user.Password = CustomerPassword.Text; 
 
+            //if(CustomerName.Text = " ")
+            //{
+            //    MessageBox.Show("Not a validate username");
+            //}
 
             CustomerManager.Customers.Add(user);
             //Sparas till fil

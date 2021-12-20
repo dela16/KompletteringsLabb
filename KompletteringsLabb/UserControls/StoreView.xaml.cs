@@ -20,14 +20,25 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class StoreView : UserControl
     {
-        //public StoreView()
-        //{
-        //    InitializeComponent();
-        //}
+        public StoreView()
+        {
+            InitializeComponent();
+            //ProductsInStore.ItemsSource = 
+            //Foreach product in product, show product in list typ 
+        }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
         }
+
+        private void addToCart_Click(object sender, RoutedEventArgs e)
+        {
+
+            //ProductsInStore.SelectedItem = CustomerProfileView.ShoppingCart.Add();
+        }
+
+
+
     }
 }

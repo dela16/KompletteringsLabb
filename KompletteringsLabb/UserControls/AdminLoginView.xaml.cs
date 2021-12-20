@@ -32,8 +32,8 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Store.LogInAdmin();
-            MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            Store.LogInAdmin();
+            
         }
 
         private void CreateAdmin_Click(object sender, RoutedEventArgs e)
