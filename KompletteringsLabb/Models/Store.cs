@@ -17,31 +17,32 @@ namespace KompletteringsLabb
 
         public Dictionary<Product, int> Storage { get; set; } = new();
 
-        public bool LogInAdmin(User user) 
+        public bool LogInAdmin(User user)
         {
-            if (admin.Name = AdminLoginView.AdminName.Text)
+            if (admin.Name == user.Name)
             {
-                if (admin.Password = AdminLoginView.AdminPassword.Text)
+                if (admin.Password == user.Password)
                 {
                     //Om Login för admin är successfull then
-                    StoreBackOffice.Visibility = Visibility.visible;
+                    // 
                     //Hur ta mig till rätt butik? 
+                    return true;
                 }
-                MessageBox.Show("Incorrect UserName or Password, Please try again.");
             }
+            return false;
 
         } //Vi ska jämföra användarnamn med rätt butik. 
 
 
-    //Om UserName eller Password = false then 
-    //Kolla med listorna över sparade användare.
-    //MessageBox.Show("Incorrect UserName or Password, Please try again.");
-    ////else 
-    //AdminLoginView.Visibility = Visibility.Collapsed;
+        //Om UserName eller Password = false then 
+        //Kolla med listorna över sparade användare.
+        //MessageBox.Show("Incorrect UserName or Password, Please try again.");
+        ////else 
+        //AdminLoginView.Visibility = Visibility.Collapsed;
 
-    //public async Task CheckOut(User kund)
-    //{
+        //public async Task CheckOut(User kund)
+        //{
 
-    //}
-}
+        //}
+    }
 }

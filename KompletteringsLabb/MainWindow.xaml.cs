@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace KompletteringsLabb
         public MainWindow()
         {
             InitializeComponent();
+            StoreManager.initializeManager(); 
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)

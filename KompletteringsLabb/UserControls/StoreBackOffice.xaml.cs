@@ -40,7 +40,10 @@ namespace KompletteringsLabb.UserControls
             //Kolla Store klassen och hur allt ska kopplas. 
             //Lägger du till produkter i Store klassen eller via din productManager? 
             //Eller är productmanager bara listan över produkter och när du lägger till i affären så anvädner du din Store? 
-
+            var test = new Product();
+            test.Name = "Wax";
+            test.Price = 70;
+            StoreManager.currentStore.Storage.Add(test, 10);
             
         }
 

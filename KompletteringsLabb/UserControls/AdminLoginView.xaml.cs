@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +33,22 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            Store.LogInAdmin();
-            
+            var user = new User();
+            user.Name = AdminName.Text;
+            user.Password = AdminPassword.Text;
+
+            if (StoreManager.currentStore.LogInAdmin(user))
+            {
+                StoreBackOffice.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            }
+
         }
 
-        private void CreateAdmin_Click(object sender, RoutedEventArgs e)
+            private void CreateAdmin_Click(object sender, RoutedEventArgs e)
         {
             NewAdminView.Visibility = Visibility.Visible; 
         }

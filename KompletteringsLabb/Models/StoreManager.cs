@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace KompletteringsLabb.Models
 {
-    class StoreManager
+    static class StoreManager
     {
         public static List<Store> stores { get; set; } = new List<Store>();
 
-        public StoreManager() //Defaultlista över butiker. 
+        public static Store currentStore { get; set; } = new(); 
+
+
+        public static void initializeManager()
         {
-            stores.Add( new Store() { Name = "Denices Hairsaloon" });
+            stores.Add(new Store() { Name = "Denices Hairsaloon" });
+            currentStore = stores[0];
         }
 
     }
