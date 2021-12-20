@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KompletteringsLabb.Models
 {
-    public class CustomerManager
+    class CustomerManager
     {
 
         public static List<User> Customers { get; set; } = new(); 

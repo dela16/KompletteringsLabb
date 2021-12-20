@@ -44,10 +44,10 @@ namespace KompletteringsLabb.UserControls
 
             AdminManager.admins.Add(user);
             StoreManager.stores.Add(store);
-
-
-            StoreBackOffice.Visibility = Visibility.Visible; 
             //Här vill vi spara till fil.
+
+            StoreBackOffice.Visibility = Visibility.Visible;
+
         }
     }
 }

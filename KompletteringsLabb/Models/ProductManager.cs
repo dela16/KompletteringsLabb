@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Tasks.Deployment.Bootstrapper;
+﻿using KompletteringsLabb.UserControls;
+using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace KompletteringsLabb.Models
 {
     class ProductManager
-    {   //DET HÄR ÄR LISTAN AV PRODUKTER. 
+    {   //DET HÄR ÄR LISTAN ÖVER ALLA PRODUKTER. 
         //cLASSEN PRODUCT VISAR VAD DEN SKA HA FÖR ATTRIBUT! 
         //ProductManager måste matcha rätt butiksnamn
 

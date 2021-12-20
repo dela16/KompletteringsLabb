@@ -10,8 +10,9 @@ namespace KompletteringsLabb.Models
     {
         public static List<Store> stores { get; set; } = new List<Store>();
 
-        public static Store currentStore { get; set; } = new(); 
+        public static Store currentStore { get; set; } = new();
 
+        //public static Dictionary<Store, Storage> currentStorage = new(); 
 
         public static void initializeManager()
         {

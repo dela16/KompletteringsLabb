@@ -31,6 +31,14 @@ namespace KompletteringsLabb.UserControls
             Store_View.Visibility = Visibility.Visible;
         }
 
+        private void Removebtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(ShoppingCart.SelectedItem != null)//Vi borde kunna göra samma sak med att 
+            {
+                ShoppingCart.Items.Remove(ShoppingCart.SelectedItem);
+            }
+        }
+
 
 
         //UserName.Text=User.user;

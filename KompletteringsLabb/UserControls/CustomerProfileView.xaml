@@ -65,7 +65,7 @@
                 x:Name="Removebtn"
                 Grid.Row="10"
                 Grid.Column="6"
-                Content="Remove" />
+                Content="Remove" HorizontalAlignment="Center" Width="100" Click="Removebtn_Click" />
             <TextBlock
                 x:Name="Sum"
                 Grid.Row="9"

@@ -28,7 +28,8 @@ namespace KompletteringsLabb.UserControls
 
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
-            Visibility = Visibility.Collapsed; 
+            Visibility = Visibility.Collapsed;
+            //AdminName.Text = AdminName.Text.Clear(); Om jag klickar på back så vill jag att det ska försvinna. 
         }
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
@@ -45,7 +46,6 @@ namespace KompletteringsLabb.UserControls
             {
                 MessageBox.Show("Incorrect UserName or Password, Please try again.");
             }
-
         }
 
             private void CreateAdmin_Click(object sender, RoutedEventArgs e)

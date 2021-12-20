@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace KompletteringsLabb.Models
 {
-    public class User
+    class User
     {
         public string Name { get; set; }
-        //public Dictionary<Product, int> Cart { get; set; }
+        public Dictionary<Product, int> Cart { get; set; }
         public string Password { get; set; }
 
     }

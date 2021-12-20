@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,8 @@ namespace KompletteringsLabb.UserControls
         public StoreView()
         {
             InitializeComponent();
-            //ProductsInStore.ItemsSource = 
-            //Foreach product in product, show product in list typ 
+            StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
+
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -34,8 +35,16 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
+            //User userCart = new User();
 
-            //ProductsInStore.SelectedItem = CustomerProfileView.ShoppingCart.Add();
+            //userCart.Cart = ProductsInStore.SelectedItem;
+            ////hur få in den i vår lista på profilen?
+            //User.Cart.Add(userCart);
+
+            if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
+            {
+                CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
+            }
         }
 
 

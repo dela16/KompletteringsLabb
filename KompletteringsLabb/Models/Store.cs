@@ -15,7 +15,7 @@ namespace KompletteringsLabb
 
         public string Name { get; set; } //Butikens namn. Matcha den med admin. 
 
-        public Dictionary<Product, int> Storage { get; set; } = new();
+        public Dictionary<Product, int> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal!
 
         public bool LogInAdmin(User user)
         {
@@ -25,20 +25,13 @@ namespace KompletteringsLabb
                 {
                     //Om Login för admin är successfull then
                     // 
-                    //Hur ta mig till rätt butik? 
+                    //Hur ta mig till rätt butik? Den känner av det från när du skapade nya användare
                     return true;
                 }
             }
             return false;
 
-        } //Vi ska jämföra användarnamn med rätt butik. 
-
-
-        //Om UserName eller Password = false then 
-        //Kolla med listorna över sparade användare.
-        //MessageBox.Show("Incorrect UserName or Password, Please try again.");
-        ////else 
-        //AdminLoginView.Visibility = Visibility.Collapsed;
+        } 
 
         //public async Task CheckOut(User kund)
         //{

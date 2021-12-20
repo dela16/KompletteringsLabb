@@ -21,11 +21,17 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class StoreBackOffice : UserControl
     {
+        Product product = new Product();
+        Store storage = new Store(); 
         public StoreBackOffice()
         {
             //InitializeComponent();
+            //Store storage visar produkterna för varje enskild butik.
+            //currentstore 
+            ProductManager.products = ProductsToAdd.Items;
+            StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
 
-            //ProductsToAdd.ItemsSource = ProductManager.products; 
+            //Har detta något med att att det är en datagrid? 
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)
@@ -37,13 +43,13 @@ namespace KompletteringsLabb.UserControls
         {
             //Lägg till nya produkten i ProductsInStore. 
             //Behöver vi en lista där vi som användare kan lägga till saker även i ProductsToAdd?
-            //Kolla Store klassen och hur allt ska kopplas. 
-            //Lägger du till produkter i Store klassen eller via din productManager? 
-            //Eller är productmanager bara listan över produkter och när du lägger till i affären så anvädner du din Store? 
+            //Kolla Store klassen och hur allt ska kopplas. '
+
             var test = new Product();
             test.Name = "Wax";
             test.Price = 70;
-            StoreManager.currentStore.Storage.Add(test, 10);
+            StoreManager.currentStore.Storage.Add(test, 10); //Här tar vi testprodukten och lägger till den i vår storage för butiken. 
+            //Borde vi inte vilja ha selectedItem = blablabla.Add()? 
             
         }
 
