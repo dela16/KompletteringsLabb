@@ -44,30 +44,27 @@
                 HorizontalAlignment="Left"
                 Click="BackBtn_Click"
                 Content="Back" />
-            <DataGrid
+            <ListView
                 x:Name="ProductsInStore"
                 Grid.Row="2"
                 Grid.RowSpan="8"
-                Grid.Column="2"
+                Grid.Column="3"
                 Grid.ColumnSpan="5"
-                Width="Auto"
-                Height="Auto"
-                Margin="0,0,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <!--<DataContext="{Binding productManager.products, UpdateSourceTrigger=PropertyChanged}">-->
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="200" Header="ProductName" />
-                    <DataGridTextColumn Width="200" Header="Price" />
-                </DataGrid.Columns>
-            </DataGrid>
+                ItemsSource="{Binding prodManager.products}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="200"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="200"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Button
                 x:Name="addToCart"
                 Grid.Row="10"
                 Grid.Column="7"
                 Click="addToCart_Click"
                 Content="Add To Cart" />
-            <Button
+             <Button
                 x:Name="CheckOutBtn"
                 Grid.RowSpan="2"
                 Grid.Column="9"

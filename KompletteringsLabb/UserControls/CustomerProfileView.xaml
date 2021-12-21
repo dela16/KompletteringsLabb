@@ -45,8 +45,17 @@
                 x:Name="ShoppingCart"
                 Grid.Row="3"
                 Grid.RowSpan="6"
-                Grid.Column="2"
-                Grid.ColumnSpan="4" />
+                Grid.Column="1"
+                Grid.ColumnSpan="6"
+                ItemsSource="{Binding Product.product }">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="200"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="200"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Amount" Width="200"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Button
                 x:Name="LogOutbtn"
                 Grid.Row="10"
@@ -87,6 +96,6 @@
         <views:StoreView
             x:Name="StoreView"
             Grid.Row="1"
-            Visibility="Collapsed" />
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

@@ -19,8 +19,6 @@ namespace KompletteringsLabb.UserControls
     public partial class NewCustomerView : UserControl
     {
         
-        
-
         public NewCustomerView()
         {
             InitializeComponent();
@@ -29,6 +27,8 @@ namespace KompletteringsLabb.UserControls
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
+            CustomerName.Clear(); //Om vi börjat skriva något och går tillbaka så raderas detta. 
+            CustomerPassword.Clear();
         }
 
         private async void CreateCustomer_btn_Click(object sender, RoutedEventArgs e)

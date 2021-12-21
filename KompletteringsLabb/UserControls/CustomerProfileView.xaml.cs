@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,14 +24,17 @@ namespace KompletteringsLabb.UserControls
         public CustomerProfileView()
         {
             InitializeComponent();
-            //ShoppingCart.("ProductName");
-            UserName.Text = current; 
+            int sum = 0;
+
+            //TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
+
+            //CustomerLoginView.CustomerName.Text = UserName.Text; //Detta beror ju på vart ifrån användaern kom in... 
         }
 
 
         private void Removebtn_Click(object sender, RoutedEventArgs e)
         {
-            if(ShoppingCart.SelectedItem != null)//Vi borde kunna göra samma sak med att 
+            if (ShoppingCart.SelectedItem != null)//Vi borde kunna göra samma sak med att 
             {
                 ShoppingCart.Items.Remove(ShoppingCart.SelectedItem);
             }
@@ -38,8 +42,12 @@ namespace KompletteringsLabb.UserControls
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
         {
-            //Visibility = Visibility.Collapsed; 
+            ProductManager prodManager = new();
+
+            //Visibility = Visibility.Collapsed;
             StoreView.Visibility = Visibility.Visible;
+            //StoreView.ProductsInStore.Clear(); 
+            //StoreView.ProductsInStore.Items = from product in prodManager.products select product.Name; 
         }
 
 

@@ -29,14 +29,14 @@ namespace KompletteringsLabb.UserControls
             TotalSum.Text = "The sum is " + sum + " Sek.";
         }
 
-        private async Task Yesbtn_ClickAsync(object sender, RoutedEventArgs e)
-        {
-            //Om tid finns så utarbeta denna mer, en plånbok exepmelvis.
+        //private async Task Yesbtn_ClickAsync(object sender, RoutedEventArgs e)
+        //{
+        //    //Om tid finns så utarbeta denna mer, en plånbok exepmelvis.
 
-             //Något i stil med detta. Töm även CustomerProfile. 
+        //     //Något i stil med detta. Töm även CustomerProfile. 
 
-            ClearAndCheckout(); 
-        }
+        //    ClearAndCheckout(); 
+        //}
 
         private void Nobtn_Click(object sender, RoutedEventArgs e)
         {
@@ -45,9 +45,9 @@ namespace KompletteringsLabb.UserControls
 
         private async Task ClearAndCheckout()
         {
-            ProductsInCart.Clear();
-            CustomerProfileView.ShoppingCart.Clear(); 
-            await CheckOut(); //Vi vill ju koppla denna till Store Checkout. 
+            //ProductsInCart.Clear();
+            //CustomerProfileView.ShoppingCart.Clear(); 
+            //await CheckOut(); //Vi vill ju koppla denna till Store Checkout. 
         }
     }
 }

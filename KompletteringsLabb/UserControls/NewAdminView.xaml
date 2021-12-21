@@ -82,16 +82,7 @@
                 Grid.Column="3"
                 Grid.ColumnSpan="4"
                 Background="White" />
-            <Button
-                x:Name="CreateNewAdminbtn"
-                Grid.Row="9"
-                Grid.RowSpan="2"
-                Grid.Column="6"
-                Height="38"
-                VerticalAlignment="Top"
-                Background="White"
-                Click="CreateNewAdminbtn_Click"
-                Content="Create and Login" />
+
             <Button
                 x:Name="Backbtn"
                 Grid.Row="0"
@@ -103,10 +94,17 @@
                 Background="White"
                 Click="Backbtn_Click"
                 Content="Back" />
+            <Button
+                x:Name="CreateNewAdminbtn"
+                Grid.Row="8"
+                Grid.Column="6"
+                Background="White"
+                Click="CreateNewAdminbtn_Click"
+                Content="Create and Login" />
         </Grid>
         <views:StoreBackOffice
             x:Name="StoreBackOffice"
             Grid.Row="1"
-            Visibility="Collapsed" />
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

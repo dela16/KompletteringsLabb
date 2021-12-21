@@ -10,7 +10,7 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <Grid x:Name="Display" Background="Green">
+        <Grid x:Name="Display" Background="RosyBrown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -38,62 +38,41 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <!--
-                <ListView
-                x:Name="AddProducts"
-                Grid.Row="1"
-                Grid.RowSpan="5"
-                Grid.Column="1"
-                Grid.ColumnSpan="3"
-            -->
-            <!--<ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Product}"/>
-                            <TextBlock Text="Price"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate> Denna hade varit nice för att få alla produkter och priser på ett ställe-->
-            <!--  ListView>  -->
-            <DataGrid
+            <ListView
                 x:Name="ProductsToAdd"
                 Grid.Row="2"
                 Grid.RowSpan="8"
-                Grid.Column="2"
-                Grid.ColumnSpan="2"
-                Width="Auto"
-                Height="Auto"
-                Margin="0,0,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ProductName" />
-                    <DataGridTextColumn Header="Price" />
-                </DataGrid.Columns>
-            </DataGrid>
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                ItemsSource="{Binding prodManager.products Property changed}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="120"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="100"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Button
                 x:Name="Addbtn"
                 Grid.Row="10"
                 Grid.Column="3"
                 Content="Add Product" Click="Addbtn_Click" />
-            <DataGrid
+            <ListView
                 x:Name="ProductsInStore"
                 Grid.Row="2"
                 Grid.RowSpan="8"
-                Grid.Column="6"
-                Grid.ColumnSpan="4"
-                Width="Auto"
-                Height="Auto"
-                Margin="0,0,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ProductName" />
-                    <DataGridTextColumn Header="Price" />
-                    <DataGridTextColumn Header="Amount" />
-                    <DataGridTextColumn Header="TotalValue" />
-                </DataGrid.Columns>
-            </DataGrid>
+                Grid.Column="5"
+                Grid.ColumnSpan="5"
+                ItemsSource="{Binding Store.storage Property changed}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="100"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="80"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Product}" Header="Amount in Stock" Width="95"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding int}" Header="Total value" Width="100"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Button
                 x:Name="savebtn"
                 Grid.Row="10"

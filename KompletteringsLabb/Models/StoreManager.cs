@@ -17,6 +17,5 @@ namespace KompletteringsLabb.Models
             stores.Add(new Store() { Name = "Denices Hairsalon" });
             currentStore = stores[0];
         }
-
     }
 }

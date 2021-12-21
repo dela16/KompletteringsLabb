@@ -17,15 +17,11 @@ namespace KompletteringsLabb.Models
 
         public List<Product> GetProducts()
         {
-            products.Add(new Product() { Name = "Hairspray", Price = 39 });
+            products.Add(new Product() { Name = "Hairspray", Price = 39 }); //just nu får jag bara fram denna i min vy
             products.Add(new Product() { Name = "Gel", Price = 89 });
             products.Add(new Product() { Name = "HairColor", Price = 169 });
             products.Add(new Product() { Name = "Mousse", Price = 79 });
-            return products; 
-        }
-        public ProductManager() //Det här är den vänstra vyn i Backoffice. //Detta är default läge för oss
-        {
-            
+            return products;
         }
  
 

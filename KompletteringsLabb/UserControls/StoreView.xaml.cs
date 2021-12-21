@@ -28,8 +28,11 @@ namespace KompletteringsLabb.UserControls
             InitializeComponent();
             //ProductsInStore.Row.Add();
             //StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
+            ProductManager prodManager = new();
 
-            //ProductsInStore.Items.Add(productManager.GetProducts()); 
+            prodManager.products = prodManager.GetProducts();
+
+            ProductsInStore.Items.Add(prodManager.products); //Den här verkar avgöra om jag ser produkter eller ej. 
 
         }
 
@@ -48,7 +51,7 @@ namespace KompletteringsLabb.UserControls
 
             //if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
             //{
-            //    CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
+               // ProductsInStore.SelectedItem = CustomerProfileView.ShoppingCart.Items;
             //}
         }
 

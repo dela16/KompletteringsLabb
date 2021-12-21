@@ -32,6 +32,9 @@ namespace KompletteringsLabb.UserControls
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
+            AdminName.Clear();
+            AdminPassword.Clear();
+            StoreName.Clear();
         }
 
         private void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
@@ -46,12 +49,16 @@ namespace KompletteringsLabb.UserControls
 
             AdminManager.admins.Add(user);
             StoreManager.stores.Add(store);
+
+            GoToBackOffice();
             //Här vill vi spara till fil.
             saveStoreToFile(); 
 
+        }
 
+        private void GoToBackOffice()
+        {
             StoreBackOffice.Visibility = Visibility.Visible;
-
         }
         internal async Task saveStoreToFile()
         {
