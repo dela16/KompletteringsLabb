@@ -23,13 +23,10 @@ namespace KompletteringsLabb.UserControls
         public CustomerProfileView()
         {
             InitializeComponent();
+            //ShoppingCart.("ProductName");
+
         }
 
-
-        private void StoreView_Click(object sender, RoutedEventArgs e)
-        {
-            Store_View.Visibility = Visibility.Visible;
-        }
 
         private void Removebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -39,6 +36,10 @@ namespace KompletteringsLabb.UserControls
             }
         }
 
+        private void Storebtn_Click(object sender, RoutedEventArgs e)
+        {
+            StoreView.Visibility = Visibility.Visible;
+        }
 
 
         //UserName.Text=User.user;

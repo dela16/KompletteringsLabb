@@ -30,10 +30,14 @@ namespace KompletteringsLabb.UserControls
             //InitializeComponent();
             //Store storage visar produkterna för varje enskild butik.
             //currentstore 
-            ProductManager.products = ProductsToAdd.Items;
-            StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
+            //StoreManager.currentStore.Storage.Add(ProductsToAdd.SelectedItem)= ProductsInStore.ItemsSource;
+
+
+            //ProductManager.products = ProductsToAdd.Items;
+            //StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
 
             //Har detta något med att att det är en datagrid? 
+            saveStoreToFile(); 
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)

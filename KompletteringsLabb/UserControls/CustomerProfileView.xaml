@@ -37,13 +37,13 @@
             </Grid.RowDefinitions>
             <!--  <Button x:Name="Back" Content="Back" /  -->
             <Button
-                x:Name="StoreView"
+                x:Name="Storebtn"
                 Grid.RowSpan="2"
                 Grid.Column="7"
                 Width="100"
                 Margin="0,0,0,37"
-                HorizontalAlignment="Left"
-                Click="StoreView_Click"
+                HorizontalAlignment="Center"
+                Click="Storebtn_Click"
                 Content="Store" />
             <TextBlock
                 x:Name="UserName"
@@ -65,7 +65,10 @@
                 x:Name="Removebtn"
                 Grid.Row="10"
                 Grid.Column="6"
-                Content="Remove" HorizontalAlignment="Center" Width="100" Click="Removebtn_Click" />
+                Width="100"
+                HorizontalAlignment="Center"
+                Click="Removebtn_Click"
+                Content="Remove" />
             <TextBlock
                 x:Name="Sum"
                 Grid.Row="9"
@@ -83,8 +86,8 @@
                 TextAlignment="Center" />
         </Grid>
         <views:StoreView
-            x:Name="Store_View"
+            x:Name="StoreView"
             Grid.Row="1"
-            Visibility="Collapsed"/>
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

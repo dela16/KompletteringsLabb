@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KompletteringsLabb.Models
 {
     //Här är produkter för min specifika butik.
-    class Product
+    public class Product
     {
         public string Name { get; set; }
         public double Price { get; set; }

@@ -23,8 +23,13 @@ namespace KompletteringsLabb.UserControls
     {
         public StoreView()
         {
-            InitializeComponent();
-            StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
+            ProductManager productManager = new ProductManager(); //Tror inte denna är rätt
+
+            //InitializeComponent();
+            //ProductsInStore.Row.Add();
+            //StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
+
+            //ProductsInStore.Items.Add(productManager.GetProducts()); 
 
         }
 
@@ -41,13 +46,15 @@ namespace KompletteringsLabb.UserControls
             ////hur få in den i vår lista på profilen?
             //User.Cart.Add(userCart);
 
-            if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
-            {
-                CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
-            }
+            //if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
+            //{
+            //    CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
+            //}
         }
 
-
-
+        private void GoToCartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CashierView.Visibility = Visibility.Visible; 
+        }
     }
 }

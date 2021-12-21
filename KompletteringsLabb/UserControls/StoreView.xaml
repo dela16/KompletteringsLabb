@@ -40,13 +40,17 @@
             </Grid.RowDefinitions>
             <Button
                 x:Name="BackBtn"
-                Grid.RowSpan="2"
-                Grid.ColumnSpan="2"
-                Width="100"
-                Margin="0,0,0,37"
+                Width="70"
                 HorizontalAlignment="Left"
                 Click="BackBtn_Click"
-                Content="Back/Go To Cart" />
+                Content="Back" />
+            <Button
+                x:Name="GoToCartBtn"
+                Grid.Column="9"
+                Grid.ColumnSpan="2"
+                Width="100"
+                HorizontalAlignment="Left"
+                Content="Checkout" Height="38" Grid.RowSpan="2" VerticalAlignment="Top" Click="GoToCartBtn_Click" />
             <DataGrid
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -57,7 +61,8 @@
                 Height="Auto"
                 Margin="0,0,0,0"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                DataContext="{Binding productManager.products, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="200" Header="ProductName" />
                     <DataGridTextColumn Width="200" Header="Price" />
@@ -67,7 +72,12 @@
                 x:Name="addToCart"
                 Grid.Row="10"
                 Grid.Column="7"
-                Content="Add To Cart" Click="addToCart_Click" />
+                Click="addToCart_Click"
+                Content="Add To Cart" />
         </Grid>
+        <views:CashierView
+            x:Name="CashierView"
+            Grid.Row="1"
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

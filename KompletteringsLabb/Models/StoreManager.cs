@@ -12,12 +12,16 @@ namespace KompletteringsLabb.Models
 
         public static Store currentStore { get; set; } = new();
 
-        //public static Dictionary<Store, Storage> currentStorage = new(); 
+        public static Dictionary<Product, int> storage { get; set; } = new();
+        public static Store currentStorage { get; set; } = new(); 
 
         public static void initializeManager()
         {
-            stores.Add(new Store() { Name = "Denices Hairsaloon" });
+            stores.Add(new Store() { Name = "Denices Hairsalon" });
             currentStore = stores[0];
+
+            //storage.Add(new Store() {Name =" Denices Storage" });
+            //currentStorage = storage[0];
         }
 
     }

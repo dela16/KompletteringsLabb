@@ -1,8 +1,10 @@
 ﻿using KompletteringsLabb.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,9 +47,21 @@ namespace KompletteringsLabb.UserControls
             AdminManager.admins.Add(user);
             StoreManager.stores.Add(store);
             //Här vill vi spara till fil.
+            saveStoreToFile(); 
+
 
             StoreBackOffice.Visibility = Visibility.Visible;
 
+        }
+        internal async Task saveStoreToFile()
+        {
+            Store store = new Store();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string fileNameStore = "Store.json";
+
+            using FileStream createStream = File.Create(path + fileNameStore); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
+            await JsonSerializer.SerializeAsync(createStream, store);
+            await createStream.DisposeAsync();
         }
     }
 }
