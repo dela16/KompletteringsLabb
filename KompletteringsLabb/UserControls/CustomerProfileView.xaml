@@ -35,16 +35,6 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <!--  <Button x:Name="Back" Content="Back" /  -->
-            <Button
-                x:Name="Storebtn"
-                Grid.RowSpan="2"
-                Grid.Column="7"
-                Width="100"
-                Margin="0,0,0,37"
-                HorizontalAlignment="Center"
-                Click="Storebtn_Click"
-                Content="Store" />
             <TextBlock
                 x:Name="UserName"
                 Grid.Row="1"
@@ -84,6 +74,14 @@
                 FontSize="20"
                 Text="Total sum in cart:"
                 TextAlignment="Center" />
+            <Button
+                x:Name="Storebtn"
+                Grid.RowSpan="2"
+                Grid.Column="7"
+                Width="100"
+                HorizontalAlignment="Center"
+                Click="Storebtn_Click"
+                Content="Store" />
         </Grid>
         <views:StoreView
             x:Name="StoreView"
