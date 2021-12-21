@@ -44,17 +44,6 @@
                 HorizontalAlignment="Left"
                 Click="BackBtn_Click"
                 Content="Back" />
-            <Button
-                x:Name="CheckOutBtn"
-                Grid.RowSpan="2"
-                Grid.Column="9"
-                Grid.ColumnSpan="2"
-                Width="100"
-                Height="38"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="CheckOutBtn_Click"
-                Content="Checkout" />
             <DataGrid
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -78,6 +67,17 @@
                 Grid.Column="7"
                 Click="addToCart_Click"
                 Content="Add To Cart" />
+            <Button
+                x:Name="CheckOutBtn"
+                Grid.RowSpan="2"
+                Grid.Column="9"
+                Grid.ColumnSpan="2"
+                Width="100"
+                Height="38"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="CheckOutBtn_Click"
+                Content="Checkout" />
         </Grid>
         <views:CashierView
             x:Name="CashierView"

@@ -66,8 +66,14 @@
                 x:Name="Yesbtn"
                 Grid.Row="5"
                 Grid.Column="7"
-                Click="Yesbtn_Click_1"
+                Click="Yesbtn_Click"
                 Content="Yes" />
+            <TextBlock
+                x:Name="TotalSum"
+                Grid.Row="10"
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Background="White" />
             <Button
                 x:Name="Nobtn"
                 Grid.Row="5"
@@ -77,16 +83,6 @@
                 VerticalAlignment="Top"
                 Click="Nobtn_Click"
                 Content="No, I want to shop more" />
-            <TextBlock
-                x:Name="TotalSum"
-                Grid.Row="10"
-                Grid.Column="2"
-                Grid.ColumnSpan="3"
-                Background="White" />
         </Grid>
-        <views:StoreView
-            x:Name="StoreView"
-            Grid.Row="1"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>
