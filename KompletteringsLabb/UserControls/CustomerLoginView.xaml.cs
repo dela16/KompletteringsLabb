@@ -43,18 +43,18 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Om UserName eller Password = false then Next view
-            //if (CustomerName.Text == user.Name)
-            //{
-            //    if (CustomerPassword.Text == user.Password)
-            //    {
-            CustomerProfileView.Visibility = Visibility.Visible;
-            //    }
-            //      else {
-            //          MessageBox.Show("Incorrect UserName or Password, Please try again."); 
-            //     }  
-            //}
-            //Kolla med listorna över sparade användare. 
+            var user = new User();
+            user.Name = CustomerName.Text;
+            user.Password = CustomerPassword.Text;
+
+            if (StoreManager.currentStore.LogInUser(user))
+            {
+                CustomerProfileView.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect UserName or Password, Please try again.");
+            }
 
         }
     }

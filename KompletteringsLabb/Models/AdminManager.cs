@@ -9,11 +9,12 @@ namespace KompletteringsLabb.Models
     class AdminManager
     {
         public static List<User> admins { get; set; } = new();
+        public static User currentAdmin { get; set; } = new(); 
 
         public AdminManager()
         {
             admins.Add(new User() {Name = "Denice", Password="denice"});
-
+            currentAdmin = admins[0];
         }
     }
 }

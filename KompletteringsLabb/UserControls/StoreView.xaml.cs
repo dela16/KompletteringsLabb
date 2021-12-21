@@ -54,7 +54,7 @@ namespace KompletteringsLabb.UserControls
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
         {
-            CashierView.Visibility = Visibility.Visible;
+             CashierView.Visibility = Visibility.Visible;
         }
     }
 }

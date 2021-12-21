@@ -31,24 +31,31 @@ namespace KompletteringsLabb.UserControls
             Visibility = Visibility.Collapsed;
         }
 
-        private void CreateCustomer_btn_Click(object sender, RoutedEventArgs e)
+        private async void CreateCustomer_btn_Click(object sender, RoutedEventArgs e)
         {
             User user = new User();
 
             user.Name = CustomerName.Text;
             user.Password = CustomerPassword.Text;
 
-            //if (CustomerName.Text = " ")
-            //{
-            //    MessageBox.Show("Not a validate username");
-            //}
+
+            if (CustomerName.Text == "") //eller borde vi först hänvisa till user.Name?
+            {
+                MessageBox.Show("You must have a Username");
+            }
+            else if (CustomerPassword.Text == "")
+            {
+                MessageBox.Show("Not a validate password");
+            }
+            else {
+                CustomerProfileView.Visibility = Visibility.Visible;
+                await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
+            }; 
+            //Denna går såklart att avancera med fler villkor men vi börjar här. 
 
             CustomerManager.Customers.Add(user);
             //Sparas till fil, nu asynkromt
-            SaveCustomersToFile();
-            
 
-            CustomerProfileView.Visibility = Visibility.Visible; 
 
         }
 

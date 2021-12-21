@@ -12,6 +12,7 @@ namespace KompletteringsLabb
     internal class Store
     {
         public User admin { get; set; } = new();
+        public User customer { get; set; } = new(); 
 
         public string Name { get; set; } //Butikens namn. Matcha den med admin. 
 
@@ -23,8 +24,6 @@ namespace KompletteringsLabb
             {
                 if (admin.Password == user.Password)
                 {
-                    //Om Login för admin är successfull then
-                    // 
                     //Hur ta mig till rätt butik? Den känner av det från när du skapade nya användare
                     return true;
                 }
@@ -33,9 +32,21 @@ namespace KompletteringsLabb
 
         }
 
-        //public async Task CheckOut(User kund)
-        //{
-
-        //}
+        public bool LogInUser(User user)
+        {
+            if (customer.Name == user.Name)
+            {
+                if (customer.Password == user.Password)
+                {
+                    //Hur ta mig till rätt butik? Den känner av det från när du skapade nya användare
+                    return true;
+                }
+            }
+            return false;
+        }
+        public async Task CheckOut(User kund)
+        {
+            MessageBox.Show("Payment Succeeded!");
+        }
     }
 }

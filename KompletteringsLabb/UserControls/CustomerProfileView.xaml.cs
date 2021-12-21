@@ -24,7 +24,7 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
             //ShoppingCart.("ProductName");
-
+            UserName.Text = current; 
         }
 
 

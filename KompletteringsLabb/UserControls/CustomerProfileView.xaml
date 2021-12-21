@@ -39,7 +39,8 @@
                 x:Name="UserName"
                 Grid.Row="1"
                 Grid.Column="2"
-                Grid.ColumnSpan="4" />
+                Grid.ColumnSpan="4" 
+                Background="White"/>
             <ListView
                 x:Name="ShoppingCart"
                 Grid.Row="3"

@@ -14,6 +14,7 @@ namespace KompletteringsLabb.Models
         public CustomerManager() //Denna är vår default lista. 
         {
             Customers.Add(new User() {Name="DeniceML", Password="DenicePassword" });
+            
         }
     }
 }
