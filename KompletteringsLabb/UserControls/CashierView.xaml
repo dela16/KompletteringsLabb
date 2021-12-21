@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:KompletteringsLabb.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:KompletteringsLabb.UserControls"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -62,13 +63,20 @@
                 Text=" Ready to Pay?"
                 TextAlignment="Center" />
             <Button
+                x:Name="Yesbtn"
                 Grid.Row="5"
                 Grid.Column="7"
+                Click="Yesbtn_Click_1"
                 Content="Yes" />
             <Button
+                x:Name="Nobtn"
                 Grid.Row="5"
                 Grid.Column="9"
-                Content="No" />
+                Grid.ColumnSpan="2"
+                Height="37"
+                VerticalAlignment="Top"
+                Click="Nobtn_Click"
+                Content="No, I want to shop more" />
             <TextBlock
                 x:Name="TotalSum"
                 Grid.Row="10"
@@ -76,5 +84,9 @@
                 Grid.ColumnSpan="3"
                 Background="White" />
         </Grid>
+        <views:StoreView
+            x:Name="StoreView"
+            Grid.Row="1"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

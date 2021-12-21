@@ -72,7 +72,11 @@
             <Button
                 x:Name="Loginbtn"
                 Grid.Row="8"
+                Grid.RowSpan="2"
                 Grid.Column="6"
+                Width="100"
+                Margin="0,0,0,37"
+                HorizontalAlignment="Left"
                 Background="White"
                 Click="Loginbtn_Click"
                 Content="Login" />
@@ -97,12 +101,12 @@
                 Content="Create New Customer" />
         </Grid>
         <views:CustomerProfileView
-            x:Name="CustomerProfile"
+            x:Name="CustomerProfileView"
             Grid.Row="1"
-            Visibility="collapsed" />
+            Visibility="Collapsed" />
         <views:NewCustomerView
             x:Name="NewCustomerView"
             Grid.Row="1"
-            Visibility="Collapsed"/>
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

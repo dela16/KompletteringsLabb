@@ -28,5 +28,16 @@ namespace KompletteringsLabb.UserControls
 
             TotalSum.Text = "The sum is " + sum + " Sek."; 
         }
+
+        private void Yesbtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Om tid finns så utarbeta denna mer, en plånbok exepmelvis.
+            MessageBox.Show("Payment Succeedded!");
+        }
+
+        private void Nobtn_Click(object sender, RoutedEventArgs e)
+        {
+            StoreView.Visibility = Visibility.Visible; 
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace KompletteringsLabb.UserControls
     {
         public StoreView()
         {
-            ProductManager productManager = new ProductManager(); //Tror inte denna är rätt
+            //ProductManager productManager = new ProductManager(); //Tror inte denna är rätt
 
             //InitializeComponent();
             //ProductsInStore.Row.Add();
@@ -52,7 +52,7 @@ namespace KompletteringsLabb.UserControls
             //}
         }
 
-        private void GoToCartBtn_Click(object sender, RoutedEventArgs e)
+        private void CheckOutBtn_Click(object sender, RoutedEventArgs e)//Denna kan bli fel då jag nyss bytte namn på knappen
         {
             CashierView.Visibility = Visibility.Visible; 
         }

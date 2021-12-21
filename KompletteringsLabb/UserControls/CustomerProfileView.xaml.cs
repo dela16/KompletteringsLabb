@@ -38,6 +38,7 @@ namespace KompletteringsLabb.UserControls
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
         {
+            //Visibility = Visibility.Collapsed; 
             StoreView.Visibility = Visibility.Visible;
         }
 

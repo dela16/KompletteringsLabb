@@ -25,6 +25,7 @@ namespace KompletteringsLabb.UserControls
         {
             List<User> CustomerList = CustomerManager.Customers; //Vad tänkte jag när jag skrev detta? Gjorde jag denna med Martin kanske? 
 
+            User user = new User(); 
             //User user = new User(); Är det här en object reference? Bara att den inte funkar än? 
 
             InitializeComponent();
@@ -35,23 +36,26 @@ namespace KompletteringsLabb.UserControls
             Visibility = Visibility.Collapsed; 
         }
 
-        private void Loginbtn_Click(object sender, RoutedEventArgs e)
-        {
-            //Om UserName eller Password = false then Next view
-            //if (CustomerName.Text == User.Name)
-            //{
-            //    if (CustomerPassword.Text == User.Password)
-            //    {
-            //        StoreView.Visibillity = visibility.visible; 
-            //    }
-            //}
-            //Kolla med listorna över sparade användare. 
-            MessageBox.Show("Incorrect UserName or Password, Please try again."); 
-        }
-
         private void CreateNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             NewCustomerView.Visibility = Visibility.Visible;
+        }
+
+        private void Loginbtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Om UserName eller Password = false then Next view
+            //if (CustomerName.Text == user.Name)
+            //{
+            //    if (CustomerPassword.Text == user.Password)
+            //    {
+            CustomerProfileView.Visibility = Visibility.Visible;
+            //    }
+            //      else {
+            //          MessageBox.Show("Incorrect UserName or Password, Please try again."); 
+            //     }  
+            //}
+            //Kolla med listorna över sparade användare. 
+
         }
     }
 }

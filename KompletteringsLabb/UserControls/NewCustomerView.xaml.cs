@@ -62,13 +62,7 @@ namespace KompletteringsLabb.UserControls
             using FileStream createStream = File.Create(path + fileNameCustomers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
             await JsonSerializer.SerializeAsync(createStream, user);
             await createStream.DisposeAsync();
-            
-            //string jsonString = JsonSerializer.Serialize(user);
-            //File.WriteAllText(fileNameUsers, jsonString);
-
-            //using StreamWriter streamWriter = new(Path.Combine(userPath, fileNameUsers));
-            //string jsonString = JsonSerializer.Serialize(user);
-            //await streamWriter.WriteAsync(jsonString);
+           
         }
     }
 }
