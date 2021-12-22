@@ -60,7 +60,7 @@
                 x:Name="LogOutbtn"
                 Grid.Row="10"
                 Grid.Column="1"
-                Content="Log Out" />
+                Content="Log Out" Click="LogOutbtn_Click" />
             <Button
                 x:Name="Removebtn"
                 Grid.Row="10"
@@ -95,6 +95,10 @@
         </Grid>
         <views:StoreView
             x:Name="StoreView"
+            Grid.Row="1"
+            Visibility="Collapsed"/>
+        <views:CustomerLoginView
+            x:Name="CustomerLoginView"
             Grid.Row="1"
             Visibility="Collapsed"/>
     </Grid>

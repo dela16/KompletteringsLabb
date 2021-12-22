@@ -49,7 +49,7 @@ namespace KompletteringsLabb.UserControls
             }
             else {
                 CustomerProfileView.Visibility = Visibility.Visible;
-                await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
+                //await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
             }; 
             //Denna går såklart att avancera med fler villkor men vi börjar här. 
 

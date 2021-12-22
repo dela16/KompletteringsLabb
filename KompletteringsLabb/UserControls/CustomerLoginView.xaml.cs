@@ -47,7 +47,7 @@ namespace KompletteringsLabb.UserControls
             user.Name = CustomerName.Text;
             user.Password = CustomerPassword.Text;
 
-            if (StoreManager.currentStore.LogInUser(user))
+            if (StoreManager.CurrentStore.LogInUser(user))
             {
                 CustomerProfileView.Visibility = Visibility.Visible;
             }

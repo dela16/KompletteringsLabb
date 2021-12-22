@@ -48,18 +48,33 @@ namespace KompletteringsLabb.UserControls
             store.Name = StoreName.Text; 
 
             AdminManager.admins.Add(user);
-            StoreManager.stores.Add(store);
+            StoreManager.Stores.Add(store);
 
-            GoToBackOffice();
-            //Här vill vi spara till fil.
-            saveStoreToFile(); 
-
+            if (AdminName.Text == "")
+            {
+                MessageBox.Show("You have to insert a username.");    
+            }
+            else if (AdminPassword.Text == "")
+            {
+                MessageBox.Show("You have to insert a password.");
+            }
+            else if (StoreName.Text=="")
+            {
+                MessageBox.Show("You have to name your store.");
+            }
+            else 
+            {
+                GoToBackOffice();
+                //Här vill vi spara till fil.
+                //saveStoreToFile(); //Ska denna vara här? Ska jag ha en tredje fil att spara till? 
+            }
         }
 
-        private void GoToBackOffice()
+        public void GoToBackOffice()
         {
             StoreBackOffice.Visibility = Visibility.Visible;
         }
+
         internal async Task saveStoreToFile()
         {
             Store store = new Store();

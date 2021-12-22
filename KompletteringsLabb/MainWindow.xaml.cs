@@ -26,7 +26,6 @@ namespace KompletteringsLabb
             InitializeComponent();
             //StoreManager.initializeManager(); Vad är detta? 
 
-
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)

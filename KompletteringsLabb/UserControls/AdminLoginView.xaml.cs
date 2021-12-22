@@ -38,7 +38,7 @@ namespace KompletteringsLabb.UserControls
             user.Name = AdminName.Text;
             user.Password = AdminPassword.Text;
 
-            if (StoreManager.currentStore.LogInAdmin(user))
+            if (StoreManager.CurrentStore.LogInAdmin(user))
             {
                 StoreBackOffice.Visibility = Visibility.Visible;
             }

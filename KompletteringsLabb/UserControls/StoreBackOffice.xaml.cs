@@ -9,12 +9,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KompletteringsLabb.UserControls
 {
@@ -27,7 +21,7 @@ namespace KompletteringsLabb.UserControls
         Store storage = new Store(); 
         public StoreBackOffice()
         {
-            //InitializeComponent();
+            InitializeComponent();// denna vill inte funka 
             //Store storage visar produkterna för varje enskild butik.
             //currentstore 
             //StoreManager.currentStore.Storage.Add(ProductsToAdd.SelectedItem)= ProductsInStore.ItemsSource;
@@ -36,8 +30,7 @@ namespace KompletteringsLabb.UserControls
             //ProductManager.products = ProductsToAdd.Items;
             //StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
 
-            //Har detta något med att att det är en datagrid? 
-            saveStoreToFile(); 
+            //saveStoreToFile(); 
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +47,7 @@ namespace KompletteringsLabb.UserControls
             var test = new Product();
             test.Name = "Wax";
             test.Price = 70;
-            StoreManager.currentStore.Storage.Add(test, 10); //Här tar vi testprodukten och lägger till den i vår storage för butiken. 
+            StoreManager.CurrentStore.Storage.Add(test, 10); //Här tar vi testprodukten och lägger till den i vår storage för butiken. 
             //Borde vi inte vilja ha selectedItem = blablabla.Add()? 
             
         }

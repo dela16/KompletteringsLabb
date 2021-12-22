@@ -46,8 +46,13 @@ namespace KompletteringsLabb.UserControls
 
             //Visibility = Visibility.Collapsed;
             StoreView.Visibility = Visibility.Visible;
-            //StoreView.ProductsInStore.Clear(); 
             //StoreView.ProductsInStore.Items = from product in prodManager.products select product.Name; 
+        }
+
+        private void LogOutbtn_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart.Items.Clear();
+            CustomerLoginView.Visibility = Visibility.Visible; 
         }
 
 

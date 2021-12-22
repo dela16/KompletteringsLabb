@@ -20,8 +20,9 @@ namespace KompletteringsLabb
 
         public void initializeStorage()
         {
-            Storage.Add(new() { Name = "Hårgele", Price = 7 }, 10);//Product är klassen med olika properties. Både Namn och pris ska vara i Product. Sedan antal för att det ska vara det enligt Dictionaryt. 
-            //Hur göra för att lägga till flera produkter sen då? 
+            Storage.Add(new() { Name = "Hårgele", Price = 7 }, 10);
+            //Product är klassen med olika properties. Både Namn och pris ska vara i Product. Sedan antal för att det ska vara det enligt Dictionaryt. 
+
         }
 
 

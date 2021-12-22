@@ -8,14 +8,14 @@ namespace KompletteringsLabb.Models
 {
     static class StoreManager
     {
-        public static List<Store> stores { get; set; } = new List<Store>();
+        public static List<Store> Stores { get; set; } = new List<Store>();
 
-        public static Store currentStore { get; set; } = new();
+        public static Store CurrentStore { get; set; } = new();
 
         public static void initializeStore()
         {
-            stores.Add(new Store() { Name = "Denices Hairsalon" });
-            currentStore = stores[0];
+            Stores.Add(new Store() { Name = "Denices Hairsalon" });
+            CurrentStore = Stores[0];
         }
     }
 }
