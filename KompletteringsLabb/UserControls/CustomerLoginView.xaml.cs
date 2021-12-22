@@ -26,6 +26,7 @@ namespace KompletteringsLabb.UserControls
             User user = new User(); 
 
             InitializeComponent();
+ 
         }
 
         private void Backbtn_Click(object sender, RoutedEventArgs e)
@@ -44,8 +45,10 @@ namespace KompletteringsLabb.UserControls
             user.Name = CustomerName.Text;
             user.Password = CustomerPassword.Text;
 
+
             if (StoreManager.CurrentStore.LogInUser(user))
             {
+
                 CustomerProfileView.Visibility = Visibility.Visible;
             }
             else

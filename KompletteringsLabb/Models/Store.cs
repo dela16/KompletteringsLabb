@@ -12,7 +12,7 @@ namespace KompletteringsLabb
     internal class Store
     {
         public User admin { get; set; } = new();
-        public User customer { get; set; } = new(); 
+        public List<User> customers { get; set; } = new(); 
 
         public string Name { get; set; } //Butikens namn. Matcha den med admin. 
 
@@ -42,11 +42,10 @@ namespace KompletteringsLabb
 
         public bool LogInUser(User user)
         {
-            if (customer.Name == user.Name) //borde inte det här vara något i stil med customerName.Text? 
+            foreach (User customer in customers) 
             {
-                if (customer.Password == user.Password)
+                if (customer.Name == user.Name && customer.Password == user.Password)
                 {
-                    //Hur ta mig till rätt butik? Den känner av det från när du skapade nya användare
                     return true;
                 }
             }

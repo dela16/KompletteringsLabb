@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace KompletteringsLabb.Models
 {
-    class CustomerManager
+    static class CustomerManager
     {
 
-        public static List<User> Customers { get; set; } = new(); 
+        public static List<User> customers { get; set; } = new();
 
-        public CustomerManager() //Denna är vår default lista. 
+        public static User currentCustomer { get; set; } = new();
+
+        public static void InitializeCustomerManager() //Denna är vår default lista. 
         {
-            Customers.Add(new User() {Name="DeniceML", Password="DenicePassword" });
-            
+            customers.Add(new User() {Name="DeniceML", Password="DenicePassword" });
+            currentCustomer = customers[0];
+
+            //Juste, måste kunde välja vilken butik den vill handla i? 
+            //Ha en lista med stores? 
         }
     }
 }

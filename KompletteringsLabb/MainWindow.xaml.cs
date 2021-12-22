@@ -24,8 +24,11 @@ namespace KompletteringsLabb
         public MainWindow()
         {
             InitializeComponent();
-            //StoreManager.initializeManager(); Vad är detta? 
+            ProductManager.InitializeProductManager();             
+            CustomerManager.InitializeCustomerManager();
+            StoreManager.InitializeStoreManager(); 
 
+            
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)

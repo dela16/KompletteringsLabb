@@ -48,31 +48,51 @@ namespace KompletteringsLabb.UserControls
                 MessageBox.Show("Not a validate password");
             }
             else {
-            CustomerLoginView.Visibility = Visibility.Visible;
+            Visibility = Visibility.Collapsed;
                 //await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
             };
             //Denna går såklart att avancera med fler villkor men vi börjar här. 
 
-            CustomerManager.Customers.Add(user);
+            CustomerManager.customers.Add(user);
+
+
+
+
             //Sparas till fil, nu asynkromt
-            SaveCustomersToFile();
+            await SaveCustomersToFile();
+            MessageBox.Show("Customer saved");
 
             CustomerName.Clear(); //Om vi går vidare så ska den clearas.  
             CustomerPassword.Clear();
 
         }
 
+
+        
         internal static async Task SaveCustomersToFile()
         {
-            User user = new User();
+
+
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); //men vi ska spara dom till två olika mappar. Hur? 
             string fileNameCustomers = "Customers.json";
 
+            //Den här har inte funkat hittills. Har jag en lista att spara till ens? 
+            //using FileStream createStream = File.Create(path + fileNameCustomers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
+            //await JsonSerializer.SerializeAsync(createStream, user);
+            //await createStream.DisposeAsync();
 
-            using FileStream createStream = File.Create(path + fileNameCustomers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
-            await JsonSerializer.SerializeAsync(createStream, user);
-            await createStream.DisposeAsync();
-           
+            ////Labb3 test
+            //using StreamWriter streamWriter = new(Path.Combine(path,fileNameCustomers));
+            //await streamWriter.WriteAsync(JsonSerializer.Serialize(user)); 
+
+            //Niklas lektion
+            //StreamWriter writer = new StreamWriter(path);
+            //writer.Dispose();
+
+            //using (var writer = new StreamWriter(path))
+            //{
+
+            //}
         }
     }
 }

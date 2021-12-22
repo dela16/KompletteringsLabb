@@ -28,11 +28,10 @@ namespace KompletteringsLabb.UserControls
             InitializeComponent();
             //ProductsInStore.Row.Add();
             //StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
-            ProductManager prodManager = new();
 
-            prodManager.products = prodManager.GetProducts();
+            List<Product> products = ProductManager.GetProducts(); 
 
-            ProductsInStore.Items.Add(prodManager.products); //Den här verkar avgöra om jag ser produkter eller ej. 
+            ProductsInStore.Items.Add(products); //Den här verkar avgöra om jag ser produkter eller ej. 
 
         }
 

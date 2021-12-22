@@ -12,10 +12,12 @@ namespace KompletteringsLabb.Models
 
         public static Store CurrentStore { get; set; } = new();
 
-        public static void initializeStore()
+        public static void InitializeStoreManager()
         {
             Stores.Add(new Store() { Name = "Denices Hairsalon" });
             CurrentStore = Stores[0];
+            CurrentStore.customers.Add(CustomerManager.currentCustomer);//Nu finns det en kund som kan nå "sin" butik. 
+            //CurrentStore.admin.Add(AdminManager.currentAdmin);
         }
     }
 }
