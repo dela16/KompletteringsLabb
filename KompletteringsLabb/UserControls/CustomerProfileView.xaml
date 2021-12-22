@@ -97,9 +97,5 @@
             x:Name="StoreView"
             Grid.Row="1"
             Visibility="Collapsed"/>
-        <views:CustomerLoginView
-            x:Name="CustomerLoginView"
-            Grid.Row="1"
-            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

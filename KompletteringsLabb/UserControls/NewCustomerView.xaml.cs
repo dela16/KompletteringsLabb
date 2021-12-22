@@ -48,14 +48,17 @@ namespace KompletteringsLabb.UserControls
                 MessageBox.Show("Not a validate password");
             }
             else {
-                CustomerProfileView.Visibility = Visibility.Visible;
+            CustomerLoginView.Visibility = Visibility.Visible;
                 //await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
-            }; 
+            };
             //Denna går såklart att avancera med fler villkor men vi börjar här. 
 
             CustomerManager.Customers.Add(user);
             //Sparas till fil, nu asynkromt
+            SaveCustomersToFile();
 
+            CustomerName.Clear(); //Om vi går vidare så ska den clearas.  
+            CustomerPassword.Clear();
 
         }
 

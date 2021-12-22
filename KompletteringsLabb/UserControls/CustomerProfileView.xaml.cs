@@ -52,7 +52,7 @@ namespace KompletteringsLabb.UserControls
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)
         {
             ShoppingCart.Items.Clear();
-            CustomerLoginView.Visibility = Visibility.Visible; 
+            Visibility = Visibility.Collapsed; 
         }
 
 

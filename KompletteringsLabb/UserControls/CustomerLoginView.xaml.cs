@@ -23,10 +23,7 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerLoginView()
         {
-            List<User> CustomerList = CustomerManager.Customers; //Vad tänkte jag när jag skrev detta? Gjorde jag denna med Martin kanske? 
-
             User user = new User(); 
-            //User user = new User(); Är det här en object reference? Bara att den inte funkar än? 
 
             InitializeComponent();
         }
@@ -55,6 +52,9 @@ namespace KompletteringsLabb.UserControls
             {
                 MessageBox.Show("Incorrect UserName or Password, Please try again.");
             }
+
+            CustomerName.Clear();
+            CustomerPassword.Clear();
 
         }
     }

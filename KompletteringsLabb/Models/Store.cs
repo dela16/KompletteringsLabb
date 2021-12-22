@@ -42,7 +42,7 @@ namespace KompletteringsLabb
 
         public bool LogInUser(User user)
         {
-            if (customer.Name == user.Name)
+            if (customer.Name == user.Name) //borde inte det här vara något i stil med customerName.Text? 
             {
                 if (customer.Password == user.Password)
                 {

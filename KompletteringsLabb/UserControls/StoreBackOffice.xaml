@@ -85,9 +85,5 @@
                 Click="backbtn_Click"
                 Content="Back" />
         </Grid>
-        <views:AdminLoginView
-            x:Name="AdminLoginView"
-            Grid.Row="1"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>
