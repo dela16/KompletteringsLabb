@@ -21,7 +21,7 @@ namespace KompletteringsLabb.UserControls
         Store storage = new Store(); 
         public StoreBackOffice()
         {
-            InitializeComponent();// denna vill inte funka 
+            //InitializeComponent();// denna vill inte funka 
             //Store storage visar produkterna för varje enskild butik.
             //currentstore 
             //StoreManager.currentStore.Storage.Add(ProductsToAdd.SelectedItem)= ProductsInStore.ItemsSource;
