@@ -23,11 +23,11 @@ namespace KompletteringsLabb.UserControls
     {
         public StoreView()
         {            
-            List<Product> products = ProductManager.GetProducts();
+            List<Product> products = ProductManager.GetProducts();//Denna är fel. Här ska det vara typ Store.Storage.
 
 
             InitializeComponent();            
-            ProductsInStore.ItemsSource=products; //Den här verkar avgöra om jag ser produkter eller ej. 
+            ProductsInStore.ItemsSource=products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
             this.DataContext = ProductManager.products;
 
@@ -57,13 +57,10 @@ namespace KompletteringsLabb.UserControls
         {
              CashierView.Visibility = Visibility.Visible;
         }
-
-        private void Updatebtn_Click(object sender, RoutedEventArgs e)
-        {
             //ProductManager.InitializeProductManager();
             //ProductManager.GetProducts(); 
             //ProductsInStore.ItemsSource = from product in ProductManager.products select product.Name; 
             //I förra labben hade vi en uppdatera knapp. Ska vi ha det den här gången också? 
-        }
+        
     }
 }

@@ -25,8 +25,17 @@ namespace KompletteringsLabb.Models
             products.Add(new Product() { Name = "Gel", Price = 89 });
             products.Add(new Product() { Name = "HairColor", Price = 169 });
             products.Add(new Product() { Name = "Mousse", Price = 79 });
-
-
+            products.Add(new Product() { Name = "RayBan sunglasses, black", Price = 1057 });
+            products.Add(new Product() { Name = "RayBan sunglasses, kids - green", Price = 699 });
+            products.Add(new Product() { Name = "Svantes eyewear", Price = 57 });
+            products.Add(new Product() { Name = "Dior parfume", Price = 999 });
+            products.Add(new Product() { Name = "Hugo Boss - The one", Price = 1083 });
+            products.Add(new Product() { Name = "Barbies sweet, sweet smell", Price = 159 });
+            products.Add(new Product() { Name = "Ken's cool carsmell", Price = 287 });
+            products.Add(new Product() { Name = "Mamma Scans julskinka", Price = 49 });
+            products.Add(new Product() { Name = "Pappa Patos köttbullar", Price = 73 });
+            products.Add(new Product() { Name = "Familjen Larsons favoritostar", Price = 391 });
+            products.Add(new Product() { Name = "Los Latinos - Tacokrydda", Price = 21 });
 
         }
 

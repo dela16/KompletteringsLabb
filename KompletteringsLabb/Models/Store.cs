@@ -23,6 +23,9 @@ namespace KompletteringsLabb
             Storage.Add(new() { Name = "Hårgele", Price = 7 }, 10); //Denna funkar ej. 
             //Product är klassen med olika properties. Både Namn och pris ska vara i Product. Sedan antal för att det ska vara det enligt Dictionaryt. 
             //Här ska ju allt som finns i nuvarande butik finnas. Från BackOffice. 
+
+
+
         }
 
 

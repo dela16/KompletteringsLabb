@@ -23,9 +23,11 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
             //currentstore 
+            List<Product> products = ProductManager.GetProducts();
 
+            ProductsToAdd.ItemsSource = products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
-            //ProductManager.products = ProductsToAdd.Items;
+            this.DataContext = ProductManager.products;
             //StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
 
             //saveStoreToFile(); 
@@ -38,18 +40,9 @@ namespace KompletteringsLabb.UserControls
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Lägg till nya produkten i ProductsInStore. 
-            //Behöver vi en lista där vi som användare kan lägga till saker även i ProductsToAdd?
-            //Kolla Store klassen och hur allt ska kopplas. '
-
-            var test = new Product();
-            test.Name = "Wax";
-            test.Price = 70;
-            StoreManager.CurrentStore.Storage.Add(test, 10); //Här tar vi testprodukten och lägger till den i vår storage för butiken. 
-
-            Product newProduct = new Product();
 
             //Pop-up ruta där man frågar hur många man vill lägga till? 
+            ProductsInStore.Items.Add(ProductsToAdd.SelectedItem); 
             //StoreManager.CurrentStore.Storage.Add(ProductsInStore.ItemsSource);
 
         }

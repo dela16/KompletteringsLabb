@@ -44,7 +44,7 @@
                 Grid.RowSpan="8"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
-                ItemsSource="{Binding prodManager.products Property changed}">
+                ItemsSource="{Binding Source=ProductManager.products Property changed}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="120"></GridViewColumn>
