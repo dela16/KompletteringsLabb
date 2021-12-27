@@ -18,6 +18,7 @@ namespace KompletteringsLabb.Models
             CurrentStore = Stores[0];
             CurrentStore.customers.Add(CustomerManager.currentCustomer);//Nu finns det en kund som kan nå "sin" butik. 
             //CurrentStore.admin.Add(AdminManager.currentAdmin);
+            
         }
     }
 }

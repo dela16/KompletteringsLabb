@@ -66,13 +66,19 @@
                 ItemsSource="{Binding Store.storage Property changed}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="100"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product" Width="100"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="60"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Product}" Header="Amount in Stock" Width="95"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding int}" Header="Total value" Width="100"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Amount}" Header="Amount" Width="95"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding TotalCost}" Header="Total" Width="100"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
+            <!--<Label Name ="lblQuestion" Grid.Column="3" Grid.Row="4">Question</Label>
+            <TextBox x:Name="txtAnswer" Grid.Column="3" Grid.Row="5" MinWidth="250">Answer</TextBox>
+            <WrapPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                <Button IsDefault="True" Name="btnDialogOk" MinWidth="60" Click="btnDialogOk_Click">_Ok</Button>
+                <Button IsCancel="True" MinWidth="60">_Cancel</Button>
+            </WrapPanel>-->
             <Button
                 x:Name="savebtn"
                 Grid.Row="10"

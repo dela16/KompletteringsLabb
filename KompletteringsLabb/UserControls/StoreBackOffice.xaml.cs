@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.VisualBasic;
 using System.Windows.Data;
 
 namespace KompletteringsLabb.UserControls
@@ -40,11 +41,12 @@ namespace KompletteringsLabb.UserControls
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-
             //Pop-up ruta där man frågar hur många man vill lägga till? 
-            ProductsInStore.Items.Add(ProductsToAdd.SelectedItem); 
-            //StoreManager.CurrentStore.Storage.Add(ProductsInStore.ItemsSource);
-
+            
+            //Denna måste ju ha antalet och totala summan också så den är inte helt färdig ännu. 
+            string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
+            this.ProductsInStore.Items.Add(new Storage { Product = ProductsInStore.Items.Add(ProductsToAdd.SelectedItem, Price = , Amount = try.Parse(input), Total = (Price * Amount) });
+        });
         }
 
         //Här bör det finnas en metod som är kopplad till produkt klassen och en lista över olika produkter. 
@@ -62,7 +64,6 @@ namespace KompletteringsLabb.UserControls
             await JsonSerializer.SerializeAsync(createStream, store);
             await createStream.DisposeAsync();
         }
-
 
     }
 }
