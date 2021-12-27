@@ -52,7 +52,7 @@ namespace KompletteringsLabb.UserControls
 
             if (AdminName.Text == "")
             {
-                MessageBox.Show("You have to insert a username.");    
+                MessageBox.Show("You have to insert a username.");
             }
             else if (AdminPassword.Text == "")
             {
@@ -64,15 +64,10 @@ namespace KompletteringsLabb.UserControls
             }
             else 
             {
-                GoToBackOffice();
+                StoreBackOffice.Visibility = Visibility.Visible;
                 //Här vill vi spara till fil.
                 //saveStoreToFile(); //Ska denna vara här? Ska jag ha en tredje fil att spara till? 
             }
-        }
-
-        public void GoToBackOffice()
-        {
-            StoreBackOffice.Visibility = Visibility.Visible;
         }
 
         internal async Task saveStoreToFile()

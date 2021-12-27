@@ -21,10 +21,8 @@ namespace KompletteringsLabb.UserControls
         Store storage = new Store(); 
         public StoreBackOffice()
         {
-            InitializeComponent();// denna vill inte funka 
-            //Store storage visar produkterna för varje enskild butik.
+            InitializeComponent();
             //currentstore 
-            //StoreManager.currentStore.Storage.Add(ProductsToAdd.SelectedItem)= ProductsInStore.ItemsSource;
 
 
             //ProductManager.products = ProductsToAdd.Items;
@@ -48,13 +46,17 @@ namespace KompletteringsLabb.UserControls
             test.Name = "Wax";
             test.Price = 70;
             StoreManager.CurrentStore.Storage.Add(test, 10); //Här tar vi testprodukten och lägger till den i vår storage för butiken. 
-            //Borde vi inte vilja ha selectedItem = blablabla.Add()? 
-            
+
+            Product newProduct = new Product();
+
+            //Pop-up ruta där man frågar hur många man vill lägga till? 
+            //StoreManager.CurrentStore.Storage.Add(ProductsInStore.ItemsSource);
+
         }
 
         //Här bör det finnas en metod som är kopplad till produkt klassen och en lista över olika produkter. 
         //En add metod som tar produkt från ena stället till det andra. 
-        //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här gridviewn?
+        //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
         //Räkna ut antalet för varje kolumn samt kostnaden. Automatisk ändring. 
 
         internal async Task saveStoreToFile()

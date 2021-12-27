@@ -22,16 +22,15 @@ namespace KompletteringsLabb.UserControls
     public partial class StoreView : UserControl
     {
         public StoreView()
-        {
-            //ProductManager productManager = new ProductManager(); //Tror inte denna är rätt
+        {            
+            List<Product> products = ProductManager.GetProducts();
 
-            InitializeComponent();
-            //ProductsInStore.Row.Add();
-            //StoreManager.currentStore.Storage.itemsSource = ProductManager.products;
 
-            List<Product> products = ProductManager.GetProducts(); 
+            InitializeComponent();            
+            ProductsInStore.ItemsSource=products; //Den här verkar avgöra om jag ser produkter eller ej. 
 
-            ProductsInStore.Items.Add(products); //Den här verkar avgöra om jag ser produkter eller ej. 
+            this.DataContext = ProductManager.products;
+
 
         }
 
@@ -42,7 +41,7 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-            //User userCart = new User();
+           // User userCart = new User(); 
 
             //userCart.Cart = ProductsInStore.SelectedItem;
             ////hur få in den i vår lista på profilen?
@@ -50,13 +49,21 @@ namespace KompletteringsLabb.UserControls
 
             //if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
             //{
-               // ProductsInStore.SelectedItem = CustomerProfileView.ShoppingCart.Items;
+            //    CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
             //}
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
         {
              CashierView.Visibility = Visibility.Visible;
+        }
+
+        private void Updatebtn_Click(object sender, RoutedEventArgs e)
+        {
+            //ProductManager.InitializeProductManager();
+            //ProductManager.GetProducts(); 
+            //ProductsInStore.ItemsSource = from product in ProductManager.products select product.Name; 
+            //I förra labben hade vi en uppdatera knapp. Ska vi ha det den här gången också? 
         }
     }
 }

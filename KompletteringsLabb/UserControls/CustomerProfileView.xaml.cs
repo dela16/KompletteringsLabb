@@ -23,15 +23,20 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerProfileView()
         {
+            User user = new User();
             InitializeComponent();
             int sum = 0;
 
             //TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
 
             //CustomerLoginView.CustomerName.Text = UserName.Text; //Detta beror ju på vart ifrån användaern kom in... 
+
+            UserName.Text = "Welcome back " ; // + CustomerLoginView.CustomerName.Text; Får inte till denna ännu. 
         }
 
-
+        //In case you want to add or remove elements after
+        //setting the view's DataContext, use an ObservableCollection:
+        //Behövs detta för mig? 
         private void Removebtn_Click(object sender, RoutedEventArgs e)
         {
             if (ShoppingCart.SelectedItem != null)//Vi borde kunna göra samma sak med att 
@@ -56,6 +61,5 @@ namespace KompletteringsLabb.UserControls
         }
 
 
-        //UserName.Text=User.user;
     }
 }
