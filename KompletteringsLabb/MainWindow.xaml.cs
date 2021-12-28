@@ -26,7 +26,8 @@ namespace KompletteringsLabb
             InitializeComponent();
             ProductManager.InitializeProductManager();             
             CustomerManager.InitializeCustomerManager();
-            StoreManager.InitializeStoreManager(); 
+            StoreManager.InitializeStoreManager();
+            AdminManager.InitilizeAdminManager(); 
 
             
         }

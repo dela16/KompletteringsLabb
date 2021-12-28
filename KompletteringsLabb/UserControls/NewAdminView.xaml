@@ -102,9 +102,5 @@
                 Click="CreateNewAdminbtn_Click"
                 Content="Login" />
         </Grid>
-        <views:AdminLoginView
-            x:Name="AdminLoginView"
-            Grid.Row="1"
-            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

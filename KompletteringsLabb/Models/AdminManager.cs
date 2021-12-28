@@ -11,7 +11,7 @@ namespace KompletteringsLabb.Models
         public static List<User> admins { get; set; } = new();
         public static User currentAdmin { get; set; } = new(); 
 
-        public AdminManager()
+        public static void InitilizeAdminManager()
         {
             admins.Add(new User() {Name = "Denice", Password="denice"});
             currentAdmin = admins[0];

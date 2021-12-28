@@ -60,7 +60,7 @@ namespace KompletteringsLabb.UserControls
             {
                 //Här vill vi spara till fil.
                 saveStoreToFile();
-                AdminLoginView.Visibility = Visibility.Visible; //Här ville niklas att vi ska tas tillbaka till loginvyn för admin. 
+                Visibility = Visibility.Collapsed; //Här ville niklas att vi ska tas tillbaka till loginvyn för admin. 
             }
         }
 
