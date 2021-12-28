@@ -41,26 +41,17 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-           // User userCart = new User(); 
+            User userCart = new User();
 
-            //userCart.Cart = ProductsInStore.SelectedItem;
-            ////hur få in den i vår lista på profilen?
-            //User.Cart.Add(userCart);
-
-            //if (ProductsInStore.SelectedItem != null) //Har vi fått till add knappen nu? 
-            //{
-            //    CustomerProfileView.ShoppingCart.Items.Add(ProductsInStore.SelectedItem);
-            //}
+            // userCart.Cart = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); Oklart vad denna gör. 
+            //hur få in den i vår lista på profilen?
+            CustomerProfileView.ShoppingCart.ItemsSource = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); //Här lägger vi till produkten i vår kundkorg. 
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
         {
              CashierView.Visibility = Visibility.Visible;
         }
-            //ProductManager.InitializeProductManager();
-            //ProductManager.GetProducts(); 
-            //ProductsInStore.ItemsSource = from product in ProductManager.products select product.Name; 
-            //I förra labben hade vi en uppdatera knapp. Ska vi ha det den här gången också? 
         
     }
 }

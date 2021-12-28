@@ -41,12 +41,9 @@ namespace KompletteringsLabb.UserControls
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Pop-up ruta där man frågar hur många man vill lägga till? 
-            
-            //Denna måste ju ha antalet och totala summan också så den är inte helt färdig ännu. 
+
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
-            this.ProductsInStore.Items.Add(new Storage { Product = ProductsInStore.Items.Add(ProductsToAdd.SelectedItem, Price = , Amount = try.Parse(input), Total = (Price * Amount) });
-        });
+            this.ProductsInStore.Items.Add(new { Product = ProductsInStore.Items.Add(ProductsToAdd.SelectedItem), Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input) });
         }
 
         //Här bör det finnas en metod som är kopplad till produkt klassen och en lista över olika produkter. 

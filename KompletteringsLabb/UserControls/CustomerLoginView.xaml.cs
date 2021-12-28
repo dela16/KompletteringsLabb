@@ -54,7 +54,6 @@ namespace KompletteringsLabb.UserControls
             else
             {
                 MessageBox.Show("Incorrect UserName or Password, Please try again.");
-                 CustomerProfileView.Visibility = Visibility.Visible;
             }
 
             CustomerName.Clear();

@@ -21,7 +21,7 @@ namespace KompletteringsLabb.Models
         }
         public static void InitializeProductManager()
         {
-            products.Add(new Product() { Name = "HårDenice", Price = 39 }); //just nu får jag bara fram denna i min vy
+            products.Add(new Product() { Name = "HårDenice", Price = 39 }); 
             products.Add(new Product() { Name = "Gel", Price = 89 });
             products.Add(new Product() { Name = "HairColor", Price = 169 });
             products.Add(new Product() { Name = "Mousse", Price = 79 });
