@@ -100,10 +100,10 @@
                 Grid.Column="6"
                 Background="White"
                 Click="CreateNewAdminbtn_Click"
-                Content="Create and Login" />
+                Content="Login" />
         </Grid>
-        <views:StoreBackOffice
-            x:Name="StoreBackOffice"
+        <views:AdminLoginView
+            x:Name="AdminLoginView"
             Grid.Row="1"
             Visibility="Collapsed"/>
     </Grid>

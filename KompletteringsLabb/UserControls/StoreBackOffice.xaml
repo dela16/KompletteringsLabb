@@ -73,12 +73,6 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <!--<Label Name ="lblQuestion" Grid.Column="3" Grid.Row="4">Question</Label>
-            <TextBox x:Name="txtAnswer" Grid.Column="3" Grid.Row="5" MinWidth="250">Answer</TextBox>
-            <WrapPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-                <Button IsDefault="True" Name="btnDialogOk" MinWidth="60" Click="btnDialogOk_Click">_Ok</Button>
-                <Button IsCancel="True" MinWidth="60">_Cancel</Button>
-            </WrapPanel>-->
             <Button
                 x:Name="savebtn"
                 Grid.Row="10"

@@ -44,12 +44,10 @@ namespace KompletteringsLabb.UserControls
 
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             this.ProductsInStore.Items.Add(new { Product = ProductsInStore.Items.Add(ProductsToAdd.SelectedItem), Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input) });
+            //När vi får till raden ovan och kan spara lagret så kan vi gå försöka koppla den till storeview för customer. 
         }
 
-        //Här bör det finnas en metod som är kopplad till produkt klassen och en lista över olika produkter. 
-        //En add metod som tar produkt från ena stället till det andra. 
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
-        //Räkna ut antalet för varje kolumn samt kostnaden. Automatisk ändring. 
 
         internal async Task saveStoreToFile()
         {

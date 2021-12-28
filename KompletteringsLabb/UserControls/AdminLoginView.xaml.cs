@@ -29,7 +29,8 @@ namespace KompletteringsLabb.UserControls
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
-            //AdminName.Text = AdminName.Text.Clear(); Om jag klickar på back så vill jag att det ska försvinna. 
+            AdminName.Clear();
+            AdminPassword.Clear(); 
         }
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
@@ -48,9 +49,9 @@ namespace KompletteringsLabb.UserControls
             }
         }
 
-            private void CreateAdmin_Click(object sender, RoutedEventArgs e)
+        private void CreateAdmin_Click(object sender, RoutedEventArgs e)
         {
-            NewAdminView.Visibility = Visibility.Visible; 
+            NewAdminView.Visibility = Visibility.Visible;
         }
     }
 }

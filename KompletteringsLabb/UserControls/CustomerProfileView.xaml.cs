@@ -23,23 +23,26 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerProfileView()
         {
+            Product product = new Product(); 
             User user = new User();
             InitializeComponent();
             int sum = 0;
 
-            //TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
+           // TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
 
             //CustomerLoginView.CustomerName.Text = UserName.Text; //Detta beror ju på vart ifrån användaern kom in... 
 
             UserName.Text = "Welcome back "  ; // + CustomerLoginView.CustomerName.Text; Får inte till denna ännu. Behöver denna vara typ currentCustomer?
+             //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
+
+            //Blir denna verkligen rätt nu? Den valda produkten i Store ska hamna i vår shoppingcart.
+            //this.ShoppingCart.Items.Add(new { Product = StoreView.ProductsInStore.Items.Add(StoreView.product.SelectedItem), Amount = int.Parse(StoreView.input)});
+
         }
 
         //In case you want to add or remove elements after
         //setting the view's DataContext, use an ObservableCollection:
         //Behövs detta för mig? 
-
-
-        //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
 
         private void Removebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -51,10 +54,10 @@ namespace KompletteringsLabb.UserControls
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
         {
-            ProductManager prodManager = new();
+            ProductManager ProductManager = new();
 
             StoreView.Visibility = Visibility.Visible;
-            //StoreView.ProductsInStore.Items = from product in prodManager.products select product.Name; 
+            StoreView.ProductsInStore.ItemsSource = from product in ProductManager.products select product.Name; 
         }
 
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)

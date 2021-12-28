@@ -52,7 +52,7 @@
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="200"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="200"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Amount" Width="200"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Amount}" Header="Amount" Width="200"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

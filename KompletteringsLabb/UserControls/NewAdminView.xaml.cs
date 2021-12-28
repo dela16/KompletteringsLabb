@@ -9,12 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace KompletteringsLabb.UserControls
 {
@@ -25,7 +20,6 @@ namespace KompletteringsLabb.UserControls
     {
         public NewAdminView()
         {
-            //AdminName.Text = 
             InitializeComponent();
         }
 
@@ -64,9 +58,9 @@ namespace KompletteringsLabb.UserControls
             }
             else 
             {
-                StoreBackOffice.Visibility = Visibility.Visible;
                 //Här vill vi spara till fil.
-                //saveStoreToFile(); //Ska denna vara här? Ska jag ha en tredje fil att spara till? 
+                saveStoreToFile();
+                AdminLoginView.Visibility = Visibility.Visible; //Här ville niklas att vi ska tas tillbaka till loginvyn för admin. 
             }
         }
 
@@ -76,7 +70,7 @@ namespace KompletteringsLabb.UserControls
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string fileNameStore = "Store.json";
 
-            using FileStream createStream = File.Create(path + fileNameStore); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
+            using FileStream createStream = File.Create(path + fileNameStore); 
             await JsonSerializer.SerializeAsync(createStream, store);
             await createStream.DisposeAsync();
         }

@@ -1,4 +1,5 @@
 ﻿using KompletteringsLabb.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,6 @@ namespace KompletteringsLabb.UserControls
 
             this.DataContext = ProductManager.products;
 
-
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,9 @@ namespace KompletteringsLabb.UserControls
 
             // userCart.Cart = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); Oklart vad denna gör. 
             //hur få in den i vår lista på profilen?
-            CustomerProfileView.ShoppingCart.ItemsSource = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); //Här lägger vi till produkten i vår kundkorg. 
+            string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
+
+            //CustomerProfileView.ShoppingCart.ItemsSource = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); //Här lägger vi till produkten i vår kundkorg. 
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
