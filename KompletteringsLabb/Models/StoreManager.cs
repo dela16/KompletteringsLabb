@@ -14,9 +14,9 @@ namespace KompletteringsLabb.Models
 
         public static void InitializeStoreManager()
         {
-            Stores.Add(new Store() { Name = "Denices Hairsalon" });
+            Stores.Add(new Store() { StoreName = "Denices Hairsalon" });
             CurrentStore = Stores[0];
-            CurrentStore.customers.Add(CustomerManager.currentCustomer);//Nu finns det en kund som kan nå "sin" butik. 
+            //CurrentStore.customers.Add(CustomerManager.CurrentCustomer);//Nu finns det en kund som kan nå "sin" butik. 
             //CurrentStore.admin.Add(AdminManager.currentAdmin);
             
         }

@@ -43,7 +43,7 @@ namespace KompletteringsLabb.UserControls
         {
 
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
-            this.ProductsInStore.Items.Add(new { Product = ProductsInStore.Items.Add(ProductsToAdd.SelectedItem), Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input)});
+            this.ProductsInStore.Items.Add(new { Product = ProductsInStore.SelectedItem, Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input)});
             //När vi får till raden ovan och kan spara lagret så kan vi gå försöka koppla den till storeview för customer. 
         }
 

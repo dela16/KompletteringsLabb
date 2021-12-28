@@ -11,10 +11,9 @@ namespace KompletteringsLabb
 {
     internal class Store
     {
-        public User admin { get; set; } = new();
-        public List<User> customers { get; set; } = new(); 
+        public User Admin { get; set; } = new();
 
-        public string Name { get; set; } //Butikens namn. Matcha den med admin. 
+        public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
 
         public Dictionary<Product, int> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal!
 
@@ -27,23 +26,22 @@ namespace KompletteringsLabb
         }
 
 
-        public bool LogInAdmin(User user)//Varför kopplas inte den här till adminManager? Varför funkar inte min default? Är det för att den inte kopplas till admins?
+        public bool LogInAdmin(User inputadmin)//Varför kopplas inte den här till adminManager? Varför funkar inte min default? Är det för att den inte kopplas till admins?
         {
-            if (admin.Name == user.Name)
+
+            foreach (User admin in AdminManager.Admins)
             {
-                if (admin.Password == user.Password)
+                if (admin.Name == inputadmin.Name && admin.Password == inputadmin.Password)
                 {
-                    //Hur ta mig till rätt butik? Den känner av det från när du skapade nya användare
                     return true;
                 }
             }
             return false;
-
         }
 
         public bool LogInUser(User user)
         {
-            foreach (User customer in customers) 
+            foreach (User customer in CustomerManager.Customers) 
             {
                 if (customer.Name == user.Name && customer.Password == user.Password)
                 {

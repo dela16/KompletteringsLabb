@@ -53,10 +53,7 @@ namespace KompletteringsLabb.UserControls
             };
             //Denna går såklart att avancera med fler villkor men vi börjar här. 
 
-            CustomerManager.customers.Add(user);
-
-
-
+            CustomerManager.Customers.Add(user);
 
             //Sparas till fil, nu asynkromt
             await SaveCustomersToFile();
@@ -66,33 +63,17 @@ namespace KompletteringsLabb.UserControls
             CustomerPassword.Clear();
 
         }
-
-
         
         internal static async Task SaveCustomersToFile()
         {
-
-
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); //men vi ska spara dom till två olika mappar. Hur? 
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); 
             string fileNameCustomers = "Customers.json";
 
-            //Den här har inte funkat hittills. Har jag en lista att spara till ens? 
-            //using FileStream createStream = File.Create(path + fileNameCustomers); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
-            //await JsonSerializer.SerializeAsync(createStream, user);
-            //await createStream.DisposeAsync();
+            //Här sparar vi till fil. Vi skapar ny fil med varje ny kund och "inte" lägger till. 
+            using FileStream createStream = File.Create(path + fileNameCustomers); 
+            await JsonSerializer.SerializeAsync(createStream, CustomerManager.Customers);
+            await createStream.DisposeAsync();
 
-            ////Labb3 test
-            //using StreamWriter streamWriter = new(Path.Combine(path,fileNameCustomers));
-            //await streamWriter.WriteAsync(JsonSerializer.Serialize(user)); 
-
-            //Niklas lektion
-            //StreamWriter writer = new StreamWriter(path);
-            //writer.Dispose();
-
-            //using (var writer = new StreamWriter(path))
-            //{
-
-            //}
         }
     }
 }

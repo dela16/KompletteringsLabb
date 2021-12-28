@@ -35,11 +35,11 @@ namespace KompletteringsLabb.UserControls
 
         private void Loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            var user = new User();
-            user.Name = AdminName.Text;
-            user.Password = AdminPassword.Text;
+            var admin = new User();
+            admin.Name = AdminName.Text;
+            admin.Password = AdminPassword.Text;
 
-            if (StoreManager.CurrentStore.LogInAdmin(user))
+            if (StoreManager.CurrentStore.LogInAdmin(admin))
             {
                 StoreBackOffice.Visibility = Visibility.Visible;
             }

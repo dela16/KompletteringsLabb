@@ -28,21 +28,19 @@ namespace KompletteringsLabb.UserControls
             Visibility = Visibility.Collapsed;
             AdminName.Clear();
             AdminPassword.Clear();
-            StoreName.Clear();
         }
 
-        private void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
+        private async void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            Store store = new Store(); 
 
-            user.Name = AdminName.Text;
-            user.Password = AdminPassword.Text;
+            //Jag tog bort att man kan lägga till butik också.
+            //Lägger kanske till den sen. 
+            User admin = new User();
 
-            store.Name = StoreName.Text; 
+            admin.Name = AdminName.Text;
+            admin.Password = AdminPassword.Text;
 
-            AdminManager.admins.Add(user);
-            StoreManager.Stores.Add(store);
+            AdminManager.Admins.Add(admin);
 
             if (AdminName.Text == "")
             {
@@ -52,26 +50,21 @@ namespace KompletteringsLabb.UserControls
             {
                 MessageBox.Show("You have to insert a password.");
             }
-            else if (StoreName.Text=="")
-            {
-                MessageBox.Show("You have to name your store.");
-            }
-            else 
+            else
             {
                 //Här vill vi spara till fil.
-                saveStoreToFile();
+                await saveAdminToFile();
                 Visibility = Visibility.Collapsed; //Här ville niklas att vi ska tas tillbaka till loginvyn för admin. 
             }
         }
 
-        internal async Task saveStoreToFile()
+        internal async Task saveAdminToFile()
         {
-            Store store = new Store();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string fileNameStore = "Store.json";
+            string fileNameStore = "Admin.json";
 
             using FileStream createStream = File.Create(path + fileNameStore); 
-            await JsonSerializer.SerializeAsync(createStream, store);
+            await JsonSerializer.SerializeAsync(createStream, AdminManager.Admins);
             await createStream.DisposeAsync();
         }
     }
