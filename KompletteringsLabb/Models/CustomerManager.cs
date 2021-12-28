@@ -18,20 +18,37 @@ namespace KompletteringsLabb.Models
 
         public static void InitializeCustomerManager() //Denna är vår default lista. 
         {
+            LoadCustomersFromFile();
             //Customers.Add(new User() {Name="DeniceML", Password="DenicePassword" });
-            //currentCustomer = customers[0];
 
             //Juste, måste kunde välja vilken butik den vill handla i? 
             //Ha en lista med stores? 
 
+        }
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog()==true)
-            {
-                using FileStream OpenStream = File.OpenRead(openFileDialog.FileName);
-                CustomerManager.Customers = JsonSerializer.DeserializeAsync<List<User>>(OpenStream).Result; 
-            }
+        //Den här hämtar listan med sparade kunder där jag sparade den. Ingen ruta poppar upp. 
+        public static void LoadCustomersFromFile() 
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string fileNameCustomers = "Customers.json";
+
+            using FileStream OpenStream = File.OpenRead(path + fileNameCustomers);
+            CustomerManager.Customers = JsonSerializer.DeserializeAsync<List<User>>(OpenStream).Result;
 
         }
+
+
+        //Här väljer vi vilken fil vi ska öppna med kunder om jag vill välja det själv. 
+
+
+        //private static void LoadOpenFileDialogForCustomers() 
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+        //    if (openFileDialog.ShowDialog() == true)
+        //    {
+        //        using FileStream OpenStream = File.OpenRead(openFileDialog.FileName);
+        //        Customers = JsonSerializer.DeserializeAsync<List<User>>(OpenStream).Result;
+        //    }
+        //}
     }
 }

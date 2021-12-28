@@ -54,8 +54,12 @@ namespace KompletteringsLabb.UserControls
                 MessageBox.Show("Incorrect UserName or Password, Please try again.");
             }
 
+
             CustomerName.Clear();
             CustomerPassword.Clear();
+
+            CustomerProfileView.UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}";
+
 
         }
     }

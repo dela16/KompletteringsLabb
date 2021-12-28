@@ -32,7 +32,7 @@ namespace KompletteringsLabb.UserControls
 
             //CustomerLoginView.CustomerName.Text = UserName.Text; //Detta beror ju på vart ifrån användaern kom in... 
 
-            //UserName.Text = "Welcome back " + CustomerLoginView.CustomerName.Text; // Får inte till denna ännu. Behöver denna vara typ currentCustomer?
+            //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
              //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
 
             //Blir denna verkligen rätt nu? Den valda produkten i Store ska hamna i vår shoppingcart.
@@ -62,10 +62,10 @@ namespace KompletteringsLabb.UserControls
 
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)
         {
+            CustomerManager.CurrentCustomer = null; //kan behövas new customer!    Här loggar vi ut officiellt från kunden. 
             ShoppingCart.Items.Clear();
             Visibility = Visibility.Collapsed; 
         }
-
 
     }
 }

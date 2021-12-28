@@ -45,10 +45,12 @@ namespace KompletteringsLabb
             {
                 if (customer.Name == user.Name && customer.Password == user.Password)
                 {
+                    CustomerManager.CurrentCustomer = customer; //Här blir den inloggade använderen CurrentCustomer. Gå till CustomerLoginView för nästa steg.
                     return true;
                 }
             }
             return false;
+
         }
         public async Task CheckOut(User kund)
         {
