@@ -15,7 +15,7 @@ namespace KompletteringsLabb
 
         public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
 
-        public Dictionary<Product, int> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal!
+        public static Dictionary<Product, int> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal!
 
         public void initializeStorage()
         {

@@ -24,14 +24,13 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
             //currentstore 
+
             List<Product> products = ProductManager.GetProducts();
 
             ProductsToAdd.ItemsSource = products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
             this.DataContext = ProductManager.products;
-            //StoreManager.currentStore.Storage = ProductsInStore.Items; // ProductManager.products; 
 
-            //saveStoreToFile(); 
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)
@@ -45,34 +44,44 @@ namespace KompletteringsLabb.UserControls
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);
             ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
-                
-                //'(new { Name = ProductsToAdd.SelectedItem.Name, Price = ProductsToAdd.Product.SelectedItem.Price, Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input)});
-            //När vi får till raden ovan och kan spara lagret så kan vi gå försöka koppla den till storeview för customer. 
-
-            //Product p = new Product(); Vi hade dessa inom en selectionchanged och jag tror vi kan vara något på spåren men blev ändå fel. 
-
-            //p = (Product)ProductsInStore.SelectedItem; 
-
-            //ProductsInStore.Name = p.Name;
-            //ProductsInStore.Price = p.Price;
-            //ProductsInStore.Amount = int.Parse(input);
-            //ProductsInStore.Total = p.Price * int.Parse(input); 
 
 
+        }
+
+        private async void savebtn_Click(object sender, RoutedEventArgs e)
+        {
+            await saveStorageToFile();
+
+            //Måste vi göra liknande som i customer med add(user) fast med produkter 
+
+            //Store.Storage.Items(product); // Funkar ej. Detta är pga det är en dictionary. Det är inte de andra 
+
+            MessageBox.Show("Storage saved");
         }
 
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
 
-        internal async Task saveStoreToFile()
+        internal async Task saveStorageToFile() //Än så länge är denna inte färdig. Filen skapas men inget syns i filen. 
         {
-            Store store = new Store(); 
+            Store storage = new Store(); 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string fileNameStore = "Store.json";
+            string fileNameStore = "Storage.json";
 
-            using FileStream createStream = File.Create(path + fileNameStore); //fullPath ska vara path + filnamn, typ Path.Combine(*path*, *filename*)
-            await JsonSerializer.SerializeAsync(createStream, store);
+            using FileStream createStream = File.Create(path + fileNameStore);
+            await JsonSerializer.SerializeAsync(createStream, Store.Storage); 
             await createStream.DisposeAsync();
+
+
+            //Exempel nedan på hur vi kan spara dictionary till fil? 
+
+            //using (StreamWriter file = new StreamWriter("Storage.json"));
+            //foreach (var product in Store.Storage)
+            //{  
+            //    ("Key: {0}, Value: {1}", product.Key, product.Value);
+            //}
+
         }
+
 
     }
 }

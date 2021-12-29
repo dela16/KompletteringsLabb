@@ -47,6 +47,10 @@ namespace KompletteringsLabb.UserControls
             {
                 MessageBox.Show("Incorrect UserName or Password, Please try again.");
             }
+
+            AdminName.Clear();
+            AdminPassword.Clear(); 
+
         }
 
         private void CreateAdmin_Click(object sender, RoutedEventArgs e)

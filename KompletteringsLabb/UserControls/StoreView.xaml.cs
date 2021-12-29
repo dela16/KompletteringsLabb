@@ -31,7 +31,7 @@ namespace KompletteringsLabb.UserControls
             ProductsInStore.ItemsSource=products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
             this.DataContext = ProductManager.products;
-
+            //Store.Storage.Items = ProductsInStore.Items.Add(); //Något sånt för att få det att synas hos kunden. 
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

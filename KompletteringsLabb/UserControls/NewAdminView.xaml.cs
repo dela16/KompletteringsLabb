@@ -66,6 +66,7 @@ namespace KompletteringsLabb.UserControls
             using FileStream createStream = File.Create(path + fileNameStore); 
             await JsonSerializer.SerializeAsync(createStream, AdminManager.Admins);
             await createStream.DisposeAsync();
+
         }
     }
 }
