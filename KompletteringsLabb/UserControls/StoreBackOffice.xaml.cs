@@ -19,7 +19,10 @@ namespace KompletteringsLabb.UserControls
     public partial class StoreBackOffice : UserControl
     {
         Product product = new Product();
-        Store storage = new Store(); 
+        Store storage = new Store();
+
+        public object Newtonsoft { get; private set; }
+
         public StoreBackOffice()
         {
             InitializeComponent();
@@ -43,9 +46,9 @@ namespace KompletteringsLabb.UserControls
             Product product = (Product)ProductsToAdd.SelectedItem;
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);
+
             ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
-
-
+            StoreManager.ProductStock.Add(Product);// Denna är fel igen. Här lägger vi till den i lagret på affären. Ovan lägger vi till dom i vyn bara. 
         }
 
         private async void savebtn_Click(object sender, RoutedEventArgs e)
@@ -63,12 +66,11 @@ namespace KompletteringsLabb.UserControls
 
         internal async Task saveStorageToFile() //Än så länge är denna inte färdig. Filen skapas men inget syns i filen. 
         {
-            Store storage = new Store(); 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string fileNameStore = "Storage.json";
 
             using FileStream createStream = File.Create(path + fileNameStore);
-            await JsonSerializer.SerializeAsync(createStream, Store.Storage); 
+            await JsonSerializer.SerializeAsync(createStream, StorageManager.ProductsInStock);
             await createStream.DisposeAsync();
 
 
@@ -79,6 +81,13 @@ namespace KompletteringsLabb.UserControls
             //{  
             //    ("Key: {0}, Value: {1}", product.Key, product.Value);
             //}
+
+
+            //var storage = new Store(); 
+
+
+            //var options = new JsonSerializerOptions { WriteIndented = true };
+            //string jsonString = JsonSerializer.Serialize(storage, options);
 
         }
 

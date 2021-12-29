@@ -15,15 +15,15 @@ namespace KompletteringsLabb
 
         public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
 
-        public static Dictionary<Product, int> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal!
+        public List<Storage> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal! Denna ska inte vara med!
 
-        public void initializeStorage()
-        {
-            Storage.Add(new() { Name = "Hårgele", Price = 7 }, 10); //Denna funkar ej. 
-            //Product är klassen med olika properties. Både Namn och pris ska vara i Product. Sedan antal för att det ska vara det enligt Dictionaryt. 
-            //Här ska ju allt som finns i nuvarande butik finnas. Från BackOffice. 
+        //public void initializeStorage()
+        //{
+        //    Storage.Add(new() { Name = "Hårgele", Price = 7 }, 10); //Denna funkar ej. 
+        //    //Product är klassen med olika properties. Både Namn och pris ska vara i Product. Sedan antal för att det ska vara det enligt Dictionaryt. 
+        //    //Här ska ju allt som finns i nuvarande butik finnas. Från BackOffice. 
 
-        }
+        //}
 
 
         public bool LogInAdmin(User inputadmin)//Varför kopplas inte den här till adminManager? Varför funkar inte min default? Är det för att den inte kopplas till admins?
