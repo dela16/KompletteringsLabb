@@ -41,10 +41,24 @@ namespace KompletteringsLabb.UserControls
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Product product = (Product)ProductsToAdd.SelectedItem;
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
-            this.ProductsInStore.Items.Add(new { Product = ProductsInStore.SelectedItem, Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input)});
+            int amountOfProducts = int.Parse(input);
+            ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
+                
+                //'(new { Name = ProductsToAdd.SelectedItem.Name, Price = ProductsToAdd.Product.SelectedItem.Price, Amount = int.Parse(input), TotalCost = product.Price * int.Parse(input)});
             //När vi får till raden ovan och kan spara lagret så kan vi gå försöka koppla den till storeview för customer. 
+
+            //Product p = new Product(); Vi hade dessa inom en selectionchanged och jag tror vi kan vara något på spåren men blev ändå fel. 
+
+            //p = (Product)ProductsInStore.SelectedItem; 
+
+            //ProductsInStore.Name = p.Name;
+            //ProductsInStore.Price = p.Price;
+            //ProductsInStore.Amount = int.Parse(input);
+            //ProductsInStore.Total = p.Price * int.Parse(input); 
+
+
         }
 
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
