@@ -28,10 +28,10 @@ namespace KompletteringsLabb.UserControls
 
 
             InitializeComponent();            
-            ProductsInStore.ItemsSource=products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
+            ProductsInStore.ItemsSource=Store.Storage; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
             this.DataContext = ProductManager.products;
-            //Store.Storage.Items = ProductsInStore.Items.Add(); //Något sånt för att få det att synas hos kunden. 
+            //ProductsInStore.Items.Add(Store.Storage); //Något sånt för att få det att synas hos kunden. 
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

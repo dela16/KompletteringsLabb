@@ -48,8 +48,14 @@
                 ItemsSource="{Binding Source=ProductManager.products Property changed}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="120"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="100"></GridViewColumn>
+                        <GridViewColumn
+                            Width="120"
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Product Name" />
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Price}"
+                            Header="Price" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -57,7 +63,9 @@
                 x:Name="Addbtn"
                 Grid.Row="10"
                 Grid.Column="3"
-                Content="Add Product" Click="Addbtn_Click" />
+                Grid.ColumnSpan="2"
+                Click="Addbtn_Click"
+                Content="Add Product" />
             <ListView
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -67,18 +75,31 @@
                 ItemsSource="{Binding Store.storage Property changed}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product" Width="100"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="60"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Amount}" Header="Amount" Width="95"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding TotalCost}" Header="Total" Width="100"></GridViewColumn>
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Product" />
+                        <GridViewColumn
+                            Width="60"
+                            DisplayMemberBinding="{Binding Price}"
+                            Header="Price" />
+                        <GridViewColumn
+                            Width="95"
+                            DisplayMemberBinding="{Binding Amount}"
+                            Header="Amount" />
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding TotalCost}"
+                            Header="Total" />
                     </GridView>
                 </ListView.View>
             </ListView>
             <Button
                 x:Name="savebtn"
                 Grid.Row="10"
-                Grid.Column="9"
-                Content="Save" Click="savebtn_Click" />
+                Grid.Column="10"
+                Click="savebtn_Click"
+                Content="Save" />
             <Button
                 x:Name="backbtn"
                 Grid.Row="0"
