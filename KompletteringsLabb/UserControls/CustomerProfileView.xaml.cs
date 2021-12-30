@@ -54,15 +54,20 @@ namespace KompletteringsLabb.UserControls
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
         {
-            ProductManager ProductManager = new();
+
+            StoreView.Store.ItemsSource = StoreManager.CurrentStore.Storage; //Todo Här sätter vi det som ska synas i butiken på nästa vy. 
+            //Vi lägger inte in koden på "sin" sida utan i steget före. 
+            //Todo Programmet kraschar om jag klickar bakåt, lägger till en produkt och sedan in igen som kund. 
+
 
             StoreView.Visibility = Visibility.Visible;
-            StoreView.ProductsInStore.ItemsSource = from product in ProductManager.products select product.Name; 
+
+            this.DataContext = StoreManager.CurrentStore.Storage;
         }
 
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerManager.CurrentCustomer = null; //kan behövas new customer!    Här loggar vi ut officiellt från kunden. 
+            CustomerManager.CurrentCustomer = null; //  Här loggar vi ut officiellt från kunden. 
             ShoppingCart.Items.Clear();
             Visibility = Visibility.Collapsed; 
         }

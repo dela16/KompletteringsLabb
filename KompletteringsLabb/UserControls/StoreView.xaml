@@ -45,21 +45,21 @@
                 Click="BackBtn_Click"
                 Content="Back" />
             <ListView
-                x:Name="ProductsInStore"
+                x:Name="Store"
                 Grid.Row="2"
                 Grid.RowSpan="8"
                 Grid.Column="3"
                 Grid.ColumnSpan="5"
-                ItemsSource="{Binding Source=StoreBackOffice.ProductsInStore}">
+                ItemsSource="{Binding Source=StoreManager.CurrentStore.Storage Property Changed}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
                             Width="200"
-                            DisplayMemberBinding="{Binding Name}"
+                            DisplayMemberBinding="{Binding Product.Name}"
                             Header="Product Name" />
                         <GridViewColumn
                             Width="200"
-                            DisplayMemberBinding="{Binding Price}"
+                            DisplayMemberBinding="{Binding Product.Price}"
                             Header="Price" />
                     </GridView>
                 </ListView.View>

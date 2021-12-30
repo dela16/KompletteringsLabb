@@ -33,7 +33,7 @@ namespace KompletteringsLabb.Models
             string fileNameCustomers = "Customers.json";
 
             using FileStream OpenStream = File.OpenRead(path + fileNameCustomers);
-            CustomerManager.Customers = JsonSerializer.DeserializeAsync<List<User>>(OpenStream).Result;
+            Customers = JsonSerializer.DeserializeAsync<List<User>>(OpenStream).Result;
 
         }
 

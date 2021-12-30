@@ -23,15 +23,13 @@ namespace KompletteringsLabb.UserControls
     public partial class StoreView : UserControl
     {
         public StoreView()
-        {            
-            List<Product> products = ProductManager.GetProducts();//Denna är fel. Här ska det vara typ Store.Storage.
+        {
+            InitializeComponent();
+            //List<Product> products = ProductManager.GetProducts();//Denna är fel. Här ska det vara typ Store.Storage.
 
-
-            InitializeComponent();            
             //ProductsInStore.ItemsSource=Store.Storage; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
-            this.DataContext = ProductManager.products;
-            //ProductsInStore.Items.Add(Store.Storage); //Något sånt för att få det att synas hos kunden. 
+           
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -45,7 +43,7 @@ namespace KompletteringsLabb.UserControls
 
             // userCart.Cart = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); Oklart vad denna gör. 
             //hur få in den i vår lista på profilen?
-            string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
+            string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0); //inte nödvändigtvis nödvändig. 
 
             //CustomerProfileView.ShoppingCart.ItemsSource = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); //Här lägger vi till produkten i vår kundkorg. 
         }

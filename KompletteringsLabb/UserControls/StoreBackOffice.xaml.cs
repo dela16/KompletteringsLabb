@@ -18,21 +18,13 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class StoreBackOffice : UserControl
     {
-        Product product = new Product();
-        Store storage = new Store();
-
-        public object Newtonsoft { get; private set; }
-
         public StoreBackOffice()
         {
             InitializeComponent();
-            //currentstore 
 
-            List<Product> products = ProductManager.GetProducts();
+            ProductsToAdd.ItemsSource = ProductManager.Products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
-            ProductsToAdd.ItemsSource = products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
-
-            this.DataContext = ProductManager.products;
+            this.DataContext = ProductManager.Products;
 
         }
 
@@ -50,7 +42,6 @@ namespace KompletteringsLabb.UserControls
             int amountOfProducts = int.Parse(input);
 
             ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
-
             productStock.Product = product;
             productStock.Stock = amountOfProducts;
 
@@ -74,7 +65,6 @@ namespace KompletteringsLabb.UserControls
             using FileStream createStream = File.Create(path + fileNameStore);
             await JsonSerializer.SerializeAsync(createStream, StoreManager.CurrentStore.Storage);
             await createStream.DisposeAsync();
-
 
         }
 

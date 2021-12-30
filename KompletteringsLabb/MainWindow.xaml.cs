@@ -23,10 +23,10 @@ namespace KompletteringsLabb
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            StoreManager.InitializeStoreManager();
             ProductManager.InitializeProductManager();             
             CustomerManager.InitializeCustomerManager();
-            StoreManager.InitializeStoreManager();
             AdminManager.InitilizeAdminManager();
             
             

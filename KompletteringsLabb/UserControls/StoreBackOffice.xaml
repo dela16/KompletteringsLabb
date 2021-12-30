@@ -71,8 +71,7 @@
                 Grid.Row="2"
                 Grid.RowSpan="8"
                 Grid.Column="6"
-                Grid.ColumnSpan="5"
-                ItemsSource="{Binding Store.Storage Property changed}">
+                Grid.ColumnSpan="5">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

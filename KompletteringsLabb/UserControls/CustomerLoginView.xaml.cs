@@ -60,7 +60,6 @@ namespace KompletteringsLabb.UserControls
 
             CustomerProfileView.UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}";
 
-
         }
     }
 }
