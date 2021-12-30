@@ -23,9 +23,14 @@ namespace KompletteringsLabb.UserControls
     {
         public CustomerProfileView()
         {
+            InitializeComponent();
+
+            this.DataContext = CustomerManager.CurrentCustomer.Cart;
+
+            ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
+
             Product product = new Product(); 
             User user = new User();
-            InitializeComponent();
             int sum = 0;
 
            // TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
@@ -36,13 +41,9 @@ namespace KompletteringsLabb.UserControls
              //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
 
             //Blir denna verkligen rätt nu? Den valda produkten i Store ska hamna i vår shoppingcart.
-            //this.ShoppingCart.Items.Add(new { Product = StoreView.ProductsInStore.Items.Add(StoreView.product.SelectedItem), Amount = int.Parse(StoreView.input)});
+            this.ShoppingCart.ItemsSource =  CustomerManager.CurrentCustomer.Cart;
 
         }
-
-        //In case you want to add or remove elements after
-        //setting the view's DataContext, use an ObservableCollection:
-        //Behövs detta för mig? 
 
         private void Removebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -55,14 +56,12 @@ namespace KompletteringsLabb.UserControls
         private void Storebtn_Click(object sender, RoutedEventArgs e)
         {
 
-            StoreView.Store.ItemsSource = StoreManager.CurrentStore.Storage; //Todo Här sätter vi det som ska synas i butiken på nästa vy. 
+            StoreView.Store.ItemsSource = StoreManager.CurrentStore.Storage; //Här sätter vi det som ska synas i butiken på nästa vy. 
             //Vi lägger inte in koden på "sin" sida utan i steget före. 
             //Todo Programmet kraschar om jag klickar bakåt, lägger till en produkt och sedan in igen som kund. 
 
-
             StoreView.Visibility = Visibility.Visible;
 
-            this.DataContext = StoreManager.CurrentStore.Storage;
         }
 
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)

@@ -25,11 +25,9 @@ namespace KompletteringsLabb.UserControls
         public StoreView()
         {
             InitializeComponent();
-            //List<Product> products = ProductManager.GetProducts();//Denna är fel. Här ska det vara typ Store.Storage.
 
             //ProductsInStore.ItemsSource=Store.Storage; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
-
-           
+          
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -41,11 +39,24 @@ namespace KompletteringsLabb.UserControls
         {
             User userCart = new User();
 
-            // userCart.Cart = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); Oklart vad denna gör. 
-            //hur få in den i vår lista på profilen?
-            string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0); //inte nödvändigtvis nödvändig. 
+            ProductStock productStock = (ProductStock)Store.SelectedItem;
+            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0);
+            int amountOfProducts = int.Parse(input);
 
-            //CustomerProfileView.ShoppingCart.ItemsSource = ProductsInStore.Items.Add(ProductsInStore.SelectedItem); //Här lägger vi till produkten i vår kundkorg. 
+
+           // CustomerProfileView.ShoppingCart.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts });
+
+            CustomerManager.CurrentCustomer.Cart.Add(productStock.Product);
+
+            //CustomerProfileView.ShoppingCart.ItemsSource = userCart;
+
+            ////CustomerProfileView.ShoppingCart.ItemsSource = StoreManager.CurrentStore.SelectedItems; Försökte få det att lite store.
+            ////productStock.Product = product;
+            ////productStock.Stock = amountOfProducts;
+
+            //CustomerProfileView.ShoppingCart.Add(userCart);
+            //this.DataContext = CustomerProfileView.CurrentStore.product;
+
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)

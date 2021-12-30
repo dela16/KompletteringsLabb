@@ -54,7 +54,7 @@ namespace KompletteringsLabb.UserControls
             {
                 //Här vill vi spara till fil.
                 await saveAdminToFile();
-                Visibility = Visibility.Collapsed; //Här ville niklas att vi ska tas tillbaka till loginvyn för admin. 
+                Visibility = Visibility.Collapsed;
             }
         }
 
