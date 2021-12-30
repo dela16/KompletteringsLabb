@@ -15,7 +15,7 @@ namespace KompletteringsLabb
 
         public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
 
-        public List<Storage> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal! Denna ska inte vara med!
+        public List<ProductStock> Storage { get; set; } = new(); //butikens lager. Kopplad till vår produkt. int är antal! Denna ska inte vara med!
 
         //public void initializeStorage()
         //{

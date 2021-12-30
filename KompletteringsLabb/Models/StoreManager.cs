@@ -9,7 +9,6 @@ namespace KompletteringsLabb.Models
     static class StoreManager
     {
         public static List<Store> Stores { get; set; } = new List<Store>();
-        public static List<Storage> ProductStock { get; set; } = new List<Storage>();
         public static Store CurrentStore { get; set; }
 
         public static void InitializeStoreManager()

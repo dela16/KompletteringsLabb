@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KompletteringsLabb.Models
 {
-    class Storage
+    public class ProductStock
     {
-        public List<Product> Product { get; set; }
+        public Product Product { get; set; }
         public double Stock { get; set; }
     }
 }

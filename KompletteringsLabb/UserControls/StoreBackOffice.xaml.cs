@@ -43,51 +43,38 @@ namespace KompletteringsLabb.UserControls
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
+            ProductStock productStock = new ProductStock();
+
             Product product = (Product)ProductsToAdd.SelectedItem;
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);
 
             ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
-            StoreManager.ProductStock.Add(Product);// Denna är fel igen. Här lägger vi till den i lagret på affären. Ovan lägger vi till dom i vyn bara. 
+
+            productStock.Product = product;
+            productStock.Stock = amountOfProducts;
+
+            StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
         }
 
         private async void savebtn_Click(object sender, RoutedEventArgs e)
         {
             await saveStorageToFile();
 
-            //Måste vi göra liknande som i customer med add(user) fast med produkter 
-
-            //Store.Storage.Items(product); // Funkar ej. Detta är pga det är en dictionary. Det är inte de andra 
-
             MessageBox.Show("Storage saved");
         }
 
         //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
 
-        internal async Task saveStorageToFile() //Än så länge är denna inte färdig. Filen skapas men inget syns i filen. 
+        internal async Task saveStorageToFile()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string fileNameStore = "Storage.json";
 
             using FileStream createStream = File.Create(path + fileNameStore);
-            await JsonSerializer.SerializeAsync(createStream, StorageManager.ProductsInStock);
+            await JsonSerializer.SerializeAsync(createStream, StoreManager.CurrentStore.Storage);
             await createStream.DisposeAsync();
 
-
-            //Exempel nedan på hur vi kan spara dictionary till fil? 
-
-            //using (StreamWriter file = new StreamWriter("Storage.json"));
-            //foreach (var product in Store.Storage)
-            //{  
-            //    ("Key: {0}, Value: {1}", product.Key, product.Value);
-            //}
-
-
-            //var storage = new Store(); 
-
-
-            //var options = new JsonSerializerOptions { WriteIndented = true };
-            //string jsonString = JsonSerializer.Serialize(storage, options);
 
         }
 
