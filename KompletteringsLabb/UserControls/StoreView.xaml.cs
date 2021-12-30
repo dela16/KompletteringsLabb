@@ -46,7 +46,7 @@ namespace KompletteringsLabb.UserControls
 
            // CustomerProfileView.ShoppingCart.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts });
 
-            CustomerManager.CurrentCustomer.Cart.Add(productStock.Product);
+            CustomerManager.CurrentCustomer.Cart.Add(productStock.Product);//Borde inte denna vara Product.product typ?
 
             //CustomerProfileView.ShoppingCart.ItemsSource = userCart;
 
