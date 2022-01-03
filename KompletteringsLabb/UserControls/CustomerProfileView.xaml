@@ -39,20 +39,29 @@
                 x:Name="UserName"
                 Grid.Row="1"
                 Grid.Column="2"
-                Grid.ColumnSpan="4" 
-                Background="White"/>
+                Grid.ColumnSpan="4"
+                Background="White" />
             <ListView
                 x:Name="ShoppingCart"
                 Grid.Row="3"
                 Grid.RowSpan="6"
                 Grid.Column="1"
                 Grid.ColumnSpan="6"
-                ItemsSource="{Binding Source= CustomerManager.CurrentCustomer.Cart Property changed}">
+                ItemsSource="{Binding Source=CustomerManager.CurrentCustomer.Cart Property changed}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Product Name" Width="200"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="200"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Amount}" Header="Amount" Width="200"></GridViewColumn>
+                        <GridViewColumn
+                            Width="200"
+                            DisplayMemberBinding="{Binding Product.Name}"
+                            Header="Product Name" />
+                        <GridViewColumn
+                            Width="200"
+                            DisplayMemberBinding="{Binding Product.Price}"
+                            Header="Price" />
+                        <GridViewColumn
+                            Width="200"
+                            DisplayMemberBinding="{Binding Stock}"
+                            Header="Amount" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -60,7 +69,8 @@
                 x:Name="LogOutbtn"
                 Grid.Row="10"
                 Grid.Column="1"
-                Content="Log Out" Click="LogOutbtn_Click" />
+                Click="LogOutbtn_Click"
+                Content="Log Out" />
             <Button
                 x:Name="Removebtn"
                 Grid.Row="10"
@@ -92,10 +102,17 @@
                 HorizontalAlignment="Center"
                 Click="Storebtn_Click"
                 Content="Store" />
+            <Button
+                x:Name="UpdateCart"
+                Grid.Row="10"
+                Grid.Column="3"
+                Width="100"
+                HorizontalAlignment="Center"
+                Content="Update Cart" Click="UpdateCart_Click" />
         </Grid>
         <views:StoreView
             x:Name="StoreView"
             Grid.Row="1"
-            Visibility="Collapsed"/>
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

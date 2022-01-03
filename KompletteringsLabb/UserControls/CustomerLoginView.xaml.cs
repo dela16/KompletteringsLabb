@@ -46,7 +46,8 @@ namespace KompletteringsLabb.UserControls
 
             if (StoreManager.CurrentStore.LogInUser(user))
             {
-                MessageBox.Show(CustomerManager.CurrentCustomer.ToString()); 
+                MessageBox.Show(CustomerManager.CurrentCustomer.ToString());
+                
                 CustomerProfileView.Visibility = Visibility.Visible;
             }
             else

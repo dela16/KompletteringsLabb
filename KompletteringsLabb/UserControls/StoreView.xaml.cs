@@ -33,11 +33,12 @@ namespace KompletteringsLabb.UserControls
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
+            //CustomerProfileView.ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
         }
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-            User userCart = new User(); //används ens denna? 
+            //TODO User userCart = new User(); //används ens denna? 
 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
             string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0); // ska denna vara kvar eller krånglar det till allt? 
@@ -76,16 +77,11 @@ namespace KompletteringsLabb.UserControls
             ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
             // if contains product så öka annars lägg till. 
 
-
-            //CustomerProfileView.ShoppingCart.ItemsSource = userCart;
-
-            ////CustomerProfileView.ShoppingCart.ItemsSource = StoreManager.CurrentStore.SelectedItems;
             ////productStock.Product = product;
             ////productStock.Stock = amountOfProducts;
 
-            //CustomerProfileView.ShoppingCart.Add(userCart);
+            //CustomerProfileView.ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
             //this.DataContext = CustomerProfileView.CurrentStore.product;
-            
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)

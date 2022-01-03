@@ -33,6 +33,8 @@ namespace KompletteringsLabb.UserControls
             User user = new User();
             int sum = 0;
 
+
+            //Jag kan ändra/lägga till 
            // TotalSum.Text = sum += product.Price * product.Amount;  //denna kan bli fel...Får se när vi kan se produkterna i vyn. 
 
             //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
@@ -66,5 +68,17 @@ namespace KompletteringsLabb.UserControls
             Visibility = Visibility.Collapsed; 
         }
 
+        private void UpdateCart_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart.ItemsSource = null;
+            ShoppingCart.Items.Clear();
+            List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart); 
+            ShoppingCart.ItemsSource = pStock;
+
+            //Denna har varit krånglig för att få till kundvagnsvyn med store vyns add funktion. 
+            //Ville helst inte ha det på det här sättet, Jag ville att det skulle ske automatiskt. 
+            //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
+
+        }
     }
 }
