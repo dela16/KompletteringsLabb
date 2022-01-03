@@ -32,9 +32,6 @@ namespace KompletteringsLabb.UserControls
 
         private async void CreateNewAdminbtn_Click(object sender, RoutedEventArgs e)
         {
-
-            //Jag tog bort att man kan lägga till butik också.
-            //Lägger kanske till den sen. 
             User admin = new User();
 
             admin.Name = AdminName.Text;

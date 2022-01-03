@@ -25,7 +25,7 @@ namespace KompletteringsLabb.UserControls
         public StoreView()
         {
             InitializeComponent();
-
+            
             //ProductsInStore.ItemsSource=Store.Storage; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
           
         }
@@ -37,26 +37,55 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-            User userCart = new User();
+            User userCart = new User(); //används ens denna? 
 
-            ProductStock productStock = (ProductStock)Store.SelectedItem;
-            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0);
-            int amountOfProducts = int.Parse(input);
+            //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
+            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0); // ska denna vara kvar eller krånglar det till allt? 
+            int amountOfProducts = int.Parse(input);                                       
+            if (((ProductStock)Store.SelectedItem).Stock < amountOfProducts)
+            {
+                MessageBox.Show("Not enough products in Stock");
+                return; 
+            }
+
+            var productStockToAdd = new ProductStock();
+            var productToAdd = new Product();
+
+            productToAdd.Name = ((ProductStock)Store.SelectedItem).Product.Name; //Med hjälp av detta refererar vi inte längre.
+            productToAdd.Price = ((ProductStock)Store.SelectedItem).Product.Price;
+            productStockToAdd.Product = productToAdd;
+            productStockToAdd.Stock = amountOfProducts;
 
 
-           // CustomerProfileView.ShoppingCart.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts });
+            if (CustomerManager.CurrentCustomer.Cart.Contains((ProductStock)Store.SelectedItem))
+            {
+                //om du har produkterna i korgen redan så öka antalet annars add. 
+                for (int i = 0; i < productStockToAdd.Stock; i++)
+                {
+                    CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd); 
+                    MessageBox.Show("Products added to cart.");
+                }
+                return; 
+            }
+            else
+            {
+                CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);//Borde inte denna visas i shoppingcart nu?!
+                MessageBox.Show("" + amountOfProducts + (ProductStock)Store.SelectedItem + " added to your shoppingcart.");
+            }
 
-            CustomerManager.CurrentCustomer.Cart.Add(productStock.Product);//Borde inte denna vara Product.product typ?
+            ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
+            // if contains product så öka annars lägg till. 
+
 
             //CustomerProfileView.ShoppingCart.ItemsSource = userCart;
 
-            ////CustomerProfileView.ShoppingCart.ItemsSource = StoreManager.CurrentStore.SelectedItems; Försökte få det att lite store.
+            ////CustomerProfileView.ShoppingCart.ItemsSource = StoreManager.CurrentStore.SelectedItems;
             ////productStock.Product = product;
             ////productStock.Stock = amountOfProducts;
 
             //CustomerProfileView.ShoppingCart.Add(userCart);
             //this.DataContext = CustomerProfileView.CurrentStore.product;
-
+            
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)

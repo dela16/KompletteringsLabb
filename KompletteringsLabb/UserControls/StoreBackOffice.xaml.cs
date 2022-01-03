@@ -25,6 +25,7 @@ namespace KompletteringsLabb.UserControls
             ProductsToAdd.ItemsSource = ProductManager.Products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
 
             this.DataContext = ProductManager.Products;
+            //Visa vad vi redan har i lagret sedan tidigare måste läggas till. Alltså vårt sparade lager-fil
 
         }
 

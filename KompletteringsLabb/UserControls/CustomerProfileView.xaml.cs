@@ -25,23 +25,18 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
 
-            this.DataContext = CustomerManager.CurrentCustomer.Cart;
-
             ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
+
+            this.DataContext = CustomerManager.CurrentCustomer.Cart;
 
             Product product = new Product(); 
             User user = new User();
             int sum = 0;
 
-           // TotalSum.Text = sum += ShoppingCart.Price * ShoppingCart.Amount;  
-
-            //CustomerLoginView.CustomerName.Text = UserName.Text; //Detta beror ju på vart ifrån användaern kom in... 
+           // TotalSum.Text = sum += product.Price * product.Amount;  //denna kan bli fel...Får se när vi kan se produkterna i vyn. 
 
             //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
              //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
-
-            //Blir denna verkligen rätt nu? Den valda produkten i Store ska hamna i vår shoppingcart.
-            this.ShoppingCart.ItemsSource =  CustomerManager.CurrentCustomer.Cart;
 
         }
 
