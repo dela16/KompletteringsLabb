@@ -27,18 +27,13 @@ namespace KompletteringsLabb.UserControls
 
             ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
 
-            this.DataContext = CustomerManager.CurrentCustomer.Cart;
+            //this.DataContext = CustomerManager.CurrentCustomer.Cart;
 
-            Product product = new Product(); 
+            //List<ProductStock> customerCart = CustomerManager.CurrentCustomer.Cart; //Vi nämner ju aldrig att den ska hämta från shoppingcarten?
             User user = new User();
-            int sum = 0;
 
-
-            //Jag kan ändra/lägga till 
-           // TotalSum.Text = sum += product.Price * product.Amount;  //denna kan bli fel...Får se när vi kan se produkterna i vyn. 
 
             //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
-             //I listvyn, ska den kopplas till Products.product eller bör den bindas till mina selected items? 
 
         }
 
@@ -74,6 +69,14 @@ namespace KompletteringsLabb.UserControls
             ShoppingCart.Items.Clear();
             List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart); 
             ShoppingCart.ItemsSource = pStock;
+
+            double sum = 0;
+
+            foreach (var productStock in CustomerManager.CurrentCustomer.Cart)
+            {
+                sum += productStock.Product.Price * productStock.Stock;
+            }
+            Sum.Text = sum.ToString();
 
             //Denna har varit krånglig för att få till kundvagnsvyn med store vyns add funktion. 
             //Ville helst inte ha det på det här sättet, Jag ville att det skulle ske automatiskt. 

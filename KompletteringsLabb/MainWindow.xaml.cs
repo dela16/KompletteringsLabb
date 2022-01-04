@@ -24,12 +24,7 @@ namespace KompletteringsLabb
         public MainWindow()
         {
             InitializeComponent();            
-            StoreManager.InitializeStoreManager();
-            ProductManager.InitializeProductManager();             
-            CustomerManager.InitializeCustomerManager();
-            AdminManager.InitilizeAdminManager();
-            
-            
+  
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)

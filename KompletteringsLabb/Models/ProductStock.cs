@@ -9,6 +9,6 @@ namespace KompletteringsLabb.Models
     public class ProductStock
     {
         public Product Product { get; set; }
-        public int Stock { get; set; }
+        public double Stock { get; set; }
     }
 }

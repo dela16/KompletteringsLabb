@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KompletteringsLabb.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,7 +12,17 @@ namespace KompletteringsLabb
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    /// 
+
     public partial class App : Application
     {
+        public App()
+        {
+            StoreManager.InitializeStoreManager();
+            ProductManager.InitializeProductManager();
+            CustomerManager.InitializeCustomerManager();
+            AdminManager.InitilizeAdminManager();
+        }
+
     }
 }

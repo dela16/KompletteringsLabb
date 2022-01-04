@@ -23,6 +23,7 @@ namespace KompletteringsLabb.UserControls
             InitializeComponent();
 
             ProductsToAdd.ItemsSource = ProductManager.Products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
+            ProductsInStore.ItemsSource = StoreManager.CurrentStore.Storage; //Den här gör så att jag ser redan existerande produkter i lagret som admin. 
 
             this.DataContext = ProductManager.Products;
             //Visa vad vi redan har i lagret sedan tidigare måste läggas till. Alltså vårt sparade lager-fil
@@ -42,7 +43,7 @@ namespace KompletteringsLabb.UserControls
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);
 
-            ProductsInStore.Items.Add(new { Name = product.Name, Price = product.Price, Amount = amountOfProducts, TotalCost = product.Price * amountOfProducts });
+            
             productStock.Product = product;
             productStock.Stock = amountOfProducts;
 

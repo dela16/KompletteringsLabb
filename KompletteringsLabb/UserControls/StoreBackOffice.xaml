@@ -45,7 +45,7 @@
                 Grid.RowSpan="8"
                 Grid.Column="1"
                 Grid.ColumnSpan="4"
-                ItemsSource="{Binding Source=ProductManager.products Property changed}">
+                ItemsSource="{Binding Source=ProductManager.products}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -53,7 +53,7 @@
                             DisplayMemberBinding="{Binding Name}"
                             Header="Product Name" />
                         <GridViewColumn
-                            Width="100"
+                            Width="110"
                             DisplayMemberBinding="{Binding Price}"
                             Header="Price" />
                     </GridView>
@@ -66,6 +66,24 @@
                 Grid.ColumnSpan="2"
                 Click="Addbtn_Click"
                 Content="Add Product" />
+            <TextBlock
+                x:Name="InStore"
+                Grid.Row="1"
+                Grid.Column="7"
+                Grid.ColumnSpan="3"
+                Background="White"
+                FontSize="20"
+                Text="In stock"
+                TextAlignment="Center" />
+            <TextBlock
+                x:Name="MainWareHouse"
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Background="White"
+                FontSize="20"
+                Text="Main Warehouse"
+                TextAlignment="Center" />
             <ListView
                 x:Name="ProductsInStore"
                 Grid.Row="2"
@@ -76,19 +94,19 @@
                     <GridView>
                         <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding Name}"
+                            DisplayMemberBinding="{Binding Product.Name}"
                             Header="Product" />
                         <GridViewColumn
                             Width="60"
-                            DisplayMemberBinding="{Binding Price}"
+                            DisplayMemberBinding="{Binding Product.Price}"
                             Header="Price" />
                         <GridViewColumn
-                            Width="95"
-                            DisplayMemberBinding="{Binding Amount}"
+                            Width="70"
+                            DisplayMemberBinding="{Binding Stock}"
                             Header="Amount" />
                         <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding TotalCost}"
+                            DisplayMemberBinding="{Binding Product.Price*Stock}"
                             Header="Total" />
                     </GridView>
                 </ListView.View>

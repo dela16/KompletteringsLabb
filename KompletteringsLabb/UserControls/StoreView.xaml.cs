@@ -25,8 +25,6 @@ namespace KompletteringsLabb.UserControls
         public StoreView()
         {
             InitializeComponent();
-            
-            //ProductsInStore.ItemsSource=Store.Storage; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
           
         }
 
@@ -39,9 +37,9 @@ namespace KompletteringsLabb.UserControls
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
             //TODO User userCart = new User(); //används ens denna? 
-
+            double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
-            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0); // ska denna vara kvar eller krånglar det till allt? 
+            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);                                       
             if (((ProductStock)Store.SelectedItem).Stock < amountOfProducts)
             {
@@ -70,18 +68,14 @@ namespace KompletteringsLabb.UserControls
             }
             else
             {
-                CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);//Borde inte denna visas i shoppingcart nu?!
+                CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);
                 MessageBox.Show("" + amountOfProducts + (ProductStock)Store.SelectedItem + " added to your shoppingcart.");
             }
 
             ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
-            // if contains product så öka annars lägg till. 
 
-            ////productStock.Product = product;
-            ////productStock.Stock = amountOfProducts;
-
-            //CustomerProfileView.ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
-            //this.DataContext = CustomerProfileView.CurrentStore.product;
+            //CustomerProfileView.Sum.Text = (sum += product.Product.Price * product.Stock).ToString();
+            //Ska denna vara här eller i min CP vy? 
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)

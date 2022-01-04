@@ -40,7 +40,8 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 Grid.ColumnSpan="4"
-                Background="White" />
+                Background="White"
+                TextAlignment="Center" />
             <ListView
                 x:Name="ShoppingCart"
                 Grid.Row="3"
@@ -108,7 +109,8 @@
                 Grid.Column="3"
                 Width="100"
                 HorizontalAlignment="Center"
-                Content="Update Cart" Click="UpdateCart_Click" />
+                Click="UpdateCart_Click"
+                Content="Update Cart" />
         </Grid>
         <views:StoreView
             x:Name="StoreView"
