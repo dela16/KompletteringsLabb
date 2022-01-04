@@ -89,7 +89,8 @@
                 Grid.Row="2"
                 Grid.RowSpan="8"
                 Grid.Column="6"
-                Grid.ColumnSpan="5">
+                Grid.ColumnSpan="5"
+                ItemsSource="{Binding Source= StoreManage.CurrentStore.Storage}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -106,8 +107,8 @@
                             Header="Amount" />
                         <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding Product.Price*Stock}"
-                            Header="Total" />
+                            DisplayMemberBinding="{Binding Total}"
+                            Header="Total Value" />
                     </GridView>
                 </ListView.View>
             </ListView>

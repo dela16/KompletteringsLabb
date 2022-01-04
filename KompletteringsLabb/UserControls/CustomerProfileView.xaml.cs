@@ -36,7 +36,7 @@ namespace KompletteringsLabb.UserControls
         {
             if (ShoppingCart.SelectedItem != null)//Operation is not valid while ItemsSource is in use.
                                                   //Access and modify elements with ItemsControl.ItemsSource instead.
-                                                  //Har detta med rad 28 och göra? 
+                                                  //Har detta med rad 28 och göra? Jag vill ju inte cleara någonstans..
 
             {
                 //string input = Interaction.InputBox("Prompt", "Delete Products", "How many of the chosen product do you want to delete from your cart?", 0, 0);

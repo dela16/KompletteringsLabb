@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Microsoft.VisualBasic;
 using System.Windows.Data;
+using System.Collections.Specialized;
 
 namespace KompletteringsLabb.UserControls
 {
@@ -25,9 +26,7 @@ namespace KompletteringsLabb.UserControls
             ProductsToAdd.ItemsSource = ProductManager.Products; //Den här gör så att vi ser produkterna i listvyn. Ihop med Binding i listvyn. 
             ProductsInStore.ItemsSource = StoreManager.CurrentStore.Storage; //Den här gör så att jag ser redan existerande produkter i lagret som admin. 
 
-            this.DataContext = ProductManager.Products;
-            //Visa vad vi redan har i lagret sedan tidigare måste läggas till. Alltså vårt sparade lager-fil
-
+            //UpdateTotalValue(); 
         }
 
         private void backbtn_Click(object sender, RoutedEventArgs e)
@@ -43,9 +42,9 @@ namespace KompletteringsLabb.UserControls
             string input = Interaction.InputBox("Prompt", "Add to stock", "How many?", 0, 0);
             int amountOfProducts = int.Parse(input);
 
-            
             productStock.Product = product;
             productStock.Stock = amountOfProducts;
+            productStock.Total = productStock.Product.Price * productStock.Stock; 
 
             StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
         }
@@ -56,8 +55,6 @@ namespace KompletteringsLabb.UserControls
 
             MessageBox.Show("Storage saved");
         }
-
-        //Avancera så pass att när kunden köper en produkt så ska antalet minska i den här listviewn?
 
         internal async Task saveStorageToFile()
         {
@@ -70,6 +67,15 @@ namespace KompletteringsLabb.UserControls
 
         }
 
+        public void UpdateTotalValue()
+        {
+            foreach (var productStock in StoreManager.CurrentStore.Storage)
+            {
+                productStock.Total = productStock.Product.Price * productStock.Stock;
+            }
+            //Denna är skapad för att se till så att ingen "grundlager-produkt" har 0 i sig. 
+            //Från och med nu så kommer total value uppdateras tack vare rad 47. 
+        }
 
     }
 }

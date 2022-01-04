@@ -48,7 +48,7 @@
                 Grid.RowSpan="6"
                 Grid.Column="1"
                 Grid.ColumnSpan="6"
-                ItemsSource="{Binding Source=CustomerManager.CurrentCustomer.Cart Property changed}">
+                ItemsSource="{Binding Source=CustomerManager.CurrentCustomer.Cart}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
