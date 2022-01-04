@@ -69,7 +69,7 @@ namespace KompletteringsLabb.UserControls
             else
             {
                 CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);
-                MessageBox.Show("" + amountOfProducts + (ProductStock)Store.SelectedItem + " added to your shoppingcart.");
+                MessageBox.Show("" + amountOfProducts + " " + ((ProductStock)Store.SelectedItem).Product.Name + " added to your shoppingcart.");
             }
 
             ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.

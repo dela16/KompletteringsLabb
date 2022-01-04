@@ -1,4 +1,5 @@
 ﻿using KompletteringsLabb.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,22 +28,29 @@ namespace KompletteringsLabb.UserControls
 
             ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
 
-            //this.DataContext = CustomerManager.CurrentCustomer.Cart;
-
-            //List<ProductStock> customerCart = CustomerManager.CurrentCustomer.Cart; //Vi nämner ju aldrig att den ska hämta från shoppingcarten?
-            User user = new User();
-
-
             //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
 
         }
 
-        private void Removebtn_Click(object sender, RoutedEventArgs e)
+        public void Removebtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ShoppingCart.SelectedItem != null)
+            if (ShoppingCart.SelectedItem != null)//Operation is not valid while ItemsSource is in use.
+                                                  //Access and modify elements with ItemsControl.ItemsSource instead.
+                                                  //Har detta med rad 28 och göra? 
+
             {
+                //string input = Interaction.InputBox("Prompt", "Delete Products", "How many of the chosen product do you want to delete from your cart?", 0, 0);
+                //int amountOfProducts = int.Parse(input);
+                //Tror jag vill ha med denna. 
+
                 ShoppingCart.Items.Remove(ShoppingCart.SelectedItem);
+                //((ProductStock)Store.SelectedItem).Stock += amountOfProducts; //TODO om vi remove från cart - lägg till i lagret igen?
             }
+            else
+            {
+                MessageBox.Show("You have not selected a product.");
+            }
+
         }
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
@@ -50,24 +58,15 @@ namespace KompletteringsLabb.UserControls
 
             StoreView.Store.ItemsSource = StoreManager.CurrentStore.Storage; //Här sätter vi det som ska synas i butiken på nästa vy. 
             //Vi lägger inte in koden på "sin" sida utan i steget före. 
-            //Todo Programmet kraschar om jag klickar bakåt, lägger till en produkt och sedan in igen som kund. 
 
             StoreView.Visibility = Visibility.Visible;
-
-        }
-
-        private void LogOutbtn_Click(object sender, RoutedEventArgs e)
-        {
-            CustomerManager.CurrentCustomer = null; //  Här loggar vi ut officiellt från kunden. 
-            ShoppingCart.Items.Clear();
-            Visibility = Visibility.Collapsed; 
         }
 
         private void UpdateCart_Click(object sender, RoutedEventArgs e)
         {
             ShoppingCart.ItemsSource = null;
             ShoppingCart.Items.Clear();
-            List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart); 
+            List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart);
             ShoppingCart.ItemsSource = pStock;
 
             double sum = 0;
@@ -83,5 +82,14 @@ namespace KompletteringsLabb.UserControls
             //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
 
         }
+
+        private void LogOutbtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerManager.CurrentCustomer = null; //  Här loggar vi ut officiellt från kunden. 
+            ShoppingCart.Items.Clear();
+            Visibility = Visibility.Collapsed; 
+        }
+
+
     }
 }
