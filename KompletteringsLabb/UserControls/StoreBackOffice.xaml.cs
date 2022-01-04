@@ -47,6 +47,7 @@ namespace KompletteringsLabb.UserControls
             productStock.Total = productStock.Product.Price * productStock.Stock; 
 
             StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
+            UpdateStorage(); 
         }
 
         private async void savebtn_Click(object sender, RoutedEventArgs e)
@@ -65,6 +66,14 @@ namespace KompletteringsLabb.UserControls
             await JsonSerializer.SerializeAsync(createStream, StoreManager.CurrentStore.Storage);
             await createStream.DisposeAsync();
 
+        }
+
+        public void UpdateStorage()
+        {
+            ProductsInStore.ItemsSource = null;
+            ProductsInStore.Items.Clear();
+            List<ProductStock> storage = new(StoreManager.CurrentStore.Storage);
+            ProductsInStore.ItemsSource = storage;
         }
 
         public void UpdateTotalValue()
