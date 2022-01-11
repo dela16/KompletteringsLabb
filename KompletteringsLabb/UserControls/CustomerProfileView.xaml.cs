@@ -34,24 +34,18 @@ namespace KompletteringsLabb.UserControls
 
         public void Removebtn_Click(object sender, RoutedEventArgs e)
         {
-
             if (ShoppingCart.SelectedItem != null)
             {
                 string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart?", "Delete Products", "", 0, 0);
-                double amountOfProducts = double.Parse(input);
-                double result; 
+                double amomuntToRemove = double.Parse(input);
 
-                ProductStock newProductstock = CustomerManager.CurrentCustomer.Cart.First(prod => prod.Product == ShoppingCart.SelectedItem);
-                //Hade prod.Product.Name == ShoppingCart.SelectedItem.ToString() också men fick samma fel. 
-                //Sequence contains no matching element är felmeddelandet som jag får upp.
-                //Min newProductStock blir null när den borde ha produktensnamn i sig...
-                if (newProductstock.Stock > amountOfProducts)
+                if (((ProductStock)ShoppingCart.SelectedItem).Stock > amomuntToRemove)
                 {
-                    result = newProductstock.Stock - amountOfProducts;// osäker på om denna blir rätt. Vi gör ju ingenting med result liksom. 
+                    ((ProductStock)ShoppingCart.SelectedItem).Stock = ((ProductStock)ShoppingCart.SelectedItem).Stock-amomuntToRemove;
                 }
-                else if (newProductstock.Stock == amountOfProducts)
+                else if (((ProductStock)ShoppingCart.SelectedItem).Stock == amomuntToRemove)
                 {
-                    CustomerManager.CurrentCustomer.Cart.Remove(newProductstock);
+                    CustomerManager.CurrentCustomer.Cart.Remove((ProductStock)ShoppingCart.SelectedItem);
                 }
                 else
                 {
@@ -66,7 +60,6 @@ namespace KompletteringsLabb.UserControls
             {
                 MessageBox.Show("You have not selected a product.");
             }
-
         }
 
         private void Storebtn_Click(object sender, RoutedEventArgs e)
@@ -85,14 +78,6 @@ namespace KompletteringsLabb.UserControls
             List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart);
             ShoppingCart.ItemsSource = pStock;
 
-        }
-        private void UpdateCart_Click(object sender, RoutedEventArgs e)
-        {
-            ShoppingCart.ItemsSource = null;
-            ShoppingCart.Items.Clear();
-            List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart);
-            ShoppingCart.ItemsSource = pStock;
-
             double sum = 0;
 
             foreach (var productStock in CustomerManager.CurrentCustomer.Cart)
@@ -100,6 +85,11 @@ namespace KompletteringsLabb.UserControls
                 sum += productStock.Product.Price * productStock.Stock;
             }
             Sum.Text = sum.ToString();
+
+        }
+        private void UpdateCart_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateCartMethod(); 
 
             //Denna har varit krånglig för att få till kundvagnsvyn med store vyns add funktion. 
             //Ville helst inte ha det på det här sättet, Jag ville att det skulle ske automatiskt. 
