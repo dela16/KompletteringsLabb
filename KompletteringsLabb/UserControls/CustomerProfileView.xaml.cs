@@ -38,11 +38,24 @@ namespace KompletteringsLabb.UserControls
             if (ShoppingCart.SelectedItem != null)
             {
                 string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart?", "Delete Products", "", 0, 0);
-                int amountOfProducts = int.Parse(input);
+                double amountOfProducts = double.Parse(input);
+                double result; 
 
-                if (CustomerManager.CurrentCustomer.((ProductStock)ShoppingCart.SelectedItem) <= amountOfProducts)
-                {//Om varan finns i min kundkorg och jag vill ta bort amountOfProducts som finns i. (ex. Ta bort 2 av 3).
-                    CustomerManager.CurrentCustomer.Cart.Remove(amountOfProducts); 
+                ProductStock newProductstock = CustomerManager.CurrentCustomer.Cart.First(prod => prod.Product == ShoppingCart.SelectedItem);
+                //Hade prod.Product.Name == ShoppingCart.SelectedItem.ToString() också men fick samma fel. 
+                //Sequence contains no matching element är felmeddelandet som jag får upp.
+                //Min newProductStock blir null när den borde ha produktensnamn i sig...
+                if (newProductstock.Stock > amountOfProducts)
+                {
+                    result = newProductstock.Stock - amountOfProducts;// osäker på om denna blir rätt. Vi gör ju ingenting med result liksom. 
+                }
+                else if (newProductstock.Stock == amountOfProducts)
+                {
+                    CustomerManager.CurrentCustomer.Cart.Remove(newProductstock);
+                }
+                else
+                {
+                    MessageBox.Show("You can't take away more products than you have in your cart.");
                 }
 
                 //((ProductStock)Store.SelectedItem).Stock += amountOfProducts; //TODO om vi remove från cart - lägg till i lagret igen?
