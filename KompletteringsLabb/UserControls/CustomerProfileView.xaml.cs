@@ -34,17 +34,20 @@ namespace KompletteringsLabb.UserControls
 
         public void Removebtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ShoppingCart.SelectedItem != null)//Operation is not valid while ItemsSource is in use.
-                                                  //Access and modify elements with ItemsControl.ItemsSource instead.
-                                                  //Har detta med rad 28 och göra? Jag vill ju inte cleara någonstans..
 
+            if (ShoppingCart.SelectedItem != null)
             {
-                //string input = Interaction.InputBox("Prompt", "Delete Products", "How many of the chosen product do you want to delete from your cart?", 0, 0);
-                //int amountOfProducts = int.Parse(input);
-                //Tror jag vill ha med denna. 
+                string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart?", "Delete Products", "", 0, 0);
+                int amountOfProducts = int.Parse(input);
 
-                ShoppingCart.Items.Remove(ShoppingCart.SelectedItem);
+                if (CustomerManager.CurrentCustomer.((ProductStock)ShoppingCart.SelectedItem) <= amountOfProducts)
+                {//Om varan finns i min kundkorg och jag vill ta bort amountOfProducts som finns i. (ex. Ta bort 2 av 3).
+                    CustomerManager.CurrentCustomer.Cart.Remove(amountOfProducts); 
+                }
+
                 //((ProductStock)Store.SelectedItem).Stock += amountOfProducts; //TODO om vi remove från cart - lägg till i lagret igen?
+
+                UpdateCartMethod(); 
             }
             else
             {
@@ -62,6 +65,14 @@ namespace KompletteringsLabb.UserControls
             StoreView.Visibility = Visibility.Visible;
         }
 
+        public void UpdateCartMethod()
+        {
+            ShoppingCart.ItemsSource = null;
+            ShoppingCart.Items.Clear();
+            List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart);
+            ShoppingCart.ItemsSource = pStock;
+
+        }
         private void UpdateCart_Click(object sender, RoutedEventArgs e)
         {
             ShoppingCart.ItemsSource = null;

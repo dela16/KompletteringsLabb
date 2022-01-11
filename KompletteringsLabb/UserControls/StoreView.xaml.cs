@@ -36,11 +36,11 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-            //TODO User userCart = new User(); //används ens denna? 
             double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
             string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0);
-            int amountOfProducts = int.Parse(input);                                       
+            int amountOfProducts = int.Parse(input);
+            
             if (((ProductStock)Store.SelectedItem).Stock < amountOfProducts)
             {
                 MessageBox.Show("Not enough products in Stock");
@@ -58,10 +58,15 @@ namespace KompletteringsLabb.UserControls
 
             if (CustomerManager.CurrentCustomer.Cart.Contains((ProductStock)Store.SelectedItem))
             {
-                //om du har produkterna i korgen redan så öka antalet annars add. 
+                int oldAdd;
+                int newAdd;
+                int total;
+
+                //om du har produkterna i korgen redan så öka antalet med så många till som du lägger på (på samma rad) annars add. 
+
                 for (int i = 0; i < productStockToAdd.Stock; i++)
                 {
-                    CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd); 
+                    //CustomerManager.CurrentCustomer.Cart.Add(); 
                     MessageBox.Show("Products added to cart.");
                 }
                 return; 
@@ -74,8 +79,6 @@ namespace KompletteringsLabb.UserControls
 
             ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
 
-            //CustomerProfileView.Sum.Text = (sum += product.Product.Price * product.Stock).ToString();
-            //Ska denna vara här eller i min CP vy? 
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
