@@ -52,7 +52,21 @@
                 Grid.Row="3"
                 Grid.RowSpan="7"
                 Grid.Column="1"
-                Grid.ColumnSpan="4" />
+                Grid.ColumnSpan="4"
+                ItemsSource="{Binding Source=CustomerManager.CurrentCustomer.Cart}">
+                <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="150"
+                        DisplayMemberBinding="{Binding Product.Name}"
+                        Header="Product Name" />
+                    <GridViewColumn
+                        Width="150"
+                        DisplayMemberBinding="{Binding Product.Price}"
+                        Header="Price" />
+                </GridView>
+                </ListView.View>
+            </ListView>
             <TextBlock
                 x:Name="ReadyToPayText"
                 Grid.Row="3"
@@ -67,6 +81,11 @@
                 Grid.Row="5"
                 Grid.Column="7"
                 Content="Yes" />
+            <Button
+                x:Name="Updatebtn"
+                Grid.Row="9"
+                Grid.Column="5"
+                Content="Update" Height="37" VerticalAlignment="Top" Click="Updatebtn_Click" />
             <TextBlock
                 x:Name="TotalSum"
                 Grid.Row="10"

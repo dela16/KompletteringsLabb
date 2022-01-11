@@ -77,13 +77,15 @@ namespace KompletteringsLabb.UserControls
                 MessageBox.Show("" + amountOfProducts + " " + ((ProductStock)Store.SelectedItem).Product.Name + " added to your shoppingcart.");
             }
 
-            ((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
+            //((ProductStock)Store.SelectedItem).Stock -= amountOfProducts; //Antingen kan jag paxa produkterna och göra det omöjligt
+            //För en kund att lägga till i sin kundkorg redan här eller så försvinner de från andra kunders vyer först när jag checkar ut. 
+            //Testar att lägga det vid utcheckning. Som kund hade jag nog blivit sur oavsett scenario. 
 
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)
         {
-             CashierView.Visibility = Visibility.Visible;
+            CashierView.Visibility = Visibility.Visible;
         }
         
     }
