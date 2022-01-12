@@ -13,7 +13,8 @@ namespace KompletteringsLabb.Models
 
         public static void InitializeStoreManager()
         {
-            Store store = new Store() { StoreName = "Denice Icabutik" };
+            Store store = new Store();
+            store.StoreName = "Bohusbutiken" ;
             Stores.Add(store);
             CurrentStore = store;
             //CurrentStore.customers.Add(CustomerManager.CurrentCustomer);

@@ -15,13 +15,14 @@ namespace KompletteringsLabb
     {
         public User Admin { get; set; } = new();
 
-        public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
-        //TODO fixa denna. Måste logga 
+        public string StoreName { get; set; }
         public List<ProductStock> Storage { get; set; } = new List<ProductStock>(); //butikens lager. 
 
+        public static Store StoreObject { get; set; }
         public Store()
         {
             LoadStorageFromFile();
+            StoreObject = this;
         }
 
         public bool LogInAdmin(User inputadmin)
@@ -60,7 +61,8 @@ namespace KompletteringsLabb
             Storage = JsonSerializer.DeserializeAsync<List<ProductStock>>(OpenStream).Result;
             
         }
-        public async Task CheckOut(User kund)
+        public async Task CheckOut(User kund) //TODO är denna på fel ställe?
+            //Jag har den inuti min storeview just nu. 
         {
             MessageBox.Show("Payment Succeeded!");
         }

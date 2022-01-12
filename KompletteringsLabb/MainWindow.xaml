@@ -36,15 +36,14 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock
-                x:Name="LoginTextblock"
+            <TextBox
+                x:Name="StoreNameTextBox"
                 Grid.Row="2"
                 Grid.RowSpan="2"
                 Grid.Column="2"
                 Grid.ColumnSpan="4"
                 Background="White"
                 FontSize="40"
-                Text="LOGIN"
                 TextAlignment="Center" />
             <Button
                 x:Name="Admin"

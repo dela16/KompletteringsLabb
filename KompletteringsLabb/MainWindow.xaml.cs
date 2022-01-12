@@ -24,6 +24,8 @@ namespace KompletteringsLabb
         public MainWindow()
         {
             InitializeComponent();
+
+            StoreNameTextBox.Text = Store.StoreObject.StoreName;
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)

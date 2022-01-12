@@ -68,23 +68,21 @@ namespace KompletteringsLabb.UserControls
             productStockToAdd.Product = productToAdd;
             productStockToAdd.Stock = amountOfProducts;
 
-
-            if (CustomerManager.CurrentCustomer.Cart.Contains((ProductStock)Store.SelectedItem))
+            foreach (ProductStock produkt in CustomerManager.CurrentCustomer.Cart)
             {
-                for (int i = 0; i < productStockToAdd.Stock; i++)
+                if (produkt.Product.Name == productStockToAdd.Product.Name)//Här gör vi så att om varan redan finns i vår lista, då slår vi ihop produkterna.
                 {
-                    //CustomerManager.CurrentCustomer.Cart.Add(); 
-                    MessageBox.Show("Products added to cart.");
+                    produkt.Stock += amountOfProducts;
+                    CustomerProfileView.CustomerProfileViewObject.UpdateCartMethod();
+                    MessageBox.Show("" + amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
+                    return;
                 }
-                return; 
             }
-            else
-            {
-                CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);
-                MessageBox.Show("" + amountOfProducts + " " + ((ProductStock)Store.SelectedItem).Product.Name + " added to your shoppingcart.");
-            }
-
+           
+            CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);
+            MessageBox.Show("" + amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
             CustomerProfileView.CustomerProfileViewObject.UpdateCartMethod();
+
         }
 
         private void CheckOutBtn_Click(object sender, RoutedEventArgs e)

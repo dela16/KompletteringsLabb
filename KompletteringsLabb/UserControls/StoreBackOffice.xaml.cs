@@ -59,8 +59,21 @@ namespace KompletteringsLabb.UserControls
             productStock.Stock = amountOfProducts;
             productStock.Total = productStock.Product.Price * productStock.Stock;
 
-            StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
+
+            foreach (ProductStock produkt in StoreManager.CurrentStore.Storage)
+            {
+                if (produkt.Product.Name == productStock.Product.Name)//Här gör vi så att om varan redan finns i vår lista, då slår vi ihop produkterna.
+                {
+                    produkt.Stock += amountOfProducts; 
+                    UpdateStorage();
+                    UpdateTotalValue(); 
+                    return;
+                }
+            }
+            StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan.
             UpdateStorage();
+            UpdateTotalValue(); 
+            return;
 
         }
 
