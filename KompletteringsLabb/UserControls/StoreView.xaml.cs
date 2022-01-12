@@ -38,8 +38,6 @@ namespace KompletteringsLabb.UserControls
         {
             double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
-            
-            //TODO Programmet kraschar om jag klickar på cancel.
 
             if (((ProductStock)Store.SelectedItem) == null )
             {
@@ -47,7 +45,7 @@ namespace KompletteringsLabb.UserControls
                 return;
             }
 
-            string input = Interaction.InputBox("How many would you like to add? OBS! Numbers only! Not letters.", "Add to cart", "", 0, 0);
+            string input = Interaction.InputBox("How many would you like to add? OBS! Numeric Numbers only!", "Add to cart", "", 0, 0);
 
             if (input == " " || input == "")
             {

@@ -29,7 +29,7 @@ namespace KompletteringsLabb.UserControls
             //UpdateTotalValue(); 
         }
 
-        private void backbtn_Click(object sender, RoutedEventArgs e)
+        private void logOutbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
         }
@@ -39,15 +39,13 @@ namespace KompletteringsLabb.UserControls
             ProductStock productStock = new ProductStock();
             Product product = (Product)ProductsToAdd.SelectedItem;
 
-            //TODO Cancel knappen funkar fortfarande inte. 
-
             if (product == null) //Om det inte finns någon selected item. Så ska vi inte kunna gå vidare
             {
                 MessageBox.Show("No product selected.");
                 return;
             }
 
-            string input = Interaction.InputBox("How many products do you want to add? OBS! Numbers only!", "Add to stock", "", 0, 0);
+            string input = Interaction.InputBox("How many products do you want to add? OBS! Numeric numbers only!", "Add to stock", "", 0, 0);
 
             if (input == " " || input == "")
             {
@@ -63,31 +61,6 @@ namespace KompletteringsLabb.UserControls
 
             StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
             UpdateStorage();
-
-
-            //else if (amountOfProducts == 0)
-            //{
-            //    amountOfProducts = int.Parse(MessageBoxResult.Cancel = 2);
-            //}
-
-            //TODO fixa cancel knappen samt att programmet krachar om jag inte skriver in en siffra. 
-            //TODO Ha en isDigit funktion? Hur göra med strängar och tomma strängar? 
-            //Interaction.MsgBox("add", MsgBoxStyle.DefaultButton1, "Title");
-            //Interaction.MsgBox("add", MsgBoxStyle.DefaultButton2, "Title");
-            //Interaction.MsgBox("add", MsgBoxStyle.DefaultButton3, "Title");
-
-            //if (Interaction.MsgBox("add", MsgBoxStyle.DefaultButton1, "Title") == MsgBoxResult.Ok)
-            //{
-            //    MessageBox.Show("OkButton clicked");
-            //}
-            //else if (Interaction.MsgBox("add", MsgBoxStyle.DefaultButton2, "Title") == MsgBoxResult.Cancel)
-            //{
-            //    MessageBox.Show("Cancel Button clicked");
-            //}
-            //else if(Interaction.MsgBox("add", MsgBoxStyle.DefaultButton3, "Title") == MsgBoxResult.Abort) 
-            //{
-            //    MessageBox.Show("abort Button clicked");
-            //}
 
         }
 

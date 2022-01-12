@@ -106,5 +106,9 @@
                 Click="Nobtn_Click"
                 Content="No, I want to shop more" />
         </Grid>
+        <views:CustomerLoginView
+            x:Name="CustomerLoginView"
+            Grid.Row="1"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

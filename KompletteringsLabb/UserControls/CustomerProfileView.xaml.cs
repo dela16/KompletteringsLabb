@@ -69,7 +69,6 @@ namespace KompletteringsLabb.UserControls
 
             StoreView.Store.ItemsSource = StoreManager.CurrentStore.Storage; //Här sätter vi det som ska synas i butiken på nästa vy. 
             //Vi lägger inte in koden på "sin" sida utan i steget före. 
-
             StoreView.Visibility = Visibility.Visible;
         }
 
@@ -98,11 +97,13 @@ namespace KompletteringsLabb.UserControls
             //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
         }
 
-        private void LogOutbtn_Click(object sender, RoutedEventArgs e) //TODO LogOut knappen funkar inte. 
+        private void LogOutbtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerManager.CurrentCustomer = null; //  Här loggar vi ut officiellt från kunden. 
+            CustomerManager.CurrentCustomer = null; //Här loggar vi ut officiellt från kunden. 
+            ShoppingCart.ItemsSource = null; 
             ShoppingCart.Items.Clear();
-            Visibility = Visibility.Collapsed; 
+            MessageBox.Show("Logout has been succeeded.");
+            Visibility = Visibility.Collapsed;
         }
 
 
