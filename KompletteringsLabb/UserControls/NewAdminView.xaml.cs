@@ -39,19 +39,25 @@ namespace KompletteringsLabb.UserControls
 
             AdminManager.Admins.Add(admin);
 
-            if (AdminName.Text == "")
+            if (AdminName.Text == "" || AdminName.Text == " ")
             {
-                MessageBox.Show("You have to insert a username.");
+                MessageBox.Show("Not a valid username.");
             }
-            else if (AdminPassword.Text == "")
+            else if (AdminPassword.Text == ""|| AdminPassword.Text == " ")
             {
-                MessageBox.Show("You have to insert a password.");
+                MessageBox.Show("Not a valid password.");
             }
             else
             {
+                MessageBox.Show("new admin saved.");
                 //Här vill vi spara till fil.
                 await saveAdminToFile();
                 Visibility = Visibility.Collapsed;
+
+                AdminManager.Admins.Add(admin); 
+
+                AdminName.Clear(); //Om vi går vidare så ska den clearas.  
+                AdminPassword.Clear();
             }
         }
 
