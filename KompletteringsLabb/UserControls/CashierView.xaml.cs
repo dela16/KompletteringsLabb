@@ -27,8 +27,6 @@ namespace KompletteringsLabb.UserControls
 
             ProductsInCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
             int sum = 0;
-
-            TotalSum.Text = "The sum is " + sum + " Sek.";
         }
 
 
@@ -49,14 +47,25 @@ namespace KompletteringsLabb.UserControls
 
         }
 
-        //private async Task Yesbtn_ClickAsync(object sender, RoutedEventArgs e)
-        //{
-        //    //Kan utarbeta denna mer, en plånbok exepmelvis.
+        public void Yesbtn_Click(object sender, RoutedEventArgs e)//private async Task Yesbtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Kan utarbeta denna mer, en plånbok exepmelvis.
 
-        //    ((ProductStock)StoreView.Store.SelectedItem).Stock -= amountOfProducts; //Här sänker vi antalet i lagret för butiken.
-        //    MessageBox.Show("You have payed. Thank you, come again. ");
-        //    ClearAndCheckout();
-        //}
+            //Här sänker vi antalet i lagret för butiken.
+            //Vi kollar produkterna i kundvagnen, jämför dom med produkterna i lagret och sänker från lagret när vi handlar. 
+            foreach (var customerProductStock in CustomerManager.CurrentCustomer.Cart)
+            {
+                foreach (var storeProductStock in StoreManager.CurrentStore.Storage)
+                {
+                    if (storeProductStock.Product == customerProductStock.Product)
+                    {
+                        storeProductStock.Stock -= customerProductStock.Stock; 
+                    }
+                }
+            }
+
+          // await ClearAndCheckout(); //TODO anropas med await.
+        }
 
         private void Nobtn_Click(object sender, RoutedEventArgs e)
         {
@@ -68,11 +77,12 @@ namespace KompletteringsLabb.UserControls
             UpdateCartMethod();
         }
 
-        //private async Task ClearAndCheckout()
-        //{
-        //    ProductsInCart.Clear();
-        //    CustomerProfileView.ShoppingCart.Clear();
-        //    await CheckOut(); //Vi vill ju koppla denna till Store Checkout. 
-        //}
+        private void ClearAndCheckout()
+        {
+            MessageBox.Show("You have payed. Thank you, come again. ");
+            ProductsInCart.Items.Clear();
+            //CustomerProfileView.ShoppingCart.Items.Clear();
+        }
+
     }
 }

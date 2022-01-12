@@ -115,6 +115,6 @@
         <views:StoreView
             x:Name="StoreView"
             Grid.Row="1"
-            Visibility="Collapsed" />
+            Visibility="Collapsed"/>
     </Grid>
 </UserControl>

@@ -90,7 +90,7 @@
                 Grid.RowSpan="8"
                 Grid.Column="6"
                 Grid.ColumnSpan="5"
-                ItemsSource="{Binding Source= StoreManage.CurrentStore.Storage}">
+                ItemsSource="{Binding Source= StoreManager.CurrentStore.Storage}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -118,6 +118,11 @@
                 Grid.Column="10"
                 Click="savebtn_Click"
                 Content="Save" />
+            <Button
+                x:Name="Removebtn"
+                Grid.Row="10"
+                Grid.Column="6"
+                Content="Remove" Click="Removebtn_Click" />
             <Button
                 x:Name="backbtn"
                 Grid.Row="0"

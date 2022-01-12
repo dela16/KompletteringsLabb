@@ -38,8 +38,9 @@ namespace KompletteringsLabb.UserControls
         {
             double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
-            string input = Interaction.InputBox("Prompt", "Add to cart", "How many?", 0, 0);
+            string input = Interaction.InputBox("Prompt", "Add to cart", "How many? OBS! Numbers only! Not letters.", 0, 0);
             int amountOfProducts = int.Parse(input);
+            //TODO Programmet kraschar om jag klickar på cancel.
             
             if (((ProductStock)Store.SelectedItem).Stock < amountOfProducts)
             {

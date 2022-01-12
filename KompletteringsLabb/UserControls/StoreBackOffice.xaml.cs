@@ -47,8 +47,13 @@ namespace KompletteringsLabb.UserControls
             productStock.Total = productStock.Product.Price * productStock.Stock; 
 
             StoreManager.CurrentStore.Storage.Add(productStock);// Här lägger vi till den i lagret på affären och det som hamnar i fil sedan. Ovan lägger vi till dom i listvyn bara. 
-            UpdateStorage(); 
+            UpdateStorage();
         }
+
+
+        //TODO Remove button? Vi har just nu två rader med samma info. 
+        //Kolla hur du gjort för kunden, ska säkert vara snarlikt där. 
+
 
         private async void savebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -84,6 +89,12 @@ namespace KompletteringsLabb.UserControls
             }
             //Denna är skapad för att se till så att ingen "grundlager-produkt" har 0 i sig. 
             //Från och med nu så kommer total value uppdateras tack vare rad 47. 
+        }
+
+        private void Removebtn_Click(object sender, RoutedEventArgs e)
+        {
+            StoreManager.CurrentStore.Storage.Remove((ProductStock)ProductsInStore.SelectedItem);
+            UpdateStorage(); 
         }
 
     }

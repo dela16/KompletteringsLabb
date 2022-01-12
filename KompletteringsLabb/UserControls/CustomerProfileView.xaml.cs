@@ -36,7 +36,7 @@ namespace KompletteringsLabb.UserControls
         {
             if (ShoppingCart.SelectedItem != null)
             {
-                string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart?", "Delete Products", "", 0, 0);
+                string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart? OBS! Numbers only! Not letters.", "Delete Products", "", 0, 0);
                 double amomuntToRemove = double.Parse(input);
 
                 if (((ProductStock)ShoppingCart.SelectedItem).Stock > amomuntToRemove)
@@ -47,12 +47,14 @@ namespace KompletteringsLabb.UserControls
                 {
                     CustomerManager.CurrentCustomer.Cart.Remove((ProductStock)ShoppingCart.SelectedItem);
                 }
+                else if (amomuntToRemove == double.Parse(" ") || amomuntToRemove == double.Parse(""))
+                {
+                    MessageBox.Show("You have to put in an amount. Obs! Numbers only, no letters! If you don't want to remove any products, press 0.");
+                }
                 else
                 {
                     MessageBox.Show("You can't take away more products than you have in your cart.");
                 }
-
-                //((ProductStock)Store.SelectedItem).Stock += amountOfProducts; //TODO om vi remove från cart - lägg till i lagret igen?
 
                 UpdateCartMethod(); 
             }
@@ -94,7 +96,6 @@ namespace KompletteringsLabb.UserControls
             //Denna har varit krånglig för att få till kundvagnsvyn med store vyns add funktion. 
             //Ville helst inte ha det på det här sättet, Jag ville att det skulle ske automatiskt. 
             //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
-
         }
 
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)
