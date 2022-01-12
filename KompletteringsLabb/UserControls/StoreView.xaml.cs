@@ -38,16 +38,31 @@ namespace KompletteringsLabb.UserControls
         {
             double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
-            string input = Interaction.InputBox("Prompt", "Add to cart", "How many? OBS! Numbers only! Not letters.", 0, 0);
-            int amountOfProducts = int.Parse(input);
-            //TODO Programmet kraschar om jag klickar på cancel.
             
+            //TODO Programmet kraschar om jag klickar på cancel.
+
+            if (((ProductStock)Store.SelectedItem) == null )
+            {
+                MessageBox.Show("You have to select an item.");
+                return;
+            }
+
+            string input = Interaction.InputBox("How many would you like to add? OBS! Numbers only! Not letters.", "Add to cart", "", 0, 0);
+
+            if (input == " " || input == "")
+            {
+                MessageBox.Show("You have to write a number.");
+                return;
+            }
+
+            int amountOfProducts = int.Parse(input);
+
             if (((ProductStock)Store.SelectedItem).Stock < amountOfProducts)
             {
                 MessageBox.Show("Not enough products in Stock");
-                return; 
+                return;
             }
-
+            
             var productStockToAdd = new ProductStock();
             var productToAdd = new Product();
 
@@ -59,11 +74,7 @@ namespace KompletteringsLabb.UserControls
 
             if (CustomerManager.CurrentCustomer.Cart.Contains((ProductStock)Store.SelectedItem))
             {
-                int oldAdd;
-                int newAdd;
-                int total;
-
-                //om du har produkterna i korgen redan så öka antalet med så många till som du lägger på (på samma rad) annars add. 
+                //Går att fördjupa genom att lägga samma produkter på en och samma rad. Om vi lägger till den vid flera tillfällen.  
 
                 for (int i = 0; i < productStockToAdd.Stock; i++)
                 {

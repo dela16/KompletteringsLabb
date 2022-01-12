@@ -98,7 +98,7 @@ namespace KompletteringsLabb.UserControls
             //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
         }
 
-        private void LogOutbtn_Click(object sender, RoutedEventArgs e)
+        private void LogOutbtn_Click(object sender, RoutedEventArgs e) //TODO LogOut knappen funkar inte. 
         {
             CustomerManager.CurrentCustomer = null; //  Här loggar vi ut officiellt från kunden. 
             ShoppingCart.Items.Clear();
