@@ -39,28 +39,32 @@ namespace KompletteringsLabb.UserControls
             user.Password = CustomerPassword.Text;
 
 
-            if (CustomerName.Text == "") //eller borde vi först hänvisa till user.Name?
+            if (CustomerName.Text == "" || CustomerName.Text == " ")
             {
                 MessageBox.Show("You must have a Username");
+                return;
             }
-            else if (CustomerPassword.Text == "")
+            else if (CustomerPassword.Text == "" || CustomerPassword.Text == " ")
             {
-                MessageBox.Show("Not a validate password");
+                MessageBox.Show("Not a valid password");
+                return;
             }
-            else {
-            Visibility = Visibility.Collapsed;
-                //await SaveCustomersToFile();//Denna tror jag inte fungerar helt ännu... (Se dokumentet) 
-            };
-            //Denna går såklart att avancera med fler villkor men vi börjar här. 
+            else
+            {
+                Visibility = Visibility.Collapsed;
+                //await SaveCustomersToFile();
 
-            CustomerManager.Customers.Add(user);
+                //Denna går såklart att avancera med fler villkor.
 
-            //Sparas till fil, nu asynkromt
-            await SaveCustomersToFile();
-            MessageBox.Show("Customer saved");
+                CustomerManager.Customers.Add(user);
 
-            CustomerName.Clear(); //Om vi går vidare så ska den clearas.  
-            CustomerPassword.Clear();
+                //Sparas till fil, nu asynkromt
+                await SaveCustomersToFile();
+                MessageBox.Show("Customer saved");
+
+                CustomerName.Clear(); //Om vi går vidare så ska den clearas.  
+                CustomerPassword.Clear();
+            }
 
         }
         

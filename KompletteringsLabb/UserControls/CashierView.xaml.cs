@@ -48,7 +48,7 @@ namespace KompletteringsLabb.UserControls
         }
 
         public void Yesbtn_Click(object sender, RoutedEventArgs e)//private async Task Yesbtn_Click(object sender, RoutedEventArgs e)
-        {
+        {//TODO knappen funkar ej. 
             //Kan utarbeta denna mer, en plånbok exepmelvis.
 
             //Här sänker vi antalet i lagret för butiken.
