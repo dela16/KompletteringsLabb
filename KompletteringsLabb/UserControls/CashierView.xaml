@@ -82,14 +82,6 @@
                 Grid.Column="7"
                 Click="Yesbtn_Click"
                 Content="Yes" />
-            <Button
-                x:Name="Updatebtn"
-                Grid.Row="9"
-                Grid.Column="5"
-                Height="37"
-                VerticalAlignment="Top"
-                Click="Updatebtn_Click"
-                Content="Update" />
             <TextBlock
                 x:Name="TotalSum"
                 Grid.Row="10"
@@ -104,11 +96,7 @@
                 Height="37"
                 VerticalAlignment="Top"
                 Click="Nobtn_Click"
-                Content="No, I want to shop more" />
+                Content="I want to shop more" />
         </Grid>
-        <views:CustomerLoginView
-            x:Name="CustomerLoginView"
-            Grid.Row="1"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>

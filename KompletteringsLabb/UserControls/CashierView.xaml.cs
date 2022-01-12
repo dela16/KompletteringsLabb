@@ -21,12 +21,13 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class CashierView : UserControl
     {
+        public static CashierView CashierViewObject { get; set; } //Den här gör så vi kommer åt en metod i denna cs-filen i en annan cs-fil. 
         public CashierView()
         {
             InitializeComponent();
+            CashierViewObject = this; 
 
             ProductsInCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
-            int sum = 0;
         }
 
 
@@ -37,27 +38,17 @@ namespace KompletteringsLabb.UserControls
             List<ProductStock> pStock = new(CustomerManager.CurrentCustomer.Cart);
             ProductsInCart.ItemsSource = pStock;
 
-            updateTotalSum(); 
-
+            updateTotalSum();
         }
 
-       
-        //public void Yesbtn_Click(object sender, RoutedEventArgs e)//
         private async void Yesbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Kan utarbeta denna mer, en plånbok exepmelvis osv. Men inte denna gången!
-
             await CheckOut(CustomerManager.CurrentCustomer);
         }
 
         private void Nobtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
-        }
-
-        private void Updatebtn_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateCartMethod();
         }
 
 
@@ -82,7 +73,8 @@ namespace KompletteringsLabb.UserControls
            ProductsInCart.Items.Clear();//Vi behöver göra null när vi vill ta bort items ur det visuella. 
            customer.Cart.Clear();
            updateTotalSum();
-           logOut(); 
+           CustomerProfileView.CustomerProfileViewObject.UpdateCartMethod(); 
+           //Raden ovan gör att vi kommer åt uppdatera metoden från CPV i den här vyn. Så töms den på produkter samtidigt som jag klickar på yes. 
         }
 
         public void updateTotalSum()
@@ -96,9 +88,5 @@ namespace KompletteringsLabb.UserControls
             TotalSum.Text = "Total sum: " + sum.ToString();
         }
 
-        private void logOut()
-        {
-            Visibility = Visibility.Collapsed;
-        }
     }
 }

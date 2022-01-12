@@ -27,7 +27,7 @@ namespace KompletteringsLabb.UserControls
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
-            CustomerName.Clear(); //Om vi börjat skriva något och går tillbaka så raderas detta. 
+            CustomerName.Clear();
             CustomerPassword.Clear();
         }
 
@@ -54,15 +54,13 @@ namespace KompletteringsLabb.UserControls
                 Visibility = Visibility.Collapsed;
                 //await SaveCustomersToFile();
 
-                //Denna går såklart att avancera med fler villkor.
-
                 CustomerManager.Customers.Add(user);
 
                 //Sparas till fil, nu asynkromt
                 await SaveCustomersToFile();
                 MessageBox.Show("Customer saved");
 
-                CustomerName.Clear(); //Om vi går vidare så ska den clearas.  
+                CustomerName.Clear();
                 CustomerPassword.Clear();
             }
 

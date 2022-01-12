@@ -23,8 +23,7 @@ namespace KompletteringsLabb
     {
         public MainWindow()
         {
-            InitializeComponent();            
-  
+            InitializeComponent();
         }
 
         private void Admin_Click(object sender, RoutedEventArgs e)
@@ -35,7 +34,7 @@ namespace KompletteringsLabb
 
         private void Customer_Click(object sender, RoutedEventArgs e)
         {
-            CustomerLoginView.Visibility = Visibility.Visible; 
+            CustomerLoginView.Visibility = Visibility.Visible;
         }
     }
 }

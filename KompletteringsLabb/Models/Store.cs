@@ -16,6 +16,7 @@ namespace KompletteringsLabb
         public User Admin { get; set; } = new();
 
         public string StoreName { get; set; } //Butikens namn. Matcha den med admin. 
+        //TODO fixa denna. Måste logga 
         public List<ProductStock> Storage { get; set; } = new List<ProductStock>(); //butikens lager. 
 
         public Store()
@@ -23,7 +24,7 @@ namespace KompletteringsLabb
             LoadStorageFromFile();
         }
 
-        public bool LogInAdmin(User inputadmin)//Varför kopplas inte den här till adminManager? Varför funkar inte min default? Är det för att den inte kopplas till admins?
+        public bool LogInAdmin(User inputadmin)
         {
 
             foreach (User admin in AdminManager.Admins)
@@ -42,7 +43,7 @@ namespace KompletteringsLabb
             {
                 if (customer.Name == user.Name && customer.Password == user.Password)
                 {
-                    CustomerManager.CurrentCustomer = customer; //Här blir den inloggade använderen CurrentCustomer. Gå till CustomerLoginView för nästa steg.
+                    CustomerManager.CurrentCustomer = customer; //Här blir den inloggade användaren CurrentCustomer.
                     return true;
                 }
             }
@@ -59,7 +60,6 @@ namespace KompletteringsLabb
             Storage = JsonSerializer.DeserializeAsync<List<ProductStock>>(OpenStream).Result;
             
         }
-
         public async Task CheckOut(User kund)
         {
             MessageBox.Show("Payment Succeeded!");

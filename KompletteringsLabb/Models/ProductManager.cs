@@ -11,7 +11,6 @@ namespace KompletteringsLabb.Models
     public class ProductManager
     {   //DET HÄR ÄR LISTAN ÖVER ALLA PRODUKTER. 
         //cLASSEN PRODUCT VISAR VAD DEN SKA HA FÖR ATTRIBUT! 
-        //ProductManager måste matcha rätt butiksnamn
 
         public static List<Product> Products { get; set;} = new List<Product>();
 

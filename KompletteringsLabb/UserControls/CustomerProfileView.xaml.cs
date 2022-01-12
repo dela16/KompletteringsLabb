@@ -22,10 +22,11 @@ namespace KompletteringsLabb.UserControls
     /// </summary>
     public partial class CustomerProfileView : UserControl
     {
+        public static CustomerProfileView CustomerProfileViewObject { get; set; } //denna gör så att jag kan komma åt en metod härifrån i en annan cs fil. 
         public CustomerProfileView()
         {
             InitializeComponent();
-
+            CustomerProfileViewObject = this;
             ShoppingCart.ItemsSource = CustomerManager.CurrentCustomer.Cart;
 
             //UserName.Text = $"Welcome back {CustomerManager.CurrentCustomer.Name}"; // Denna skrivs in i vyn innan istället. 
@@ -36,7 +37,7 @@ namespace KompletteringsLabb.UserControls
         {
             if (ShoppingCart.SelectedItem != null)
             {
-                string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart? OBS! Numbers only! Not letters.", "Delete Products", "", 0, 0);
+                string input = Interaction.InputBox("How many of the chosen product do you want to delete from your cart? OBS! Numeric numbers only!", "Delete Products", "", 0, 0);
                 double amomuntToRemove = double.Parse(input);
 
                 if (((ProductStock)ShoppingCart.SelectedItem).Stock > amomuntToRemove)
@@ -49,7 +50,7 @@ namespace KompletteringsLabb.UserControls
                 }
                 else if (amomuntToRemove == double.Parse(" ") || amomuntToRemove == double.Parse(""))
                 {
-                    MessageBox.Show("You have to put in an amount. Obs! Numbers only, no letters! If you don't want to remove any products, press 0.");
+                    MessageBox.Show("You have to put in an amount. Obs! Numeric numbers only!");
                 }
                 else
                 {
@@ -88,15 +89,6 @@ namespace KompletteringsLabb.UserControls
             Sum.Text = sum.ToString();
 
         }
-        private void UpdateCart_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateCartMethod(); 
-
-            //Denna har varit krånglig för att få till kundvagnsvyn med store vyns add funktion. 
-            //Ville helst inte ha det på det här sättet, Jag ville att det skulle ske automatiskt. 
-            //Men efter många timmar så var det denna som fungerar så då tar jag den vinsten!
-        }
-
         private void LogOutbtn_Click(object sender, RoutedEventArgs e)
         {
             CustomerManager.CurrentCustomer = null; //Här loggar vi ut officiellt från kunden. 

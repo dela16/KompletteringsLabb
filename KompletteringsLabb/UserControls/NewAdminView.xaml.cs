@@ -22,7 +22,6 @@ namespace KompletteringsLabb.UserControls
         {
             InitializeComponent();
         }
-
         private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
@@ -56,7 +55,7 @@ namespace KompletteringsLabb.UserControls
 
                 AdminManager.Admins.Add(admin); 
 
-                AdminName.Clear(); //Om vi går vidare så ska den clearas.  
+                AdminName.Clear(); //När vi går vidare så ska den clearas.  
                 AdminPassword.Clear();
             }
         }

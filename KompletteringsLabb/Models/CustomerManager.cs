@@ -21,12 +21,9 @@ namespace KompletteringsLabb.Models
             LoadCustomersFromFile();
             //Customers.Add(new User() {Name="DeniceML", Password="DenicePassword" });
 
-            //Juste, måste kunde välja vilken butik den vill handla i? 
-            //Ha en lista med stores? 
-
         }
 
-        //Den här hämtar listan med sparade kunder där jag sparade den. Ingen ruta poppar upp. 
+        //Den här hämtar listan med sparade kunder där jag sparade den.
         public static void LoadCustomersFromFile() 
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);

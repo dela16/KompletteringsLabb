@@ -11,7 +11,7 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <Grid x:Name="Display" Background="#FFFFF0">
+        <Grid x:Name="Display" Background="LightSkyBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

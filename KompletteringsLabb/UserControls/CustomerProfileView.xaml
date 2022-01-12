@@ -103,14 +103,6 @@
                 HorizontalAlignment="Center"
                 Click="Storebtn_Click"
                 Content="Store" />
-            <Button
-                x:Name="UpdateCart"
-                Grid.Row="10"
-                Grid.Column="3"
-                Width="100"
-                HorizontalAlignment="Center"
-                Click="UpdateCart_Click"
-                Content="Update Cart" />
         </Grid>
         <views:StoreView
             x:Name="StoreView"
