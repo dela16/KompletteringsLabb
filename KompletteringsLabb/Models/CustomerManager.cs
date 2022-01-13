@@ -23,8 +23,8 @@ namespace KompletteringsLabb.Models
 
         }
 
-        //Den här hämtar listan med sparade kunder där jag sparade den.
-        public static void LoadCustomersFromFile() 
+        
+        public static void LoadCustomersFromFile() //Den här hämtar listan med sparade kunder.
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string fileNameCustomers = "Customers.json";
@@ -35,7 +35,8 @@ namespace KompletteringsLabb.Models
         }
 
 
-        //Här väljer vi vilken fil vi ska öppna med kunder om jag vill välja det själv. 
+        //Koden nedan är en slags "pop-up" som kommer upp. Om jag avkommenterar den då kommer den köras när jag kallar på den. 
+        //Men jag vill inte ha den så därför är den utkommenterad. 
 
 
         //private static void LoadOpenFileDialogForCustomers() 

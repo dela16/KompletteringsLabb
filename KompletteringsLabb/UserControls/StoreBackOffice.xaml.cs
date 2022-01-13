@@ -39,7 +39,7 @@ namespace KompletteringsLabb.UserControls
             ProductStock productStock = new ProductStock();
             Product product = (Product)ProductsToAdd.SelectedItem;
 
-            if (product == null) //Om det inte finns någon selected item. Så ska vi inte kunna gå vidare
+            if (product == null)
             {
                 MessageBox.Show("No product selected.");
                 return;
@@ -89,7 +89,6 @@ namespace KompletteringsLabb.UserControls
 
             MessageBox.Show("Storage saved");
         }
-
         internal async Task saveStorageToFile()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -98,7 +97,6 @@ namespace KompletteringsLabb.UserControls
             using FileStream createStream = File.Create(path + fileNameStore);
             await JsonSerializer.SerializeAsync(createStream, StoreManager.CurrentStore.Storage);
             await createStream.DisposeAsync();
-
         }
 
         public void UpdateStorage()
@@ -115,7 +113,6 @@ namespace KompletteringsLabb.UserControls
             {
                 productStock.Total = productStock.Product.Price * productStock.Stock;
             }
-            //Denna är skapad för att se till så att ingen "grundlager-produkt" har 0 i sig. 
         }
 
     }

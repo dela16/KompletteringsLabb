@@ -59,12 +59,7 @@ namespace KompletteringsLabb
 
             using FileStream OpenStream = File.OpenRead(path + fileNameCustomers);
             Storage = JsonSerializer.DeserializeAsync<List<ProductStock>>(OpenStream).Result;
-            
-        }
-        public async Task CheckOut(User kund) //TODO är denna på fel ställe?
-            //Jag har den inuti min storeview just nu. 
-        {
-            MessageBox.Show("Payment Succeeded!");
+
         }
     }
 }

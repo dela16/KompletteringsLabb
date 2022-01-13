@@ -55,7 +55,7 @@ namespace KompletteringsLabb.UserControls
 
                 AdminManager.Admins.Add(admin); 
 
-                AdminName.Clear(); //När vi går vidare så ska den clearas.  
+                AdminName.Clear(); //När vi går vidare så ska textrutorna clearas.  
                 AdminPassword.Clear();
             }
         }

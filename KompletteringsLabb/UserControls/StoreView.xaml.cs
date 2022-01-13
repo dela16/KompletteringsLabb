@@ -25,7 +25,6 @@ namespace KompletteringsLabb.UserControls
         public StoreView()
         {
             InitializeComponent();
-          
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -35,7 +34,6 @@ namespace KompletteringsLabb.UserControls
 
         private void addToCart_Click(object sender, RoutedEventArgs e)
         {
-            double sum = 0; 
             //ProductStock productStock = (ProductStock)Store.SelectedItem; //Denna är en referens. 
 
             if (((ProductStock)Store.SelectedItem) == null )
@@ -74,13 +72,13 @@ namespace KompletteringsLabb.UserControls
                 {
                     produkt.Stock += amountOfProducts;
                     CustomerProfileView.CustomerProfileViewObject.UpdateCartMethod();
-                    MessageBox.Show("" + amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
+                    MessageBox.Show(amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
                     return;
                 }
             }
            
             CustomerManager.CurrentCustomer.Cart.Add(productStockToAdd);
-            MessageBox.Show("" + amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
+            MessageBox.Show(amountOfProducts + " " + productStockToAdd.Product.Name + " added to your shoppingcart.");
             CustomerProfileView.CustomerProfileViewObject.UpdateCartMethod();
 
         }
